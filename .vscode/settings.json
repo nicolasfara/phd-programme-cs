@@ -1,0 +1,5 @@
+{
+    "latex-workshop.latex.outDir": "%DIR%/out",
+    "grammarly.files.include": ["**/README.md", "**/*.tex"]
+
+}

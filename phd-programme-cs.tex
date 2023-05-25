@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+\usepackage{mgates-letter}
+\usepackage{datetime}
+\usepackage{textcomp}
+\usepackage{mathrsfs}  % mathscr font
+\usepackage{boxedminipage}
+\usepackage{rotating}
+%\usepackage{natbib}
+\usepackage[colorlinks, filecolor=dark_blue, urlcolor=dark_blue, linkcolor=black, citecolor=black]{hyperref}
+
+\newdateformat{monthyeardate}{\monthname[\THEMONTH], \THEYEAR}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+
+	\textsc{\Large Ph.D Programme in Computer Science and Engineering}\\[0.5cm]
+	\textsc{\Large Admission XXXIX Cycle}\\[0.6cm]
+
+	\hrule width \hsize \kern 1mm \hrule width \hsize height 2pt
+	\vspace{0.8cm}
+
+	{\large \bfseries Research Project Proposal}\\[0.6cm]
+	{\large \emph{Title of the Project}}\\[0.6cm]
+
+	{\bfseries{\monthyeardate\today} \hfill \bfseries{Nicolas Farabegoli}}\\[0.6cm]
+
+	\hrule width \hsize height 2pt \kern 1mm \hrule width \hsize height 1pt
+	\vspace{0.4cm}
+
+	\begin{abstract}
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+	\end{abstract}
+\end{titlepage}
+
+\section{Introduction}\label{sec:introduction}
+
+\section{State of the Art}\label{sec:state-of-the-art}
+
+\section{Project description}\label{sec:project-description}
+
+\section{Expected results}\label{sec:expected-results}
+
+\end{document}
