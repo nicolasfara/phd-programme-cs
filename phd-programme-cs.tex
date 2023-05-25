@@ -1,14 +1,20 @@
 \documentclass[12pt]{article}
-\usepackage{mgates-letter}
 \usepackage{datetime}
-\usepackage{textcomp}
-\usepackage{mathrsfs}  % mathscr font
-\usepackage{boxedminipage}
-\usepackage{rotating}
-%\usepackage{natbib}
-\usepackage[colorlinks, filecolor=dark_blue, urlcolor=dark_blue, linkcolor=black, citecolor=black]{hyperref}
+\usepackage{acronym}
+\usepackage{xcolor}
+% \usepackage{textcomp}
+% \usepackage{mathrsfs}  % mathscr font
+% \usepackage[colorlinks, filecolor=dark_blue, urlcolor=dark_blue, linkcolor=black, citecolor=black]{hyperref}
+
+\usepackage{cleveref}
+
+\newcommand{\meta}[1]{{\color{blue}#1}}  
 
 \newdateformat{monthyeardate}{\monthname[\THEMONTH], \THEYEAR}
+
+\acrodef{iot}[IoT]{Internet of Things}
+\acrodef{cps}[CPS]{Cyber-Physical System}
+\acrodef{ac}[AC]{Aggregate Computing}
 
 \begin{document}
 
@@ -30,7 +36,37 @@
 	\vspace{0.4cm}
 
 	\begin{abstract}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+		% Da riscrivere in alcuni punti
+		In recent years,
+		the emergence of \ac{cps} has engendered a noteworthy surge in complexity and heterogeneity
+		within the underlying infrastructure supporting these systems.
+		Notably, the interplay between cloud, fog, and edge computing exemplifies the intricacy inherent in such systems.
+		%
+		Modern collective adaptive applications like \ac{iot}, swarm robotics, and smart cities,
+		are designed to be executed on several devices and to be deployed in
+		heterogeneous infrastructures, ranging from cloud servers to wearable devices.
+		%
+		The availability of such a wide range of devices and infrastructures opens from one side
+		better exploitation of the available resources and performance,
+		but on the other side,
+		it introduces complexity in the design and deployment of such applications.
+		\meta{
+		This research project proposes to produce a framework for the design and deployment of
+		collective adaptive applications on heterogeneous infrastructures,
+		where the \ac{ac} can be injected into.
+		%
+		Reconfiguration aspects will be considered,
+		allowing the application to adapt to the changes in the infrastructure and external conditions.
+		%
+		The framework can leverage machine learning techniques to manage the complex task of reconfiguration
+		to opportunistically balance the performance and energy consumption.
+		%
+		Since the \ac{iot} consists of a large number of devices,
+		they produce a large amount of data from extremely scattered data sources.
+		%
+		The management of such data is a complex and delicate task,
+		which will be addressed with state-of-the-art techniques.
+		}
 	\end{abstract}
 \end{titlepage}
 
