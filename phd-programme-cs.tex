@@ -15,6 +15,7 @@
 \acrodef{iot}[IoT]{Internet of Things}
 \acrodef{cps}[CPS]{Cyber-Physical System}
 \acrodef{ac}[AC]{Aggregate Computing}
+\acrodef{qos}[QoS]{Quality of Service}
 
 \begin{document}
 
@@ -114,11 +115,42 @@ As follows, is provided a brief overview of the main activities that will be car
 \subsection{Activities}\label{subsec:activities}
 
 \meta{
-\subsubsection*{Deployment via pulverisation}
+\paragraph{Deployment via pulverisation}
+The first fundamental step of this project is to provide an implementation for
+the pulverisation approach via a dedicated framework.
+%
+The framework will be designed to be modular and extensible to allow the integration
+of different technologies and give the possibility to be used in conjunction with
+\ac{ac} frameworks.
 
-\subsubsection*{Dynamic reconfiguration}
+\paragraph{Dynamic reconfiguration and relocation}
+Another key contribution of this project is to support dynamic reconfiguration of the system,
+allowing it to adapt to the changes in the infrastructure and external conditions.
+%
+In the original model of the pulverisation approach,
+there is no support for dynamic reconfiguration of the system.
+%
+For this reason,
+the project will investigate the extension of the pulverisation approach
+to support dynamic reconfiguration and relocation of the system inside the framework stack.
+%
+To do so,
+the project will leverage machine learning techniques to manage the complex task of reconfiguration
+to opportunistically balance the performance and energy consumption or any other system-specific \ac{qos}.
 
-\subsubsection*{Big-data for Aggregate Computing}
+\paragraph{Bind pulverisation to AC frameworks}
+The need to integrate \ac{ac} framework into the pulverisation one is
+a fundamental step to provide a complete solution for the design and deployment of
+collective adaptive applications on heterogeneous infrastructures.
+%
+Indeed, combining the pulverisation approach with \ac{ac} frameworks
+allows to describe the system's behavior at a macro-level
+but at the same time exploiting the pulverisation to
+effectively deploy the system on the available infrastructure,
+managing also the dynamic reconfiguration of the system transparently and seamlessly.
+
+\paragraph{Big-data for Aggregate Computing}
+???
 }
 
 \subsection{Scope}\label{subsec:scope}
