@@ -2,6 +2,7 @@
 \usepackage{datetime}
 \usepackage{acronym}
 \usepackage{xcolor}
+\setlength {\marginparwidth }{2cm}
 \usepackage{todonotes}
 % \usepackage{textcomp}
 % \usepackage{mathrsfs}  % mathscr font
@@ -79,38 +80,90 @@
 
 \section{Project description}\label{sec:project-description}
 
-This project aims to figure out a practical and effective methodology to tackle the complexity
-collective adaptive applications face when deployed on heterogeneous infrastructures,
-and adaptation is a must-have requirement.
+With this project,
+we aim to investigate opportunities and challenges in the design and deployment of
+\ac{cas} on new and emergent infrastructures to opportunistically exploit them.
 %
-In particular, the project will focus on finding methods and tools to support the
-engineering of complex adaptive systems mainly focused on the \ac{iot} domain
-where the \ac{ac} paradigm emerges as a prominent solution.
+Cloud computing has disrupted the way we think about computation and storage,
+moving from a static and centralized model to a dynamic and distributed one.
+%
+Recently,
+the emergence of a new paradigm called \emph{Edge computing}
+evolved the cloud computing model to a more distributed one,
+where several intermediate network layers and data processing patterns exist between the cloud data center and devices.
+%
+This new paradigm is characterized by a layered and heterogeneous infrastructure,
+which can be opportunistically exploited to improve the performance of the applications.
+%
+Nevertheless,
+the design and deployment of systems, in particular \ac{cas},
+are not trivial tasks and are currently open research challenges.
 
-Several challenges arise when designing
-and deploying collective adaptive applications on heterogeneous infrastructures;
-for this reason, most of the research efforts leverage the simulation
-as a powerful tool to test and validate the proposed solutions.
+With this project,
+we pursue one of the most promising approaches to tackle this complexity,
+by leveraging the \emph{Pulverisation} aproach.
 %
-With this project, we aim to ``bridge the gap'' between the simulation and the real world,
-providing, as stated above, a set of \emph{methodology}, \emph{tools}, and \emph{techniques}
+This approach tries to address the complexity by neatly separating the business logic of the system from infrastructural aspects.
+
+One of the ambitious goals of this project is to bridge the gap between the simulation and the real world,
+providing a set of \emph{methodology}, \emph{tools}, and \emph{techniques}
 that can be seamlessly exploited to effectively tackle the system's complexity.
+%
+As a consequence,
+another fundamental goal is to extend the current pulverisation approach to support dynamic reconfiguration of the system.
+%
+This extension can be achieved by combining two approaches: \emph{Rule-based} and \emph{Machine Learning}.
+%
+The combination of these two approaches can lead to a more effective and efficient reconfiguration of the system,
+to substantially improve the \ac{qos} of the system.
+%
+This is a fundamental aspect,
+for example,
+in contexts where energy-efficient systems are required,
+or where the balance between consumption and performance can be strategic.
 
-To achieve this goal, the starting point is the \emph{pulverisation} approach
-which born in the \ac{ac} framework and represents a powerful and effective 
-methodology to describe such systems via a compositional approach.
+The current \ac{iot} systems are characterized by a large number of devices,
+which produces a large amount of data from extremely scattered data sources.
 %
-Extension to this approach will be investigated to support dynamic reconfiguration
-of the system, allowing it to adapt to the changes in the infrastructure and external conditions
-via, for example, machine learning techniques.
+The management of such data is a complex and delicate task,
+but can open to new opportunities in the context of \ac{cas}.
 %
-\emph{Variety} and \emph{volume} characterize the modern \ac{iot} systems,
-and the management of such data is a complex and delicate task,
-due to security implications and privacy concerns.
+For this reason,
+we aim to investigate opportunities in the use of \emph{big data} techniques in the context of \ac{cas} and \ac{iot} systems.
+
+
+% This project aims to figure out practical and effective methodology, tools and framework to tackle the complexity of
+% collective adaptive applications face when deployed on heterogeneous infrastructures,
+% and adaptation is a must-have requirement.
 %
-For this reason, the project will try to address these issues with
-a new concept of ``Big-data for Aggregate Computing'' by leveraging
-state-of-the-art big-data techniques.
+% In particular, the project will focus on finding methods and tools to support the
+% engineering of complex adaptive systems mainly focused on the \ac{iot} domain
+% where the \ac{ac} paradigm emerges as a prominent solution.
+
+% Several challenges arise when designing
+% and deploying collective adaptive applications on heterogeneous infrastructures;
+% for this reason, most of the research efforts leverage the simulation
+% as a powerful tool to test and validate the proposed solutions.
+% %
+% With this project, we aim to ``bridge the gap'' between the simulation and the real world,
+% providing, as stated above, a set of \emph{methodology}, \emph{tools}, and \emph{techniques}
+% that can be seamlessly exploited to effectively tackle the system's complexity.
+
+% To achieve this goal, the starting point is the \emph{pulverisation} approach
+% which born in the \ac{ac} framework and represents a powerful and effective 
+% methodology to describe such systems via a compositional approach.
+% %
+% Extension to this approach will be investigated to support dynamic reconfiguration
+% of the system, allowing it to adapt to the changes in the infrastructure and external conditions
+% via, for example, machine learning techniques.
+% %
+% \emph{Variety} and \emph{volume} characterize the modern \ac{iot} systems,
+% and the management of such data is a complex and delicate task,
+% due to security implications and privacy concerns.
+% %
+% For this reason, the project will try to address these issues with
+% a new concept of ``Big-data for Aggregate Computing'' by leveraging
+% state-of-the-art big-data techniques.
 
 As follows, is provided a brief overview of the main activities that will be carried out.
 
@@ -244,14 +297,23 @@ global rules to manage the system's behavior at a macro level.
 
 \subsection{PhD goal}
 
-\paragraph{Cloud computing and Orchestration technologies}
-\meta{TODO}
+\paragraph{Opportunistic deployment and reconfiguration}
+\meta{
+Flexible and opportunistic deployment can take a big advantage of the cloud
+computing in conjunction with orchestration technologies.
+%
+In particular, these technologies can be used to manage scenarios where
+computational power and energy consumption are the main concerns.
+%
+In this context, AI-based techniques can represent a promising
+approach to intelligently adapt the system to specific \ac{qos} requirements.
+}
 
 \paragraph{Big-data for Aggregate Computing}
-\meta{TODO}
+\meta{
+Use of big-data technologies to manage the data produced by the system
 
-\paragraph{AI-based system raconfiguration}
-\meta{TODO}
+}
 
 \paragraph{Application and scenarios for this new approach}
 \meta{TODO}
