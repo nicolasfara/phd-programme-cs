@@ -8,6 +8,8 @@
 % \usepackage{mathrsfs}  % mathscr font
 % \usepackage[colorlinks, filecolor=dark_blue, urlcolor=dark_blue, linkcolor=black, citecolor=black]{hyperref}
 
+\usepackage[backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
 \usepackage{cleveref}
 
 \newcommand{\meta}[1]{{\color{blue}#1}}  
@@ -19,6 +21,7 @@
 \acrodef{ac}[AC]{Aggregate Computing}
 \acrodef{qos}[QoS]{Quality of Service}
 \acrodef{cas}[CAS]{Collective Adaptive Systems}
+\acrodef{api}[API]{Application Programming Interface}
 
 \begin{document}
 
@@ -85,23 +88,23 @@ while adapting as a whole to changes in the environment.
 Some examples are \ac{iot}, swarm robotics, crowds of wearable-augmented humans, and so on.
 %
 The infrastructures on which these applications are deployed may vary,
-but in the last years, it is mounting interest in the idea of \emph{edge-cloud continuum}.
+but in the last years, it is mounting interest in the idea of \emph{edge-cloud continuum}~\cite{DBLP:journals/iot/BittencourtISFM18}.
 %
 This infrastructure is characterized by a multi-layer heterogeneous infrastructure,
 ranging from powerful cloud servers to small connected devices.
 
-The edge-cloud systems are extremely valuable for \ac{cas},
+The edge-cloud systems are extremely valuable for \ac{cas}~\cite{DBLP:journals/tpds/HongCHGZ19,DBLP:journals/comsur/WangZZMLW20,DBLP:journals/comsur/AfrinJRRWH21,IEEE-IoTJ-pulverization-simulation},
 which generally feature components that, depending on the conditions,
 could benefit from being deployed on different layers of the infrastructure.
 %
 Often,
 applications are deployed with a specific infrastructure in mind,
-resulting in a business logic that is tightly coupled with the infrastructure.
+resulting in a business logic that is tightly coupled with the infrastructure~\cite{Spolsky2004}.
 %
 The higher the coupling between the application and the infrastructure,
 the harder it is for the former to exploit the latter's full potential and adapt to changes.
 
-The \emph{pulverisation} represents a promising approach to tackle this problem.
+The \emph{pulverisation}~\cite{fi12110203} represents a promising approach to tackle this problem.
 %
 This approach partitions the software system into five components that can be independently deployed on the available infrastructure
 by decoupling the business logic from deployment concerns.
@@ -114,7 +117,7 @@ by determining a sort of ``oracle'' that can decide the best configuration for t
 
 One modern and promising way of engineering \ac{cas} is the \ac{ac} paradigm.
 %
-\ac{ac} is a novel approach that consists in manipulating computational fields,
+\ac{ac}~\cite{best-paper-aggregate} is a novel approach that consists in manipulating computational fields,
 in a declarative and compositional way.
 %
 The direction of this project is to investigate the use of \ac{ac} to engineer \ac{cas},
@@ -123,7 +126,7 @@ where the \emph{pulverisation} simplify the deployment in the \emph{edge-cloud c
 Nowadays,
 the ability to process huge volumes of data is an important aspect when complex data analysis can be performed.
 %
-The \ac{iot} systems are characterized by a large number of devices that produce a large amount of data,
+The \ac{iot} systems are characterized by a large number of devices that produce a large amount of data~\cite{GE2018601,9631963},
 and for this reason,
 the management and processing of such data cannot be performed with traditional techniques.
 %
@@ -140,6 +143,107 @@ The last section, \Cref{sec:expected-results}, concludes the manuscript with sho
 
 \section{State of the Art}\label{sec:state-of-the-art}
 
+\paragraph{Aggregate Computing}
+Coordination~\cite{coordination} represents an effective way to achieve a global goal in a distributed system.
+%
+When entities of the system start to communicate with each other,
+the need for coordination arises.
+%
+In the literature,
+there are several approaches to coordination~\cite{ciancarini1996coordination}:
+\emph{message passing}, \emph{tuple space models}~\cite{rossi2001tuple}, \emph{stigmergy models}~\cite{HEYLIGHEN20164}.
+
+In several pervasive systems,
+the traditional approaches in the engineering of these systems are not suitable,
+due to the lack of mechanisms to address complex behaviour and limited scalability.
+
+Situatedness and time awareness are two important aspects of pervasive systems.
+%
+For this reason,
+spatial computing has emerged to manage these aspects as a first-class citizen~\cite{Beal_Viroli_2015}.
+%
+This approach makes it possible to obtain self-adaptive properties in the system,
+and react to changes in the environment and faults conditions.
+
+\ac{ac}~\cite{best-paper-aggregate} is a novel approach that consists in manipulating computational fields,
+in a declarative and compositional way.
+%
+This approach shifts the focus from a local perspective to a global one,
+where a group of devices can be seen as a single entity in which the aggregate program is executed.
+%
+The main abstraction on which \ac{ac} is based is the \emph{computational field} i.e.,
+a distributed data structure in which each device is mapped to a computational value.
+
+One of the main benefits of this approach is the possibility to focus on high-level aspects and characteristics of the system,
+without worrying about low-level details like communication, failure, distribution, and so on.
+%
+All the low-level aspects are managed by the underlying platform which manages the deployment and execution of the aggregate program.
+
+\ac{ac} is based on the \emph{field calculus}~\cite{HOFC},
+a formal model that provides a set of primitives to manipulate computational fields.
+%
+In the field calculus,
+it is possible to define a collective behaviour via algorithms expressed as a computation of computational fields.
+%
+This enables the creation of a stack of building blocks,
+based on a resilient constructor that exposes \ac{api} used by the upper blocks.
+%
+In this way,
+if high-level building blocks depend on self-adaptive constructors,
+the former inherits the properties of the latter.
+%
+ScaFi~\cite{CASADEI2022101248}, Protelis~\cite{10.1145/2695664.2695913} and FCPP~\cite{9196401} are the reference platforms for \ac{ac}.
+
+Currently, most of the experiments are performed in a simulated environment,
+where the devices are emulated.
+%
+Alchemist~\cite{pianini2013chemical} is a bio-inspired simulator that can be used to simulate \ac{ac} systems.
+%
+At the time of writing,
+there are no real-world, consolidated experiments that use \ac{ac};
+for this reason,
+closing the gap between the simulated and real-world environment is one of the open challenges of this research field.
+
+\paragraph{Pulverisation}
+To tackle the complexity of the deployment of \ac{cas},
+several approaches have been proposed in the literature.
+%
+Some examples are: \emph{Osmotic Computing}~\cite{DBLP:journals/tiot/NehaPSSG22}, \emph{multi-tier programming}~\cite{DBLP:journals/csur/WeisenburgerWS20}.
+
+\emph{Pulverisation}~\cite{fi12110203} represents an approach to distributed application partitioning and deployment.
+%
+Its goal is to provide a way to specify the functional semantics of the software in a deployment-independent way.
+%
+To do so,
+the application logic should be designed considering a logical system,
+which is a set of logical devices forming an arbitrary network topology.
+%
+The application of each logical device is decomposed into an ensemble of components,
+representing respectively a set of \emph{sensors},
+a set of \emph{actuators},
+a \emph{state},
+a \emph{communication} component and a \emph{computation} component modelling the behaviour of the device.
+%
+Decomposition of an application via pulverisation can be achieved in two ways:
+either the application is designed with pulverization in mind,
+or the application is developed using a framework supporting automatic decomposition such as \ac{ac} frameworks.
+%
+Once the application is pulverized,
+a mapping must be provided between the logical system and the available infrastructure.
+%
+In this way,
+a single logical device can be executed on multiple physical devices,
+and a single physical device can execute multiple logical device components.
+%
+Moreover,
+with no changes,
+the application can be deployed on different infrastructures,
+without the need to rewrite the application logic.
+%
+Even if the idea behind pulverisation is quite simple,
+several challenges at different levels must be addressed to make it a reality:
+\emph{communication}, \emph{portability}, \emph{runtime} are only some of them.
+
 \section{Project description}\label{sec:project-description}
 
 With this project,
@@ -150,7 +254,7 @@ Cloud computing has disrupted the way we think about computation and storage,
 moving from a static and centralized model to a dynamic and distributed one.
 %
 Recently,
-the emergence of a new paradigm called \emph{Edge computing}
+the emergence of a new paradigm called \emph{Edge computing}~\cite{mao2017survey,8123913}
 evolved the cloud computing model to a more distributed one,
 where several intermediate network layers and data processing patterns exist between the cloud data center and devices.
 %
@@ -192,40 +296,6 @@ but can open to new opportunities in the context of \ac{cas}.
 %
 For this reason,
 we aim to investigate opportunities in the use of \emph{big data} techniques in the context of \ac{cas} and \ac{iot} systems.
-
-
-% This project aims to figure out practical and effective methodology, tools and framework to tackle the complexity of
-% collective adaptive applications face when deployed on heterogeneous infrastructures,
-% and adaptation is a must-have requirement.
-%
-% In particular, the project will focus on finding methods and tools to support the
-% engineering of complex adaptive systems mainly focused on the \ac{iot} domain
-% where the \ac{ac} paradigm emerges as a prominent solution.
-
-% Several challenges arise when designing
-% and deploying collective adaptive applications on heterogeneous infrastructures;
-% for this reason, most of the research efforts leverage the simulation
-% as a powerful tool to test and validate the proposed solutions.
-% %
-% With this project, we aim to ``bridge the gap'' between the simulation and the real world,
-% providing, as stated above, a set of \emph{methodology}, \emph{tools}, and \emph{techniques}
-% that can be seamlessly exploited to effectively tackle the system's complexity.
-
-% To achieve this goal, the starting point is the \emph{pulverisation} approach
-% which born in the \ac{ac} framework and represents a powerful and effective 
-% methodology to describe such systems via a compositional approach.
-% %
-% Extension to this approach will be investigated to support dynamic reconfiguration
-% of the system, allowing it to adapt to the changes in the infrastructure and external conditions
-% via, for example, machine learning techniques.
-% %
-% \emph{Variety} and \emph{volume} characterize the modern \ac{iot} systems,
-% and the management of such data is a complex and delicate task,
-% due to security implications and privacy concerns.
-% %
-% For this reason, the project will try to address these issues with
-% a new concept of ``Big-data for Aggregate Computing'' by leveraging
-% state-of-the-art big-data techniques.
 
 As follows, is provided a brief overview of the main activities that will be carried out.
 
@@ -397,5 +467,9 @@ this project can be intended as a first step toward the creation of solid suppor
 for the engineering of resource-efficient, resilient, and adaptive systems
 which can exploit the resources also in a sustainable way.
 }
+
+\newpage
+
+\printbibliography
 
 \end{document}
