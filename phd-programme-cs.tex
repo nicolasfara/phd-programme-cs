@@ -377,7 +377,9 @@ of this kind of system.
 In recent years, several cloud providers have emerged, and each of them provides
 a set of services and technologies to support the development of cloud-based applications.
 %
-\emph{Google Cloud Platform}, \emph{Amazon Web Services}, and \emph{Microsoft Azure}
+\emph{Google Cloud Platform}~\footnote{\url{https://cloud.google.com/?hl=en}},
+\emph{Amazon Web Services}~\footnote{\url{https://aws.amazon.com/}},
+and \emph{Microsoft Azure}~\footnote{\url{https://azure.microsoft.com/}}
 are the most popular cloud providers, and they will be the main focus of this project.
 %
 Could be strategic to enable the framework to be used with different cloud providers
@@ -393,7 +395,8 @@ from extremely scattered data sources.
 The handling of such data requires an adequate infrastructure and tools to manage them.
 %
 For this reason, the project will investigate the use of big-data technologies
-such as \emph{Apache Spark}, \emph{Apache Flink} and their integration with the pulverisation approach and the \ac{ac} frameworks.
+such as \emph{Apache Spark}~\footnote{Unified engine for large-scale data analytics -- \url{https://spark.apache.org/}},
+\emph{Apache Flink}~\footnote{Stateful Computations over Data Streams -- \url{https://flink.apache.org/}} and their integration with the pulverisation approach and the \ac{ac} frameworks.
 %
 The union of big-data technologies and the pulverisation approach can open new opportunities for \ac{cas}.
 
@@ -404,11 +407,12 @@ and deploying a collective adaptive application.
 Due to the highly distributed nature of the \ac{iot} and \ac{ac} systems,
 the failure of a node is the norm rather than the exception.
 %
-For this reason, will be investigated the use of distributed technologies
-like \emph{MOM}, microservices patterns and approaches,
-and tools like \emph{Apche Zookeeper} to provide a resilient system.
-
-\todo{Orchestration like K8s}
+For this reason, will be investigated the use of distributed technologies like \emph{MOM},
+specifically, RabbitMQ~\footnote{\url{https://www.rabbitmq.com/}} and ZeroMQ~\footnote{\url{https://zeromq.org/}};
+microservices patterns and approaches to provide a resilient system.
+%
+Orchestration tools like Kubernetes~\footnote{\url{https://kubernetes.io/}} can be used to manage the deployment of the system
+and the dynamic reconfiguration of the system.
 }
 
 \section{Expected results}\label{sec:expected-results}
