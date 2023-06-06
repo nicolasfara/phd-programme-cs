@@ -95,7 +95,7 @@ but in the last years, it is mounting interest in the idea of \emph{edge-cloud c
 This infrastructure is characterized by a multi-layer heterogeneous infrastructure,
 ranging from powerful cloud servers to small connected devices.
 
-The edge-cloud systems are extremely valuable for \ac{cas}~\cite{DBLP:journals/tpds/HongCHGZ19,DBLP:journals/comsur/WangZZMLW20,DBLP:journals/comsur/AfrinJRRWH21,IEEE-IoTJ-pulverization-simulation},
+The edge-cloud systems are extremely valuable for \ac{cas}~\cite{DBLP:journals/tpds/HongCHGZ19,DBLP:journals/comsur/WangZZMLW20,DBLP:journals/comsur/AfrinJRRWH21,DBLP:journals/iotj/CasadeiFPPSV22},
 which generally feature components that, depending on the conditions,
 could benefit from being deployed on different layers of the infrastructure.
 %
@@ -106,7 +106,7 @@ resulting in a business logic that is tightly coupled with the infrastructure~\c
 The higher the coupling between the application and the infrastructure,
 the harder it is for the former to exploit the latter's full potential and adapt to changes.
 
-The \emph{pulverisation}~\cite{fi12110203} represents a promising approach to tackle this problem.
+The \emph{pulverisation}~\cite{DBLP:journals/fi/CasadeiPPVW20} represents a promising approach to tackle this problem.
 %
 This approach partitions the software system into five components that can be independently deployed on the available infrastructure
 by decoupling the business logic from deployment concerns.
@@ -119,7 +119,7 @@ by determining a sort of ``oracle'' that can decide the best configuration for t
 
 One modern and promising way of engineering \ac{cas} is the \ac{ac} paradigm.
 %
-\ac{ac}~\cite{best-paper-aggregate} is a novel approach that consists in manipulating computational fields,
+\ac{ac}~\cite{DBLP:journals/computer/BealPV15} is a novel approach that consists in manipulating computational fields,
 in a declarative and compositional way.
 %
 The direction of this project is to investigate the use of \ac{ac} to engineer \ac{cas},
@@ -128,7 +128,7 @@ where the \emph{pulverisation} simplify the deployment in the \emph{edge-cloud c
 Nowadays,
 the ability to process huge volumes of data is an important aspect when complex data analysis can be performed.
 %
-The \ac{iot} systems are characterized by a large number of devices that produce a large amount of data~\cite{GE2018601,9631963},
+The \ac{iot} systems are characterized by a large number of devices that produce a large amount of data~\cite{DBLP:journals/fgcs/GeBB18,DBLP:journals/iotj/Sasaki22},
 and for this reason,
 the management and processing of such data cannot be performed with traditional techniques.
 %
@@ -146,14 +146,14 @@ The last section, \Cref{sec:expected-results}, concludes the manuscript with sho
 \section{State of the Art}\label{sec:state-of-the-art}
 
 \paragraph{Aggregate Computing}
-Coordination~\cite{coordination} represents an effective way to achieve a global goal in a distributed system.
+Coordination~\cite{DBLP:journals/csur/Ciancarini96} represents an effective way to achieve a global goal in a distributed system.
 %
 When entities of the system start to communicate with each other,
 the need for coordination arises.
 %
 In the literature,
-there are several approaches to coordination~\cite{ciancarini1996coordination}:
-\emph{message passing}, \emph{tuple space models}~\cite{rossi2001tuple}, \emph{stigmergy models}~\cite{HEYLIGHEN20164}.
+there are several approaches to coordination~\cite{DBLP:journals/csur/Ciancarini96}:
+\emph{message passing}, \emph{tuple space models}~\cite{DBLP:books/sp/omicini01/RossiCD01}, \emph{stigmergy models}~\cite{DBLP:journals/cogsr/Heylighen16}.
 
 In several pervasive systems,
 the traditional approaches in the engineering of these systems are not suitable,
@@ -167,7 +167,7 @@ spatial computing has emerged to manage these aspects as a first-class citizen~\
 This approach makes it possible to obtain self-adaptive properties in the system,
 and react to changes in the environment and faults conditions.
 
-\ac{ac}~\cite{best-paper-aggregate} is a novel approach that consists in manipulating computational fields,
+\ac{ac}~\cite{DBLP:journals/computer/BealPV15} is a novel approach that consists in manipulating computational fields,
 in a declarative and compositional way.
 %
 This approach shifts the focus from a local perspective to a global one,
@@ -181,7 +181,7 @@ without worrying about low-level details like communication, failure, distributi
 %
 All the low-level aspects are managed by the underlying platform which manages the deployment and execution of the aggregate program.
 
-\ac{ac} is based on the \emph{field calculus}~\cite{HOFC},
+\ac{ac} is based on the \emph{field calculus}~\cite{DBLP:journals/tocl/AudritoVDPB19},
 a formal model that provides a set of primitives to manipulate computational fields.
 %
 In the field calculus,
@@ -194,12 +194,12 @@ In this way,
 if high-level building blocks depend on self-adaptive constructors,
 the former inherits the properties of the latter.
 %
-ScaFi~\cite{CASADEI2022101248}, Protelis~\cite{10.1145/2695664.2695913} and FCPP~\cite{9196401} are the reference platforms for \ac{ac}.
+ScaFi~\cite{DBLP:journals/softx/CasadeiVAP22}, Protelis~\cite{DBLP:conf/sac/PianiniVB15} and FCPP~\cite{DBLP:conf/acsos/Audrito20} are the reference platforms for \ac{ac}.
 
 Currently, most of the experiments are performed in a simulated environment,
 where the devices are emulated.
 %
-Alchemist~\cite{pianini2013chemical} is a bio-inspired simulator that can be used to simulate \ac{ac} systems.
+Alchemist~\cite{DBLP:journals/jos/PianiniMV13} is a bio-inspired simulator that can be used to simulate \ac{ac} systems.
 %
 At the time of writing,
 there are no real-world, consolidated experiments that use \ac{ac};
@@ -212,7 +212,7 @@ several approaches have been proposed in the literature.
 %
 Some examples are: \emph{Osmotic Computing}~\cite{DBLP:journals/tiot/NehaPSSG22}, \emph{multi-tier programming}~\cite{DBLP:journals/csur/WeisenburgerWS20}.
 
-\emph{Pulverisation}~\cite{fi12110203} represents an approach to distributed application partitioning and deployment.
+\emph{Pulverisation}~\cite{DBLP:journals/fi/CasadeiPPVW20} represents an approach to distributed application partitioning and deployment.
 %
 Its goal is to provide a way to specify the functional semantics of the software in a deployment-independent way.
 %
@@ -256,7 +256,7 @@ Cloud computing has disrupted the way we think about computation and storage,
 moving from a static and centralized model to a dynamic and distributed one.
 %
 Recently,
-the emergence of a new paradigm called \emph{Edge computing}~\cite{mao2017survey,8123913}
+the emergence of a new paradigm called \emph{Edge computing}~\cite{DBLP:journals/comsur/MaoYZHL17,DBLP:journals/access/YuLHHLLY18}
 evolved the cloud computing model to a more distributed one,
 where several intermediate network layers and data processing patterns exist between the cloud data center and devices.
 %
