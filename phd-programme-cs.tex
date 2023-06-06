@@ -22,6 +22,8 @@
 \acrodef{qos}[QoS]{Quality of Service}
 \acrodef{cas}[CAS]{Collective Adaptive Systems}
 \acrodef{api}[API]{Application Programming Interface}
+\acrodef{iac}[IaC]{Infrastructure as Code}
+\acrodef{ci}[CI]{Continuous Integration}
 
 \begin{document}
 
@@ -370,18 +372,25 @@ supporting the design and implementation of systems in which from the many \ac{q
 energy consumption is one of the most important,
 must be a future direction of \ac{cps} and \ac{iot} systems.
 
-
-\paragraph{Collective Adaptive Systems}
-\meta{
-The results expected in this project can be applied to a wide range of systems,
-but the main focus will be on improving the design and implementation of \ac{cas}.
+\paragraph{Cyper-physical Systems}
+We refer to \ac{cps} as a system that is composed of physical and computational components
+that are deeply intertwined and interact with each other.
 %
-}
-
+\emph{Smart cities}, \emph{Smart home}, \emph{Precision agricolture} are just some examples of \ac{cps}.
+%
+All of these systems can be very different from each other,
+but they share some characteristics and challenges,
+for example: \emph{dynamicity}, \emph{volume} (devices and produced data) and \emph{heterogeneity}.
+%
+The project can be framed in the context of \ac{cps} by providing an effective general solution to the aforementioned challenges,
+which can be tailored to the specific needs of the system.
+%
+Moreover,
+even the \ac{cas} can take advantage of the opportunistic deployment and adaptation of the system,
+which is a key point of this project.
 
 \subsection{Technology}\label{subsec:technology}
 
-\meta{
 \paragraph{Cloud computing}
 One of the main objectives of the pulverisation approach is to simplify the development
 and the deployment of complex systems on heterogeneous infrastructures.
@@ -403,9 +412,25 @@ are the most popular cloud providers, and they will be the main focus of this pr
 %
 Could be strategic to enable the framework to be used with different cloud providers
 to allow the user to choose the one that best suits his needs.
-
-\todo{IaaS tools and orchestration tools}
-
+%
+In recent years,
+the way to provision infrastructure has changed.
+%
+The trend is to fully automate the provisioning of the infrastructure via dedicated tools,
+like Terraform~\footnote{\url{https://www.terraform.io/}} and Ansible~\footnote{\url{https://www.ansible.com/}}.
+%
+These tools fall in the category of \ac{iac}: they allow to describe the infrastructure in a machine-readable format
+instead of using interactive configuration tools.
+%
+Moreover,
+these tools provide a set of \ac{api} to interact with them programmatically,
+allowing the integration with other tools and frameworks.
+%
+As a consequence,
+these tools can be used in a \ac{ci} pipeline to fully automate the deployment of the system.
+%
+\ac{iac} represents a powerful technology in the context of the edge-cloud continuum,
+allowing a dynamic, programmable and automated deployment of the system on the available infrastructure.
 
 \paragraph{Big-data}
 The \ac{iot} systems consist of a large number of devices that produce a large amount of data
@@ -414,8 +439,8 @@ from extremely scattered data sources.
 The handling of such data requires an adequate infrastructure and tools to manage them.
 %
 For this reason, the project will investigate the use of big-data technologies
-such as \emph{Apache Spark}~\footnote{Unified engine for large-scale data analytics -- \url{https://spark.apache.org/}},
-\emph{Apache Flink}~\footnote{Stateful Computations over Data Streams -- \url{https://flink.apache.org/}} and their integration with the pulverisation approach and the \ac{ac} frameworks.
+such as \emph{Apache Spark}~\footnote{\url{https://spark.apache.org/}},
+\emph{Apache Flink}~\footnote{\url{https://flink.apache.org/}} and their integration with the pulverisation approach and the \ac{ac} frameworks.
 %
 The union of big-data technologies and the pulverisation approach can open new opportunities for \ac{cas}.
 
@@ -432,7 +457,6 @@ microservices patterns and approaches to provide a resilient system.
 %
 Orchestration tools like Kubernetes~\footnote{\url{https://kubernetes.io/}} can be used to manage the deployment of the system
 and the dynamic reconfiguration of it.
-}
 
 \section{Expected results}\label{sec:expected-results}
 
@@ -476,11 +500,12 @@ approach to intelligently adapt the system to specific \ac{qos} requirements.
 \paragraph{Big-data for Aggregate Computing}
 \meta{
 Use of big-data technologies to manage the data produced by the system
-
 }
 
 \paragraph{Application and scenarios for this new approach}
-\meta{TODO}
+Creation of significant applications and services in the context of \emph{smart cities and home},
+\emph{smart factories}, \emph{large-scale \ac{iot} systems}, \emph{swarm of drones} and so on,
+to ground the proposed approaches and demonstrate their effectiveness.
 
 \subsection{Long term contributions}
 \meta{
