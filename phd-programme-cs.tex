@@ -25,6 +25,7 @@
 \acrodef{api}[API]{Application Programming Interface}
 \acrodef{iac}[IaC]{Infrastructure as Code}
 \acrodef{ci}[CI]{Continuous Integration}
+\acrodef{ai}[AI]{Artificial Intelligence}
 
 \begin{document}
 
@@ -359,9 +360,23 @@ The challenges of the edge-cloud continuum lead to the need for new models,
 design techniques, algorithms, languages, and tools to manage the complexity
 of \ac{cps}.
 %
-A simulation platform is a fundamental tool to support the design and development of \ac{cps};
-it allows to test the system before its deployment and to evaluate the system's behavior
-in different scenarios.
+With this new design approach,
+there is the need to have the possibility to test and validate the system via simulation
+and then seamlessly moves to the real deployments with a small effort.
+%
+This kind of seamless integration between simulation and real deployment can be strategic
+to simplify the validation of the system and to reduce the time to market.
+
+\paragraph{Distributed intelligence}
+\ac{ai} is a computer science branch that has met big improvements over the last few years.
+%
+Even though the \ac{ai} usually tries to solve vertical and specific problems,
+making it difficult to be applied in contexts like \ac{cas},
+which are highly distributed by nature.
+%
+The value of a distributed intelligence leveraging \ac{ai} techniques can be strategic in \ac{cas},
+in particular for adapting -- intelligently -- the system to changing conditions or to maintain certain \ac{qos}.
+
 
 \paragraph{Energy and Cost efficiency}
 One of the current trends in the IT industry is the \emph{green computing}.
@@ -486,21 +501,35 @@ global rules to manage the system's behavior at a macro level.
 
 \subsection{PhD goal}
 
-\paragraph{Opportunistic deployment and reconfiguration}
+\paragraph{AI-based system reconfiguration}
 \meta{
-Flexible and opportunistic deployment can take a big advantage of the cloud
-computing in conjunction with orchestration technologies.
+Opportunistic and flexible deployment can take a big advantage
+from \ac{ai} techniques to intelligently adapt the system to specific \ac{qos} requirements.
 %
-In particular, these technologies can be used to manage scenarios where
-computational power and energy consumption are the main concerns.
-%
-In this context, AI-based techniques can represent a promising
-approach to intelligently adapt the system to specific \ac{qos} requirements.
+This kind of ``intelligent reconfiguration'' can be used to manage scenarios
+where computational power and energy consumption are the main concerns,
+but the complexity of the system can be difficult to manage.
+% Flexible and opportunistic deployment can take a big advantage of the cloud
+% computing in conjunction with orchestration technologies.
+% %
+% In particular, these technologies can be used to manage scenarios where
+% computational power and energy consumption are the main concerns.
+% %
+% In this context, AI-based techniques can represent a promising
+% approach to intelligently adapt the system to specific \ac{qos} requirements.
 }
+
+\paragraph{Combine pulverization with AC}
+Provide a solution that integrates \ac{ac} frameworks with the pulverisation approach.
+%
+In this way,
+we provide a possible flexible and effective deployment solution for systems
+where the \ac{ac} paradigm is used to implement the self-organization logic of the system.
 
 \paragraph{Big-data for Aggregate Computing}
 \meta{
 Use of big-data technologies to manage the data produced by the system
+so that new sorts of knowledge can be extracted from the system.
 }
 
 \paragraph{Application and scenarios for this new approach}
