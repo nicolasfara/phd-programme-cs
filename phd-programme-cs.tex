@@ -53,7 +53,8 @@
 		within the underlying infrastructure supporting these systems.
 		Notably, the interplay between cloud, fog, and edge computing exemplifies the intricacy inherent in such systems.
 		%
-		Modern collective adaptive applications like \ac{iot}, swarm robotics, and smart cities,
+		Modern collective adaptive applications like \ac{iot}, human enhanced by wearable devices,
+		swarm robotics, smart cities,
 		are designed to be executed on several devices and to be deployed in
 		heterogeneous infrastructures, ranging from cloud servers to wearable devices.
 		%
@@ -61,10 +62,9 @@
 		better exploitation of the available resources and performance,
 		but on the other side,
 		it introduces complexity in the design and deployment of such applications.
-		\meta{
+		%
 		This research project proposes to produce a framework for the design and deployment of
-		collective adaptive applications on heterogeneous infrastructures,
-		where the \ac{ac} can be injected into.
+		collective adaptive applications on heterogeneous infrastructures.
 		%
 		Reconfiguration aspects will be considered,
 		allowing the application to adapt to the changes in the infrastructure and external conditions.
@@ -77,77 +77,27 @@
 		%
 		The management of such data is a complex and delicate task,
 		which will be addressed with state-of-the-art techniques.
-		}
 	\end{abstract}
 \end{titlepage}
 
-\section{Introduction}\label{sec:introduction}
-
-Emerging application,
-like \ac{cas},
-are characterized by a large number of devices and agents
-that interact to solve problems or provide services,
-while adapting as a whole to changes in the environment.
-%
-Some examples are \ac{iot}, swarm robotics, crowds of wearable-augmented humans, and so on.
-%
-The infrastructures on which these applications are deployed may vary,
-but in the last years, it is mounting interest in the idea of \emph{edge-cloud continuum}~\cite{DBLP:journals/iot/BittencourtISFM18}.
-%
-This infrastructure is characterized by a multi-layer heterogeneous infrastructure,
-ranging from powerful cloud servers to small connected devices.
-
-The edge-cloud systems are extremely valuable for \ac{cas}~\cite{DBLP:journals/tpds/HongCHGZ19,DBLP:journals/comsur/WangZZMLW20,DBLP:journals/comsur/AfrinJRRWH21,DBLP:journals/iotj/CasadeiFPPSV22},
-which generally feature components that, depending on the conditions,
-could benefit from being deployed on different layers of the infrastructure.
-%
-Often,
-applications are deployed with a specific infrastructure in mind,
-resulting in a business logic that is tightly coupled with the infrastructure~\cite{Spolsky2004}.
-%
-The higher the coupling between the application and the infrastructure,
-the harder it is for the former to exploit the latter's full potential and adapt to changes.
-
-The \emph{pulverisation}~\cite{DBLP:journals/fi/CasadeiPPVW20} represents a promising approach to tackle this problem.
-%
-This approach partitions the software system into five components that can be independently deployed on the available infrastructure
-by decoupling the business logic from deployment concerns.
-%
-One current limitation of this approach regards the runtime reconfiguration of the system based on the changing conditions or requirements.
-%
-In this regard,
-AI/ML techniques can be leveraged to manage the complexity of the reconfiguration process,
-by determining a sort of ``oracle'' that can decide the best configuration for the system based on the current conditions.
-
-One modern and promising way of engineering \ac{cas} is the \ac{ac} paradigm.
-%
-\ac{ac}~\cite{DBLP:journals/computer/BealPV15} is a novel approach that consists in manipulating computational fields,
-in a declarative and compositional way.
-%
-The direction of this project is to investigate the use of \ac{ac} to engineer \ac{cas},
-where the \emph{pulverisation} simplify the deployment in the \emph{edge-cloud continuum}.
-
-Nowadays,
-the ability to process huge volumes of data is an important aspect when complex data analysis can be performed.
-%
-The \ac{iot} systems are characterized by a large number of devices that produce a large amount of data~\cite{DBLP:journals/fgcs/GeBB18,DBLP:journals/iotj/Sasaki22},
-and for this reason,
-the management and processing of such data cannot be performed with traditional techniques.
-%
-Another direction of this project is to investigate the use of state-of-the-art techniques to manage the data produced by \ac{iot} or \ac{cps}
-leading to a new, unexplored research direction: \emph{Big Data in \ac{ac}}.
-
-This manuscript is organized as follows:
-\Cref{sec:state-of-the-art} presents the state of the art of the research field,
-\Cref{sec:project-description} describes what are the main activities of the work,
-the technologies involved and the main scopes.
-%
-The last section, \Cref{sec:expected-results}, concludes the manuscript with short-term and long-term achievement.
-
-
 \section{State of the Art}\label{sec:state-of-the-art}
 
-\paragraph{Aggregate Computing}
+\paragraph{Collective Adaptive Systems}
+A \ac{cas} is a system composed of several entities that interact with each other and can dynamically adapt to changing environments or requirements~\cite{DBLP:conf/birthday/HolzlW11}.
+%
+Often,
+the entities of these systems have their own goals and objectives,
+and interactions with other entities or may lead to unexpected phenomena.
+%
+Many modern systems are collective adaptive systems: \emph{smart cities}, \emph{collective cyber-physical systems}, \emph{robot swarms} and \emph{sensor network}.
+%
+The notion of \ac{cas} was elaborated in the workshop ``Fundamentals of Collective Adaptive Systems''~\cite{DBLP:journals/corr/abs-1108-5643}
+organized by the European Commission in 2009,
+and in the following years,
+it has been the subject of several research projects~\cite{DBLP:journals/procedia/ZambonelliCFMRSRTDSYNOMVFMW11,DBLP:series/lncs/8998}.
+
+Coordination in \ac{cas} is a fundamental aspect to consider when adaptation properties are required.
+%
 Coordination~\cite{DBLP:journals/csur/Ciancarini96} represents an effective way to achieve a global goal in a distributed system.
 %
 When entities of the system start to communicate with each other,
@@ -183,30 +133,30 @@ without worrying about low-level details like communication, failure, distributi
 %
 All the low-level aspects are managed by the underlying platform which manages the deployment and execution of the aggregate program.
 
-\ac{ac} is based on the \emph{field calculus}~\cite{DBLP:journals/tocl/AudritoVDPB19},
-a formal model that provides a set of primitives to manipulate computational fields.
-%
-In the field calculus,
-it is possible to define a collective behaviour via algorithms expressed as a computation of computational fields.
-%
-This enables the creation of a stack of building blocks,
-based on a resilient constructor that exposes \ac{api} used by the upper blocks.
-%
-In this way,
-if high-level building blocks depend on self-adaptive constructors,
-the former inherits the properties of the latter.
-%
-ScaFi~\cite{DBLP:journals/softx/CasadeiVAP22}, Protelis~\cite{DBLP:conf/sac/PianiniVB15} and FCPP~\cite{DBLP:conf/acsos/Audrito20} are the reference platforms for \ac{ac}.
+% \ac{ac} is based on the \emph{field calculus}~\cite{DBLP:journals/tocl/AudritoVDPB19},
+% a formal model that provides a set of primitives to manipulate computational fields.
+% %
+% In the field calculus,
+% it is possible to define a collective behaviour via algorithms expressed as a computation of computational fields.
+% %
+% This enables the creation of a stack of building blocks,
+% based on a resilient constructor that exposes \ac{api} used by the upper blocks.
+% %
+% In this way,
+% if high-level building blocks depend on self-adaptive constructors,
+% the former inherits the properties of the latter.
+% %
+% ScaFi~\cite{DBLP:journals/softx/CasadeiVAP22}, Protelis~\cite{DBLP:conf/sac/PianiniVB15} and FCPP~\cite{DBLP:conf/acsos/Audrito20} are the reference platforms for \ac{ac}.
 
-Currently, most of the experiments are performed in a simulated environment,
-where the devices are emulated.
-%
-Alchemist~\cite{DBLP:journals/jos/PianiniMV13} is a bio-inspired simulator that can be used to simulate \ac{ac} systems.
-%
-At the time of writing,
-there are no real-world, consolidated experiments that use \ac{ac};
-for this reason,
-closing the gap between the simulated and real-world environment is one of the open challenges of this research field.
+% Currently, most of the experiments are performed in a simulated environment,
+% where the devices are emulated.
+% %
+% Alchemist~\cite{DBLP:journals/jos/PianiniMV13} is a bio-inspired simulator that can be used to simulate \ac{ac} systems.
+% %
+% At the time of writing,
+% there are no real-world, consolidated experiments that use \ac{ac};
+% for this reason,
+% closing the gap between the simulated and real-world environment is one of the open challenges of this research field.
 
 \paragraph{Pulverisation}
 To tackle the complexity of the deployment of \ac{cas},
@@ -248,58 +198,76 @@ Even if the idea behind pulverisation is quite simple,
 several challenges at different levels must be addressed to make it a reality:
 \emph{communication}, \emph{portability}, \emph{runtime} are only some of them.
 
+% --------------------
+% Project description
+% --------------------
+
 \section{Project description}\label{sec:project-description}
 
 With this project,
 we aim to investigate opportunities and challenges in the design and deployment of
 \ac{cas} on new and emergent infrastructures to opportunistically exploit them.
 %
+We identify in \ac{iot}, swarm robotics, crowds of wearable-augmented humans, and so on,
+relevant application domains for this project.
+%
 Cloud computing has disrupted the way we think about computation and storage,
 moving from a static and centralized model to a dynamic and distributed one.
 %
 Recently,
-the emergence of a new paradigm called \emph{Edge computing}~\cite{DBLP:journals/comsur/MaoYZHL17,DBLP:journals/access/YuLHHLLY18}
+the emergence of a new paradigm called \emph{edge-cloud continuum}~\cite{DBLP:journals/iot/BittencourtISFM18}
 evolved the cloud computing model to a more distributed one,
 where several intermediate network layers and data processing patterns exist between the cloud data center and devices.
 %
-This new paradigm is characterized by a layered and heterogeneous infrastructure,
-which can be opportunistically exploited to improve the performance of the applications.
+This infrastructure is characterized by a multi-layer heterogeneous infrastructure,
+ranging from powerful cloud servers to small connected devices.
 %
 Nevertheless,
-the design and deployment of systems, in particular \ac{cas},
-are not trivial tasks and are currently open research challenges.
+the design and deployment of \ac{cas} on this infrastructure is not trivial;
+several implications must be considered to effectively exploit the infrastructure's full potential,
+resulting in an open research problem.
 
 With this project,
 we pursue one of the most promising approaches to tackle this complexity,
-by leveraging the \emph{Pulverisation} aproach.
+by leveraging the \emph{Pulverisation}~\cite{DBLP:journals/fi/CasadeiPPVW20} aproach.
 %
-This approach tries to address the complexity by neatly separating the business logic of the system from infrastructural aspects.
-
-One of the ambitious goals of this project is to bridge the gap between the simulation and the real world,
-providing a set of \emph{methodology}, \emph{tools}, and \emph{techniques}
-that can be seamlessly exploited to effectively tackle the system's complexity.
+This approach tries to address the complexity by neatly separating the business logic of the system from infrastructural aspects,
+letting to focus on the functional aspects of the systems and delaying non-functional and infrastructural aspects.
 %
-As a consequence,
-another fundamental goal is to extend the current pulverisation approach to support dynamic reconfiguration of the system.
+The idea is to partition the software system into five components (\emph{sensors}, \emph{actuators}, \emph{behavior}, \emph{communication} and \emph{state})
+that can be independently deployed on the available infrastructure.
 %
-This extension can be achieved by combining two approaches: \emph{Rule-based} and \emph{Machine Learning}.
+One current limitation of this approach regards the runtime reconfiguration of the system based on the changing conditions or requirements.
 %
-The combination of these two approaches can lead to a more effective and efficient reconfiguration of the system,
-to substantially improve the \ac{qos} of the system.
+This project aims to extend the current pulverisation approach to support dynamic reconfiguration of the system
+by combining two approaches: \emph{Rule-based} and \emph{AI-based reconfiguration}.
 %
-This is a fundamental aspect,
+The former can be used to define a set of static rules that can be used to reconfigure the system based on pre-determined and well-known conditions.
+%
+The latter can be extremely useful in contexts where the unpredictable conditions can be extremely high,
+or where many different factors must be considered to determine the best configuration for the system.
+%
+The ability to dynamically reconfiguration is a fundamental aspect,
 for example,
 in contexts where energy-efficient systems are required,
 or where the balance between consumption and performance can be strategic.
 
-The current \ac{iot} systems are characterized by a large number of devices,
-which produces a large amount of data from extremely scattered data sources.
+One other goal of this project is to bridge the gap between the simulation and the real world,
+providing a set of \emph{methodology}, \emph{tools}, and \emph{techniques}
+that can be seamlessly exploited to effectively tackle the system's complexity.
+
+\ac{cas} can be composed of several different devices that can produce a large amount of data.
 %
-The management of such data is a complex and delicate task,
-but can open to new opportunities in the context of \ac{cas}.
+This kind of data can be characterized by many formats, different sources, and different frequencies.
+%
+The management of such data can be compicated and can lead to a large amount of data that cannot be processed with traditional techniques.
 %
 For this reason,
-we aim to investigate opportunities in the use of \emph{big data} techniques in the context of \ac{cas} and \ac{iot} systems.
+this project aims to provide a new approach to the engineering of data sources where a heterogeneous infrastructure is involved.
+%
+In this way,
+the data can be available to be processed using big-data analysis techniques,
+opening to new opportunities in the context of \ac{cas}.
 
 As follows, is provided a brief overview of the main activities that will be carried out.
 
@@ -350,8 +318,7 @@ The investigation of big-data techniques in the context of \ac{cas} can be an in
 The huge amount of data produced by \ac{iot} requires new techniques and approaches to be effectively managed.
 %
 The project will investigate the use of big-data techniques in the context of \ac{cas} and \ac{iot} systems,
-to enrich the current \ac{ac} model with data-analysis capabilities. 
-
+to enrich the current \ac{ac} model with data-analysis capabilities.
 
 \subsection{Scope}\label{subsec:scope}
 
@@ -509,14 +476,6 @@ from \ac{ai} techniques to intelligently adapt the system to specific \ac{qos} r
 This kind of ``intelligent reconfiguration'' can be used to manage scenarios
 where computational power and energy consumption are the main concerns,
 but the complexity of the system can be difficult to manage.
-% Flexible and opportunistic deployment can take a big advantage of the cloud
-% computing in conjunction with orchestration technologies.
-% %
-% In particular, these technologies can be used to manage scenarios where
-% computational power and energy consumption are the main concerns.
-% %
-% In this context, AI-based techniques can represent a promising
-% approach to intelligently adapt the system to specific \ac{qos} requirements.
 }
 
 \paragraph{Combine pulverization with AC}
