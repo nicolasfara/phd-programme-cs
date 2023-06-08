@@ -305,20 +305,26 @@ To do so,
 the project will leverage AI and machine learning techniques to manage the complex task of reconfiguration
 to opportunistically balance the performance, energy consumption or any other system-specific \ac{qos}.
 
-\paragraph{Bind AC framework to pulverisation}
-The need to integrate \ac{ac} framework into the pulverisation one is
-a fundamental step to provide a complete solution for the design and deployment of
-collective adaptive applications on heterogeneous infrastructures.
+\paragraph{Bind pulverization with other CAS frameworks}
+The pulverization approach is designed to be independent of a specific technology or framework.
 %
-Indeed, combining the pulverisation approach with \ac{ac} frameworks
-allows to describe the system's behavior at a macro-level
-but at the same time exploiting the pulverisation to
-effectively deploy the system on the available infrastructure,
-managing also the dynamic reconfiguration of the system transparently and seamlessly.
+Nevertheless,
+as a consequence of the point described above,
+to be effectively used in a real-world scenario,
+the pulverization approach must be integrated with other \ac{cas} frameworks.
+%
+ScaFi~\cite{DBLP:journals/softx/CasadeiVAP22} and Protelis~\cite{DBLP:conf/sac/PianiniVB15} are two examples of consolidated frameworks for engineering \ac{cas}.
+%
+In particular,
+they are both based on the \ac{ac} paradigm,
+which is a possible way to implement \ac{cas}.
+%
+Integrating the pulverization framework with these two frameworks,
+allows exploiting the pulverization approach to design and deploy \ac{cas} on heterogeneous infrastructures.
 
 \paragraph{Data stream management}
 Due to the high volume of data produced by \ac{cas},
-this project tries to investigate possible solutions to manage and engineering data sources,
+this project tries to investigate possible solutions to manage and engineer data sources,
 to provide a way to effectively manage the data produced by the system.
 %
 This objective can be more challenging in a context where the infrastructure is heterogeneous,
