@@ -5,6 +5,10 @@
 \setlength {\marginparwidth }{2cm}
 \usepackage{todonotes}
 \usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes.geometric,positioning,automata,calc}
 % \usepackage{textcomp}
 % \usepackage{mathrsfs}  % mathscr font
 % \usepackage[colorlinks, filecolor=dark_blue, urlcolor=dark_blue, linkcolor=black, citecolor=black]{hyperref}
@@ -26,6 +30,7 @@
 \acrodef{iac}[IaC]{Infrastructure as Code}
 \acrodef{ci}[CI]{Continuous Integration}
 \acrodef{ai}[AI]{Artificial Intelligence}
+\acrodef{dl}[DL]{Deep Learning}
 
 \begin{document}
 
@@ -133,31 +138,6 @@ without worrying about low-level details like communication, failure, distributi
 %
 All the low-level aspects are managed by the underlying platform which manages the deployment and execution of the aggregate program.
 
-% \ac{ac} is based on the \emph{field calculus}~\cite{DBLP:journals/tocl/AudritoVDPB19},
-% a formal model that provides a set of primitives to manipulate computational fields.
-% %
-% In the field calculus,
-% it is possible to define a collective behaviour via algorithms expressed as a computation of computational fields.
-% %
-% This enables the creation of a stack of building blocks,
-% based on a resilient constructor that exposes \ac{api} used by the upper blocks.
-% %
-% In this way,
-% if high-level building blocks depend on self-adaptive constructors,
-% the former inherits the properties of the latter.
-% %
-% ScaFi~\cite{DBLP:journals/softx/CasadeiVAP22}, Protelis~\cite{DBLP:conf/sac/PianiniVB15} and FCPP~\cite{DBLP:conf/acsos/Audrito20} are the reference platforms for \ac{ac}.
-
-% Currently, most of the experiments are performed in a simulated environment,
-% where the devices are emulated.
-% %
-% Alchemist~\cite{DBLP:journals/jos/PianiniMV13} is a bio-inspired simulator that can be used to simulate \ac{ac} systems.
-% %
-% At the time of writing,
-% there are no real-world, consolidated experiments that use \ac{ac};
-% for this reason,
-% closing the gap between the simulated and real-world environment is one of the open challenges of this research field.
-
 \paragraph{Pulverisation}
 To tackle the complexity of the deployment of \ac{cas},
 several approaches have been proposed in the literature.
@@ -176,7 +156,269 @@ The application of each logical device is decomposed into an ensemble of compone
 representing respectively a set of \emph{sensors},
 a set of \emph{actuators},
 a \emph{state},
-a \emph{communication} component and a \emph{computation} component modelling the behaviour of the device.
+a \emph{communication} component and a \emph{computation} component modeling the behaviour of the device (see~\Cref{fig:pulv}).
+%
+\begin{figure}
+	\tikzset{-,
+	  host/.style={rectangle,draw,line width={2pt},inner sep=10pt,
+		  outer sep=0, minimum height=1.5cm, minimum width=1.8cm, %text height=0.2cm, 
+		  text depth=0.5cm,
+		  fill=black!10!white
+	  },
+	  node/.style={rectangle,draw,dotted,line width={1pt}, inner sep=2pt, 
+		  fill=blue!20!white,
+		  font=\large
+	  },
+	  nodeA/.style={node,fill=red!20!white},
+	  nodeB/.style={node,fill=green!20!white},
+	  nodeC/.style={node,fill=black!30!white},
+	  nodeD/.style={node,fill=white!20!white},
+	  plink/.style={line width=2pt},
+	  llink/.style={dotted,line width=2pt,red},
+	  hostThin/.style={rectangle,draw,line width={0.5pt},inner sep=10pt,
+		  outer sep=0, minimum height=1.1cm, minimum width=1.8cm, %text height=0.2cm, 
+		  text depth=0.5cm,
+		  fill=black!10!white
+	  },
+	  lnode/.style={node,minimum width=0.55cm,minimum height=0.55cm},
+	  loglink/.style={->,line width=1.5pt}
+	}
+	\def\nm{0.35cm} %nm = node margin offset
+	\def\tpscale{0.7}
+	\newcommand{\agent}{device}
+	\newcommand{\LSens}{\boldsymbol{\sigma}}
+	\newcommand{\LComp}{\boldsymbol{\beta}}
+	\newcommand{\LComm}{\boldsymbol{\chi}}
+	\newcommand{\LAct}{\boldsymbol{\alpha}}
+	\newcommand{\LState}{\boldsymbol{\kappa}}
+	
+	\begin{minipage}{\columnwidth}
+	\centering
+	\begin{tikzpicture}[every node/.style={scale=0.85}]
+	\node[hostThin,minimum width=3.4cm,minimum height=3cm,dashed]
+	 (h1) [label={[yshift=0.35cm]above:{\textbf{logical \agent{}}}}] {};
+	
+	\node[lnode] (d1) at (h1.north west) [xshift=\nm,yshift=-\nm,label=above:{behaviour}] {$\LComp$};
+	\node[lnode] (d2) at (h1.north east) [xshift=-\nm,yshift=-\nm,label=above:{communication}] {$\LComm$};
+	\node[lnode] (d3) at (h1.center) [xshift=0,yshift=0,label=right:{state/knowledge}] {$\LState$};
+	\node[lnode] (d4) at (h1.south west) [xshift=\nm,yshift=\nm,label=below:{sensors}] {$\LSens$};
+	\node[lnode] (d5) at (h1.south east) [xshift=-\nm,yshift=\nm,label=below:{actuators}] {$\LAct$};
+	
+	\node[hostThin,minimum width=2.3cm,minimum height=2.3cm,dashed]
+	 (h2) [right=2cm of h1, label={above:{\textbf{neighbour \agent{}}}}] {};
+	
+	\node[lnode] (d21) at (h2.north west) [xshift=\nm,yshift=-\nm] {$\LComm$};
+	\node[lnode] (d22) at (h2.north east) [xshift=-\nm,yshift=-\nm] {$\LComp$};
+	\node[lnode] (d23) at (h2.center) [xshift=0,yshift=0] {$\LState$};
+	\node[lnode] (d24) at (h2.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
+	\node[lnode] (d25) at (h2.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
+	
+	\draw[loglink] (d1) -- (d3);
+	\draw[loglink] (d2) -- (d3);
+	\draw[loglink] (d3) -- (d1);
+	\draw[loglink] (d3) -- (d2);
+	\draw[loglink] (d4) -- (d3);
+	\draw[loglink] (d3) -- (d5);
+	
+	\draw[loglink] (d21) -- (d23);
+	\draw[loglink] (d22) -- (d23);
+	\draw[loglink] (d23) -- (d21);
+	\draw[loglink] (d23) -- (d22);
+	\draw[loglink] (d24) -- (d23);
+	\draw[loglink] (d23) -- (d25);
+	
+	\draw[loglink] (d2.east) -- (d21.west);
+	\draw[loglink] (d21.west) -- (d2.east);
+	
+	
+	\end{tikzpicture}
+	\subcaption{A logical device, split into sub-components, and one of its neighbours.\label{fig:pulv:dev}}
+	\end{minipage}
+	\\[0.2cm]
+	\begin{minipage}{\columnwidth}
+	\def\nm{0.3cm} %nm = node margin offset
+	
+	\begin{minipage}{0.48\columnwidth}\centering
+	\begin{tikzpicture}[node distance=1.0cm and 0.5cm,every node/.style={scale=\tpscale}]
+	% physical nodes
+	\node[host] (h1) [anchor=north,label=above:{}] {};
+	\node[host] (h2) [right=of h1,label=above:{}] {};
+	\node[host] (h3) [below=of h1, label=above:{}] {};
+	\node[host] (h4) [right=of h3, label=above:{}] {};
+	
+	\node[node] (n11) at (h1.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
+	\node[node] (n12) at (h1.south east) [xshift=-\nm,yshift=\nm] {$\LComm$};
+	\node[node] (n13) at (h1.north east) [xshift=-\nm,yshift=-\nm] {$\LAct$};
+	\node[node] (n14) at (h1.north west) [xshift=\nm,yshift=-\nm] {$\LComp$};
+	\node[node] (n15) at (h1) [] {$\LState$};
+	% logical node 2
+	\node[nodeA] (n21) at (h2.south west) [xshift=\nm,yshift=\nm] {$\LComm$};
+	\node[nodeA] (n22) at (h2.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
+	\node[nodeA] (n23) at (h2.north east) [xshift=-\nm,yshift=-\nm] {$\LSens$};
+	\node[nodeA] (n24) at (h2.north west) [xshift=\nm,yshift=-\nm] {$\LComp$};
+	\node[nodeA] (n25) at (h2) [] {$\LState$};
+	% logical node 3
+	\node[nodeB] (n31) at (h3.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
+	\node[nodeB] (n32) at (h3.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
+	\node[nodeB] (n33) at (h3.north east) [xshift=-\nm,yshift=-\nm] {$\LComm$};
+	\node[nodeB] (n34) at (h3.north west) [xshift=\nm,yshift=-\nm] {$\LComp$};
+	\node[nodeB] (n35) at (h3) [] {$\LState$};
+	% logical node 4
+	\node[nodeC] (n41) at (h4.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
+	\node[nodeC] (n42) at (h4.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
+	\node[nodeC] (n43) at (h4.north east) [xshift=-\nm,yshift=-\nm] {$\LComp$};
+	\node[nodeC] (n44) at (h4.north west) [xshift=\nm,yshift=-\nm] {$\LComm$};
+	\node[nodeC] (n45) at (h4) [] {$\LState$};
+	
+	% physical links
+	\draw[plink] 
+		(h1) -- (h2)
+		(h2) -- (h3)
+		(h2) -- (h4)
+		(h3) -- (h4)
+	;
+	% logical links
+	\draw[llink]
+		(n12) to [] (n21)
+		(n21) to [] (n44)
+		(n21) to [bend right=30] (n33)
+		(n33) to [] (n44);
+	\end{tikzpicture}
+	\subcaption{Peer-to-peer architecture: one-to-one mapping between logical and physical devices, with no offloading.\label{fig:pulv:p2p}}
+	\end{minipage}
+	%\hfill
+	%\begin{minipage}{0.48\columnwidth}\centering
+	%\begin{tikzpicture}[node distance=1.0cm and 0.5cm,
+	%every node/.style={scale=\tpscale}]
+	%
+	%% physical nodes
+	%\node[host,minimum width=1.5cm] (h1) [anchor=north,label=above:{}] {};
+	%\node[host,minimum width=1.5cm] (h2) [right=of h1,label=above:{}] {};
+	%\node[host,minimum width=1.5cm] (h3) [right=of h2, label=above:{}] {};
+	%\node[host,minimum width=2.5cm] (he) [above right=0.6cm and -1cm of h1,label=above:{}] {};
+	%\node[host,minimum width=3.5cm] (h5) [above=2.6cm of h2,label=right:{}] {};
+	%
+	%\node[node] (n11) at (h1.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
+	%\node[node] (n12) at (h1.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
+	%\node[node] (n13) at (h1.north east) [xshift=-\nm,yshift=-\nm] {$\LState$};
+	%\node[node] (n14) at (h1.north west) [xshift=\nm,yshift=-\nm] {$\LComp$};
+	%\node[node] (n15) at (he) [xshift=-2*\nm] {$\LComm$};
+	%% logical node 2
+	%\node[nodeA] (n21) at (h2.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
+	%\node[nodeA] (n22) at (h2.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
+	%\node[nodeA] (n23) at (h2.north east) [xshift=-\nm,yshift=-\nm] {$\LState$};
+	%\node[nodeA] (n24) at (h2.north west) [xshift=\nm,yshift=-\nm] {$\LComp$};
+	%\node[nodeA] (n25) at (he) [xshift=0] {$\LComm$};
+	%% logical node 3
+	%\node[nodeB] (n31) at (h3.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
+	%\node[nodeB] (n32) at (h3.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
+	%\node[nodeB] (n33) at (h3.north east) [xshift=-\nm,yshift=-\nm] {$\LState$};
+	%\node[nodeB] (n34) at (h3.north west) [xshift=\nm,yshift=-\nm] {$\LComp$};
+	%\node[nodeB] (n35) at (h5) [xshift=2*\nm] {$\LComm$};
+	%
+	%% physical links
+	%\draw[plink] 
+	%	(h1) -- (he)
+	%	(h2) -- (he)
+	%	(h3) -- (h5)
+	%	(he) -- (h5);
+	%
+	%\draw[llink]
+	%    %(n15) to [bend left=20] (n35)
+	%    (n25) to [bend left=30] (n35);
+	%\end{tikzpicture}
+	%\subcaption{Communication component offloaded.\label{fig:pulv:comm}}
+	%\end{minipage}
+	%\\[0.2cm]
+	%\begin{minipage}{0.48\columnwidth}\centering
+	%\begin{tikzpicture}[node distance=1.0cm and 0.5cm,
+	%every node/.style={scale=\tpscale}]
+	%
+	%% physical nodes
+	%\node[host,minimum width=1.5cm] (h1) [anchor=north,label=above:{}] {};
+	%\node[host,minimum width=1.5cm] (h2) [right=of h1,label=above:{}] {};
+	%\node[host,minimum width=1.5cm] (h3) [right=of h2, label=above:{}] {};
+	%\node[host,minimum width=2.5cm] (he) [above right=0.6cm and -1cm of h1,label=above:{}] {};
+	%\node[host,minimum width=3.5cm] (h5) [above=2.6cm of h2,label=right:{}] {};
+	%
+	%\node[node] (n11) at (h1.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
+	%\node[node] (n12) at (h1.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
+	%\node[node] (n13) at (he.north) [xshift=-2*\nm,yshift=-\nm] {$\LComm$};
+	%\node[node] (n14) at (h1.north) [yshift=-\nm] {$\LComp$};
+	%\node[node] (n15) at (he.south) [xshift=-2*\nm,yshift=\nm] {$\LState$};
+	%% logical node 2
+	%\node[nodeA] (n21) at (h2.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
+	%\node[nodeA] (n22) at (h2.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
+	%\node[nodeA] (n23) at (he.north) [xshift=0*\nm,yshift=-\nm] {$\LComm$};
+	%\node[nodeA] (n24) at (h2.north) [yshift=-\nm] {$\LComp$};
+	%\node[nodeA] (n25) at (he.south) [xshift=0,yshift=\nm] {$\LState$};
+	%% logical node 3
+	%\node[nodeB] (n31) at (h3.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
+	%\node[nodeB] (n32) at (h3.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
+	%\node[nodeB] (n33) at (h5.south) [xshift=2*\nm,yshift=\nm] {$\LComm$};
+	%\node[nodeB] (n34) at (h3.north) [yshift=-\nm] {$\LComp$};
+	%\node[nodeB] (n35) at (h5.south) [xshift=4*\nm,yshift=\nm] {$\LState$};
+	%
+	%% physical links
+	%\draw[plink] 
+	%	(h1) -- (he)
+	%	(h2) -- (he)
+	%	(h3) -- (h5)
+	%	(he) -- (h5);
+	%
+	%\draw[llink]
+	%    %(n15) to [bend left=20] (n35)
+	%    (n23) to [bend left=20] (n33);
+	%\end{tikzpicture}
+	%\subcaption{Communication and state components offloaded.\label{fig:pulv:state}}
+	%\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\columnwidth}\centering
+	\begin{tikzpicture}[node distance=1.0cm and 0.5cm,
+	every node/.style={scale=\tpscale}]
+	
+	% physical nodes
+	\node[hostThin,minimum width=1.5cm] (h1) [anchor=north,label=above:{}] {};
+	\node[hostThin,minimum width=1.5cm] (h2) [right=of h1,label=above:{}] {};
+	\node[hostThin,minimum width=1.5cm] (h3) [right=of h2, label=above:{}] {};
+	\node[host,minimum width=2.5cm] (he) [above right=0.6cm and -1cm of h1,label=above:{}] {};
+	\node[host,minimum width=3.5cm] (h5) [above=2.6cm of h2,label=right:{}] {};
+	
+	\node[node] (n11) at (h1.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
+	\node[node] (n12) at (h1.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
+	\node[node] (n13) at (he.south east) [xshift=-4*\nm,yshift=\nm] {$\LComm$};
+	\node[node] (n14) at (he.south west) [xshift=1*\nm,yshift=\nm] {$\LComp$};
+	\node[node] (n15) at (he.north) [xshift=-2*\nm,yshift=-\nm] {$\LState$};
+	% logical node 2
+	\node[nodeA] (n21) at (h2.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
+	\node[nodeA] (n22) at (h2.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
+	\node[nodeA] (n23) at (he.south east) [xshift=-2.5*\nm,yshift=\nm] {$\LComm$};
+	\node[nodeA] (n24) at (he.south west) [xshift=2.5*\nm,yshift=\nm] {$\LComp$};
+	\node[nodeA] (n25) at (he.north) [xshift=0,yshift=-\nm] {$\LState$};
+	% logical node 3
+	\node[nodeB] (n31) at (h3.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
+	\node[nodeB] (n32) at (h3.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
+	\node[nodeB] (n33) at (h5.south east) [xshift=-5*\nm,yshift=\nm] {$\LComm$};
+	\node[nodeB] (n34) at (h5.south east) [xshift=-3*\nm,yshift=\nm] {$\LComp$};
+	\node[nodeB] (n35) at (h5.south east) [xshift=-1*\nm,yshift=\nm] {$\LState$};
+	
+	% physical links
+	\draw[plink] 
+		(h1) -- (he)
+		(h2) -- (he)
+		(h3) -- (h5)
+		(he) -- (h5);
+		
+	\draw[llink]
+		(n23) to [bend left=25] (n33);
+	\end{tikzpicture}
+	\subcaption{IoT hosts can be thin, with some components offloaded at the edge and cloud.\label{fig:pulv:full}}
+	\end{minipage}
+	\end{minipage}
+	
+	\caption{Pulverisation model and examples of deployments (Figure adapted from~\cite{DBLP:journals/fi/CasadeiPPVW20}).}
+	\label{fig:pulv}
+\end{figure}
 %
 Decomposition of an application via pulverisation can be achieved in two ways:
 either the application is designed with pulverization in mind,
@@ -235,7 +477,18 @@ This approach tries to address the complexity by neatly separating the business 
 letting to focus on the functional aspects of the systems and delaying non-functional and infrastructural aspects.
 %
 The idea is to partition the software system into five components (\emph{sensors}, \emph{actuators}, \emph{behavior}, \emph{communication} and \emph{state})
-that can be independently deployed on the available infrastructure.
+that can be independently deployed on the available infrastructure (see~\Cref{fig:overview}).
+%
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/phd-proposal.drawio.pdf}
+	\caption{
+		Overview of the project.
+		Via pulverization the system is decomposed into components that can be independently deployed on the available infrastructure.
+		The components can also be dynamically relocated into the infrastructure to adapt to changing conditions.
+	}
+	\label{fig:overview}
+\end{figure}
 %
 One current limitation of this approach regards the runtime reconfiguration of the system based on the changing conditions or requirements.
 %
@@ -260,7 +513,7 @@ that can be seamlessly exploited to effectively tackle the system's complexity.
 %
 This kind of data can be characterized by many formats, different sources, and different frequencies.
 %
-The management of such data can be compicated and can lead to a large amount of data that cannot be processed with traditional techniques.
+The management of such data can be complicated and can lead to a large amount of data that cannot be processed with traditional techniques.
 %
 For this reason,
 this project aims to provide a new approach to the engineering of data sources where a heterogeneous infrastructure is involved.
@@ -271,67 +524,103 @@ opening to new opportunities in the context of \ac{cas}.
 
 As follows, is provided a brief overview of the main activities that will be carried out.
 
+% -----------------
+% Expected results
+% -----------------
+
+\section{Expected results}\label{sec:expected-results}
+
+\paragraph{Pulverisation framework}
+Realize an effective framework to support the development of complex systems
+via the pulverisation approach.
+%
+We will provide a modular and extensible framework that can also be integrated with simulation tools
+to allow the validation of the system before the deployment.
+
+\paragraph{Rule-based system reconfiguration}
+Extend the pulverisation approach and implement in the framework the possibility to
+reconfigure the system at runtime.
+%
+The reconfiguration,
+in the first phase,
+will be carried out via a rule-based approach where the rules are defined by the user.
+
+\paragraph{Dynamic system reconfiguration}
+Integrate into the framework the possibility to adopt \ac{ai} techniques to automatically
+manage the system reconfiguration at runtime.
+%
+The \ac{ai} can be strategically in contexts where complex \ac{qos} must be satisfied
+performing better than a rule-based approach, that in some contexts can be too rigid.
+
+\paragraph{Data stream engineering}
+Enable the possibility to perform data analysis on the data produced by the system by providing
+a data stream that ensemble the data produced by the devices in a heterogeneous system.
+%
+The data stream will be provided by the framework and can be used by the user to perform
+data analysis leveraging,
+for example,
+big-data technologies.
+
+\paragraph{Integration with CAS frameworks}
+Integrate the pulverisation framework with other, consolidated \ac{cas} frameworks
+to provide a complete solution for the development and deployment of complex systems,
+with the main focus on exploiting edge-cloud infrastructures.
+
 % --------------------
 % Activities
 % --------------------
 
-\subsection{Activities}\label{subsec:activities}
+\section{Project activities}\label{sec:activities}
 
-\paragraph{Deployment via pulverisation}
-The first fundamental step of this project is to provide an implementation for
-the pulverisation approach via a dedicated framework.
-%
-The framework will be designed to be modular and extensible to allow the integration
-of different technologies and give the possibility to be used in conjunction with
-\ac{ac} frameworks.
-%
-The framework should give the possibility to specify the system,
-use the system specification to simulate the system
-and finally, with no changes in the code base,
-deploy the system on real devices.
+\subsection{First year goals}\label{subsec:first-year-activities}
 
-\paragraph{AI-based system reconfiguration}
-Another key contribution is to support dynamic reconfiguration,
-allowing the system to adapt to the changes in the infrastructure and external conditions.
-%
-In the original model of the pulverisation approach,
-there is no support for dynamic reconfiguration of the system.
-%
-For this reason,
-the project will investigate the extension of the pulverisation approach
-to support dynamic reconfiguration and relocation of the system inside the framework stack.
-%
-To do so,
-the project will leverage AI and machine learning techniques to manage the complex task of reconfiguration
-to opportunistically balance the performance, energy consumption or any other system-specific \ac{qos}.
+The first-year goal,
+based on the expected results reported in~\Cref{sec:expected-results},
+are reported as follows.
 
-\paragraph{Bind pulverization with other CAS frameworks}
-The pulverization approach is designed to be independent of a specific technology or framework.
-%
-Nevertheless,
-as a consequence of the point described above,
-to be effectively used in a real-world scenario,
-the pulverization approach must be integrated with other \ac{cas} frameworks.
-%
-ScaFi~\cite{DBLP:journals/softx/CasadeiVAP22} and Protelis~\cite{DBLP:conf/sac/PianiniVB15} are two examples of consolidated frameworks for engineering \ac{cas}.
-%
-In particular,
-they are both based on the \ac{ac} paradigm,
-which is a possible way to implement \ac{cas}.
-%
-Integrating the pulverization framework with these two frameworks,
-allows exploiting the pulverization approach to design and deploy \ac{cas} on heterogeneous infrastructures.
+\begin{itemize}
+	\item Investigate the literature about the pulverisation approach,
+		deepen the related work to better frame the approach in the context of \ac{cas}.
+		Then, try to identify the main bound of the approach and the possible improvements.
+	\item Design and implementation of a practical framework supporting the pulverization approach.
+		The framework will be designed to be modular and extensible but at the same time,
+		it should be easy to use and able to run on different platforms to support the development on heterogeneous systems.
+	\item Integrate the framework with a reconfiguration engine to support the dynamic reconfiguration of the system.
+		The reconfiguration engine will be based on a rule-based approach allowing the user to specify the conditions in which the system should be reconfigured.
+		The reconfiguration rules can operate at different levels of granularity,
+		from the single device to the entire system.
+\end{itemize}
 
-\paragraph{Data stream management}
-Due to the high volume of data produced by \ac{cas},
-this project tries to investigate possible solutions to manage and engineer data sources,
-to provide a way to effectively manage the data produced by the system.
-%
-This objective can be more challenging in a context where the infrastructure is heterogeneous,
-and the data sources can be distributed across the infrastructure.
-%
-Concluding, we will try to provide a way to access the data produced by the system efficiently and effectively,
-enabling data analysis techniques to be applied to the data.
+\subsection{PhD goals}\label{subsec:phd-activities}
+
+From~\Cref{sec:expected-results},
+the remaining goals of the project are reported as follows.
+
+\begin{itemize}
+	\item Extend the reconfiguration model to support \ac{ai}-supported reconfiguration.
+		The \ac{ai} will be used to automatically reconfigure the system at runtime,
+		allowing the system to adapt to the changing conditions.
+		Several techniques can be adopted for this purpose,
+		for this reason,
+		we will investigate approaches ranging from RL to \ac{dl}.
+	\item Integrate the pulverization framework with \ac{cas} frameworks to provide a full-stack solution for the design and deployment of this kind of system in heterogeneous infrastructures.
+		The main direction for this activity will be to investigate the integration with \ac{ac} frameworks,
+		for example,
+		ScaFi~\cite{DBLP:journals/softx/CasadeiVAP22} and Protelis~\cite{DBLP:conf/sac/PianiniVB15}.
+		These two frameworks are based on the aggregate programming paradigm,
+		which represents one possible way of engineering \ac{cas}.
+	\item Due to the high volume of data produced by \ac{cas},
+		this project tries to investigate possible solutions to manage and engineer data sources,
+		to provide a way to effectively manage the data produced by the system.
+		%
+		This objective can be more challenging in a context where the infrastructure is heterogeneous,
+		and the data sources can be distributed across the infrastructure.
+		%
+		For this reason,
+		we will investigate a modern approach to serving data in a distributed and heterogeneous environment,
+		by integrating the pulverization framework with a data stream engine,
+		that can enable the possibility to perform data analysis on the data produced by the system.
+\end{itemize}
 
 \subsection{Scope}\label{subsec:scope}
 
@@ -357,8 +646,7 @@ which are highly distributed by nature.
 The value of a distributed intelligence leveraging \ac{ai} techniques can be strategic in \ac{cas},
 in particular for adapting -- intelligently -- the system to changing conditions or to maintain certain \ac{qos}.
 
-
-\paragraph{Energy and Cost efficiency}
+\paragraph{Energy and cost efficiency}
 One of the current trends in the IT industry is the \emph{green computing}.
 %
 The need to reduce energy consumption and consequently the carbon footprint of the systems can be a requirement in many future systems.
@@ -380,55 +668,73 @@ for example: \emph{dynamicity}, \emph{volume} (devices and produced data) and \e
 %
 The project can be framed in the context of \ac{cps} by providing an effective general solution to the aforementioned challenges,
 which can be tailored to the specific needs of the system.
-%
-Moreover,
-even the \ac{cas} can take advantage of the opportunistic deployment and adaptation of the system,
-which is a key point of this project.
 
 \subsection{Technology}\label{subsec:technology}
 
 \paragraph{Cloud computing}
-One of the main objectives of the pulverisation approach is to simplify the development
-and the deployment of complex systems on heterogeneous infrastructures.
+The objective of the pulverisation approach is to simplify the development and deployment of complex systems on diverse infrastructures.
 %
-The edge-cloud continuum is a new emerging paradigm that allows exploiting the
-advantages of both cloud and edge computing (and its continuum).
+The edge-cloud continuum,
+a new paradigm,
+combines the benefits of cloud and edge computing.
 %
-For this reason, it is fundamental to have a deep understanding of the cloud computing
-paradigm and its technologies to provide a complete solution for the design and deployment
-of this kind of system.
+Understanding cloud computing and its technologies is crucial for designing and deploying such systems.
 %
-In recent years, several cloud providers have emerged, and each of them provides
-a set of services and technologies to support the development of cloud-based applications.
-%
-\emph{Google Cloud Platform}~\footnote{\url{https://cloud.google.com/}},
+Popular cloud providers like Google \emph{Google Cloud Platform}~\footnote{\url{https://cloud.google.com/}},
 \emph{Amazon Web Services}~\footnote{\url{https://aws.amazon.com/}},
-and \emph{Microsoft Azure}~\footnote{\url{https://azure.microsoft.com/}}
-are the most popular cloud providers, and they will be the main focus of this project.
+and \emph{Microsoft Azure}~\footnote{\url{https://azure.microsoft.com/}} are the focus.
 %
-Could be strategic to enable the framework to be used with different cloud providers
-to allow the user to choose the one that best suits his needs.
+It's important to enable the framework to be compatible with multiple cloud providers.
 %
-In recent years,
-the way to provision infrastructure has changed.
+Infrastructure provisioning has evolved to automation using tools like Terraform~\footnote{\url{https://www.terraform.io/}} and Ansible~\footnote{\url{https://www.ansible.com/}},
+falling under the category of Infrastructure as Code (IaC).
 %
-The trend is to fully automate the provisioning of the infrastructure via dedicated tools,
-like Terraform~\footnote{\url{https://www.terraform.io/}} and Ansible~\footnote{\url{https://www.ansible.com/}}.
+These tools offer machine-readable infrastructure descriptions and APIs for programmatic interaction,
+enabling integration with other tools and frameworks.
 %
-These tools fall in the category of \ac{iac}: they allow to describe the infrastructure in a machine-readable format
-instead of using interactive configuration tools.
-%
-Moreover,
-these tools provide a set of \ac{api} to interact with them programmatically,
-allowing the integration with other tools and frameworks.
-%
-As a consequence,
-these tools can be used in a \ac{ci} pipeline to fully automate the deployment of the system.
-%
-\ac{iac} represents a powerful technology in the context of the edge-cloud continuum,
-allowing a dynamic, programmable and automated deployment of the system on the available infrastructure.
+IaC facilitates dynamic, programmable, and automated deployment of the system on available infrastructure in the edge-cloud continuum.
 
-\paragraph{Big-data}
+% One of the main objectives of the pulverisation approach is to simplify the development
+% and the deployment of complex systems on heterogeneous infrastructures.
+% %
+% The edge-cloud continuum is a new emerging paradigm that allows exploiting the
+% advantages of both cloud and edge computing (and its continuum).
+% %
+% For this reason, it is fundamental to have a deep understanding of the cloud computing
+% paradigm and its technologies to provide a complete solution for the design and deployment
+% of this kind of system.
+% %
+% In recent years, several cloud providers have emerged, and each of them provides
+% a set of services and technologies to support the development of cloud-based applications.
+% %
+% \emph{Google Cloud Platform}~\footnote{\url{https://cloud.google.com/}},
+% \emph{Amazon Web Services}~\footnote{\url{https://aws.amazon.com/}},
+% and \emph{Microsoft Azure}~\footnote{\url{https://azure.microsoft.com/}}
+% are the most popular cloud providers, and they will be the main focus of this project.
+% %
+% Could be strategic to enable the framework to be used with different cloud providers
+% to allow the user to choose the one that best suits his needs.
+% %
+% In recent years,
+% the way to provision infrastructure has changed.
+% %
+% The trend is to fully automate the provisioning of the infrastructure via dedicated tools,
+% like Terraform~\footnote{\url{https://www.terraform.io/}} and Ansible~\footnote{\url{https://www.ansible.com/}}.
+% %
+% These tools fall in the category of \ac{iac}: they allow to describe the infrastructure in a machine-readable format
+% instead of using interactive configuration tools.
+% %
+% Moreover,
+% these tools provide a set of \ac{api} to interact with them programmatically,
+% allowing the integration with other tools and frameworks.
+% %
+% As a consequence,
+% these tools can be used in a \ac{ci} pipeline to fully automate the deployment of the system.
+% %
+% \ac{iac} represents a powerful technology in the context of the edge-cloud continuum,
+% allowing a dynamic, programmable and automated deployment of the system on the available infrastructure.
+
+\paragraph{Data stream}
 The \ac{iot} systems consist of a large number of devices that produce a large amount of data
 from extremely scattered data sources.
 %
@@ -454,78 +760,23 @@ microservices patterns and approaches to provide a resilient system.
 Orchestration tools like Kubernetes~\footnote{\url{https://kubernetes.io/}} can be used to manage the deployment of the system
 and the dynamic reconfiguration of it.
 
-\section{Expected results}\label{sec:expected-results}
-
-\subsection{One year goal}
-
-\paragraph{Pulverization framework}
-Realize an effective framework to support the development of complex systems
-via the pulverisation approach.
+\subsection{Long-term contribution}
+The initiative proposed in this project aims to tackle the complexity of designing and deploying systems on heterogeneous infrastructures,
+where the main focus is on \ac{cas}.
 %
-We will try to provide a modular and extensible framework to allow the integration
-of different technologies and give the possibility to be used in conjunction with
-\ac{ac} frameworks.
-
-\paragraph{Dynamic reconfiguration and adaptations}
-Extend the pulverisation approach to support dynamic reconfiguration and relocation
-of the system inside the framework stack.
+Beyond the specific contribution of the project,
+which the main focus is on the pulverisation approach,
+I expect to contribute to the research community providing new approaches and solutions to the aforementioned challenges.
 %
-To do so,
-we will investigate the use of state-of-the-art distributed technologies
-improving the resilience of the system opportunistically exploiting
-the underlying infrastructure.
+In particular,
+I expect to provide a deep understanding of the role of \ac{cas} in modern scenarios like \emph{smart cities}, \emph{large scale \ac{iot} systems}, and so on,
+and providing reference implementations of the proposed approaches.
 %
-Firstly we will focus on rule-based reconfiguration,
-in particular device-based rules, and then we will investigate
-global rules to manage the system's behavior at a macro level.
-
-\subsection{PhD goal}
-
-\paragraph{AI-based system reconfiguration}
-\meta{
-Opportunistic and flexible deployment can take a big advantage
-from \ac{ai} techniques to intelligently adapt the system to specific \ac{qos} requirements.
+Summing up,
+this project can be seen as a groundwork for the creation of systems in the edge-cloud continuum where dynamicity and self-adaptation are key aspects.
 %
-This kind of ``intelligent reconfiguration'' can be used to manage scenarios
-where computational power and energy consumption are the main concerns,
-but the complexity of the system can be difficult to manage.
-}
-
-\paragraph{Combine pulverization with AC}
-Provide a solution that integrates \ac{ac} frameworks with the pulverisation approach.
-%
-In this way,
-we provide a possible flexible and effective deployment solution for systems
-where the \ac{ac} paradigm is used to implement the self-organization logic of the system.
-
-\paragraph{Big-data for Aggregate Computing}
-\meta{
-Use of big-data technologies to manage the data produced by the system
-so that new sorts of knowledge can be extracted from the system.
-}
-
-\paragraph{Application and scenarios for this new approach}
-Creation of significant applications and services in the context of \emph{smart cities and home},
-\emph{smart factories}, \emph{large-scale \ac{iot} systems}, \emph{swarm of drones} and so on,
-to ground the proposed approaches and demonstrate their effectiveness.
-
-\subsection{Long term contributions}
-\meta{
-With the proposed project, we aim to close the gap between the simulation of \ac{cas} and the real world.
-%
-Moreover, we aim to provide an effective ecosystem -- composed of methodologies, tools, and techniques --
-to support the design and deployment of \ac{cas} and \ac{iot} systems on the edge-cloud continuum.
-
-With this project,
-we expect to provide one of the first concrete solutions for the engineering of the above-mentioned systems,
-and we expect to greater understand the challenges and opportunities of this new approach,
-but also the role it can play in modern scenarios like smart cities, smart factories, large-scale \ac{iot} systems, and so on.
-
-In conclusion,
-this project can be intended as a first step toward the creation of solid support
-for the engineering of resource-efficient, resilient, and adaptive systems
-which can exploit the resources also in a sustainable way.
-}
+\ac{ai} and data analysis cover a fundamental role in this context,
+enabling a new set of opportunities that this project aims to explore.
 
 \newpage
 
