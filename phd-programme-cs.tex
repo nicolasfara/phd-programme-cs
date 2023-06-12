@@ -481,11 +481,21 @@ that can be independently deployed on the available infrastructure (see~\Cref{fi
 %
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.7\textwidth]{img/phd-proposal.drawio.pdf}
+	\begin{minipage}[t]{0.45\textwidth}
+		\includegraphics[width=.9\textwidth]{img/phd-proposal.drawio.pdf}
+		\subcaption{Application decomposition via pulverization and dynamic reconfiguration in the edge-cloud continuum.}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.45\textwidth}
+		\includegraphics[width=.9\textwidth]{img/data-stream.drawio.pdf}
+		\subcaption{Engineering of the data stream on heterogeneous infrastructure enabling different kinds of analysis.}
+	\end{minipage}
+
 	\caption{
 		Overview of the project.
 		Via pulverization the system is decomposed into components that can be independently deployed on the available infrastructure.
-		The components can also be dynamically relocated into the infrastructure to adapt to changing conditions.
+		The components can also be dynamically relocated into the infrastructure to adapt to changing conditions (left picture).
+		Engineering of the data stream on heterogeneous infrastructure (right picture).
 	}
 	\label{fig:overview}
 \end{figure}
