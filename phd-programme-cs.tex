@@ -44,7 +44,7 @@
 	\vspace{0.8cm}
 
 	{\large \bfseries Research Project Proposal}\\[0.6cm]
-	{\large \emph{Title of the Project}}\\[0.6cm]
+	{\large \emph{Flexible Deployment Solutions for Aggregate Systems in Dynamic Environments}}\\[0.6cm]
 
 	{\bfseries{\monthyeardate\today} \hfill \bfseries{Nicolas Farabegoli}}\\[0.6cm]
 
@@ -63,10 +63,9 @@
 		are designed to be executed on several devices and to be deployed in
 		heterogeneous infrastructures, ranging from cloud servers to wearable devices.
 		%
-		The availability of such a wide range of devices and infrastructures opens from one side
+		The availability of such a wide range of devices and infrastructures opens to
 		better exploitation of the available resources and performance,
-		but on the other side,
-		it introduces complexity in the design and deployment of such applications.
+		but introduces complexity in the design and deployment of such applications.
 		%
 		This research project proposes to produce a framework for the design and deployment of
 		collective adaptive applications on heterogeneous infrastructures.
@@ -74,14 +73,19 @@
 		Reconfiguration aspects will be considered,
 		allowing the application to adapt to the changes in the infrastructure and external conditions.
 		%
-		The framework can leverage machine learning techniques to manage the complex task of reconfiguration
+		The framework will leverage machine learning techniques to manage the complex task of reconfiguration
 		to opportunistically balance the performance and energy consumption.
 		%
-		Since the \ac{iot} consists of a large number of devices,
-		they produce a large amount of data from extremely scattered data sources.
+		The framework will also offer modern approaches to make data avilable enabling data analysis;
+		it becomes necessary because of the large amount of data produced by the \ac{iot} devices from extremely scattered data sources.
 		%
-		The management of such data is a complex and delicate task,
-		which will be addressed with state-of-the-art techniques.
+		% With numerous \ac{iot} devices and vast amounts of data from various sources,
+		% the framework ensures consistent data access for comprehensive analysis.
+		% Since the \ac{iot} consists of a large number of devices,
+		% they produce a large amount of data from extremely scattered data sources.
+		% %
+		% The management of such data is a complex and delicate task,
+		% which will be addressed with state-of-the-art techniques.
 	\end{abstract}
 \end{titlepage}
 
@@ -570,11 +574,18 @@ The data stream will be provided by the framework and can be used by the user to
 data analysis leveraging,
 for example,
 big-data technologies.
+%
+The data stream engineering is bounded to the pulverisation approach,
+in particular,
+the data access is provided by the framework itself.
 
 \paragraph{Integration with CAS frameworks}
 Integrate the pulverisation framework with other, consolidated \ac{cas} frameworks
 to provide a complete solution for the development and deployment of complex systems,
 with the main focus on exploiting edge-cloud infrastructures.
+%
+\ac{ac} will be used as a possible solution for engineering \ac{cas},
+and also as a possible case study for the framework validation.
 
 % --------------------
 % Activities
@@ -589,10 +600,10 @@ based on the expected results reported in~\Cref{sec:expected-results},
 are reported as follows.
 
 \begin{itemize}
-	\item Investigate the literature about the pulverisation approach,
-		deepen the related work to better frame the approach in the context of \ac{cas}.
-		Then, try to identify the main bound of the approach and the possible improvements.
-	\item Design and implementation of a practical framework supporting the pulverization approach.
+	\item Investigate the literature about many different approaches to the development of complex distributed systems,
+		for example, multi-tier programming and distributed reactive programming for engineering \ac{cas}.
+		Then, try to identify how these approaches can be integrated into the pulverization approach and possible improvements.
+	\item Design and prototyping of a framework supporting the pulverization approach.
 		The framework will be designed to be modular and extensible but at the same time,
 		it should be easy to use and able to run on different platforms to support the development on heterogeneous systems.
 	\item Integrate the framework with a reconfiguration engine to support the dynamic reconfiguration of the system.
@@ -620,7 +631,7 @@ the remaining goals of the project are reported as follows.
 		These two frameworks are based on the aggregate programming paradigm,
 		which represents one possible way of engineering \ac{cas}.
 	\item Due to the high volume of data produced by \ac{cas},
-		this project tries to investigate possible solutions to manage and engineer data sources,
+		this project will try to investigate possible solutions to manage and engineer data sources,
 		to provide a way to effectively manage the data produced by the system.
 		%
 		This objective can be more challenging in a context where the infrastructure is heterogeneous,
