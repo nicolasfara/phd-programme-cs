@@ -52,7 +52,6 @@
 	\vspace{0.4cm}
 
 	\begin{abstract}
-		% Da riscrivere in alcuni punti
 		In recent years,
 		the emergence of \ac{cps} has engendered a noteworthy surge in complexity and heterogeneity
 		within the underlying infrastructure supporting these systems.
@@ -73,19 +72,11 @@
 		Reconfiguration aspects will be considered,
 		allowing the application to adapt to the changes in the infrastructure and external conditions.
 		%
-		The framework will leverage machine learning techniques to manage the complex task of reconfiguration
-		to opportunistically balance the performance and energy consumption.
+		The framework will leverage \ac{ai} techniques to manage the complex task of reconfiguration, e.g.,
+		the opportunistic balance between performance and energy consumption.
 		%
-		The framework will also offer modern approaches to make data available enabling data analysis;
-		it becomes necessary because of the large amount of data produced by the \ac{iot} devices from extremely scattered data sources.
-		%
-		% With numerous \ac{iot} devices and vast amounts of data from various sources,
-		% the framework ensures consistent data access for comprehensive analysis.
-		% Since the \ac{iot} consists of a large number of devices,
-		% they produce a large amount of data from extremely scattered data sources.
-		% %
-		% The management of such data is a complex and delicate task,
-		% which will be addressed with state-of-the-art techniques.
+		The framework will also offer modern approaches to manipulating data over the continuum,
+		enabling effective management of sensors and actuators, but also making data available for storage and analysis.
 	\end{abstract}
 \end{titlepage}
 
@@ -114,7 +105,7 @@ the need for coordination arises.
 %
 In the literature,
 there are several approaches to coordination~\cite{DBLP:journals/csur/Ciancarini96}:
-\emph{message passing}, \emph{tuple space models}~\cite{DBLP:books/sp/omicini01/RossiCD01}, \emph{stigmergy models}~\cite{DBLP:journals/cogsr/Heylighen16}.
+\emph{message passing}~\cite{DBLP:journals/jacm/HondaYC16}, \emph{tuple space models}~\cite{DBLP:books/sp/omicini01/RossiCD01}, \emph{stigmergy models}~\cite{DBLP:journals/cogsr/Heylighen16}.
 
 In several pervasive systems,
 the traditional approaches in the engineering of these systems are not suitable,
@@ -133,24 +124,68 @@ in a declarative and compositional way.
 %
 This approach shifts the focus from a local perspective to a global one,
 where a group of devices can be seen as a single entity in which the aggregate program is executed.
-%
-The main abstraction on which \ac{ac} is based is the \emph{computational field} i.e.,
-a distributed data structure in which each device is mapped to a computational value.
+% %
+% The main abstraction on which \ac{ac} is based is the \emph{computational field} i.e.,
+% a distributed data structure in which each device is mapped to a computational value.
 
-One of the main benefits of this approach is the possibility to focus on high-level aspects and characteristics of the system,
-without worrying about low-level details like communication, failure, distribution, and so on.
+% One of the main benefits of this approach is the possibility to focus on high-level aspects and characteristics of the system,
+% without worrying about low-level details like communication, failure, distribution, and so on.
+% %
+% All the low-level aspects are managed by the underlying platform which manages the deployment and execution of the aggregate program.
+
+\paragraph{Edge-Cloud Continuum}
+The Cloud continuum represents one of the most recent hypes in the cloud computing domain with high interest from funding agencies~\cite{ict-40-2020, horizon-cl4-2022-data-01-02}.
 %
-All the low-level aspects are managed by the underlying platform which manages the deployment and execution of the aggregate program.
+Even if there is a lot of interest in this topic,
+there is no consensus on the definition of the edge-cloud continuum~\cite{DBLP:journals/access/MoreschiniPLNHT22}.
+%
+The earliest definitions of \emph{Cloud continuum} was proposed in~\cite{DBLP:journals/corr/GuptaNCG16, DBLP:journals/iotj/ChiangZ16} in 2016,
+where both focus on the concept of \emph{fog} between cloud and edge to express the concept of the continuum.
+%
+Over the years, the definition of the Cloud continuum has evolved,
+even from the same authors.
+%
+In~\cite{DBLP:journals/access/MoreschiniPLNHT22} the authors try to organize all the definitions of the Cloud continuum proposed in the literature,
+and they find out that there are three main categories: the first one put the concept of ``continuum'' strictly related to the concept of fog.
+%
+The second one considers the continuum as a combination of multiple edge and fog devices.
+%
+The third one considers the continuum as a combination of heterogeneous resources spanning from the edge to the cloud.
+%
+Also, the \ac{iot} is mentioned in the definition of the continuum~\cite{DBLP:conf/ucc/SpillnerGBV20, 9116796},
+but it is not clear the relation between \ac{iot} and the continuum.
+
+Moreschini et al. propose a definition that merges two aspects: \emph{extension of the resources} and \emph{extension of computational capabilities}.
+%
+As a result, they formulate the definition of cloud continuum as \emph{``an extension of the traditional Cloud towards multiple entities (e.g., Edge, Fog, IoT) that provide analysis, processing, storage, and data generation capabilities.''}
+
+What emerges from the literature is that the Cloud continuum is a concept that is still evolving,
+but it is quite clear that heterogeneity and complexity in the management of the infrastructures are predominant aspects of the continuum.
+%
+In this regard,
+based on the application context and scenarios,
+application-specific approaches are proposed to tackle those complexities~\cite{DBLP:journals/tiot/NehaPSSG22, DBLP:journals/csur/WeisenburgerWS20, DBLP:journals/fi/CasadeiPPVW20},
+where each approach has its advantages and disadvantages, but also its application context.
 
 \paragraph{Pulverisation}
-To tackle the complexity of the deployment of \ac{cas},
-several approaches have been proposed in the literature.
+The deployment of \ac{cas} is a complex task,
+especially when the system is composed of a large number of devices.
 %
-Some examples are: \emph{Osmotic Computing}~\cite{DBLP:journals/tiot/NehaPSSG22}, \emph{multi-tier programming}~\cite{DBLP:journals/csur/WeisenburgerWS20}.
+The deployment can also be complicated by the heterogeneity of the devices,
+which can have different computational capabilities and different communication technologies, 
+and by the dynamicity of the system.
+%
+Frequently,
+in those systems,
+the functional aspects are tightly coupled with the deployment aspects,
+which makes the deployment of the system rigid and difficult to change.
+% To tackle the complexity of the deployment of \ac{cas},
+% several approaches have been proposed in the literature.
+% %
+% Some examples are: \emph{Osmotic Computing}~\cite{DBLP:journals/tiot/NehaPSSG22}, \emph{multi-tier programming}~\cite{DBLP:journals/csur/WeisenburgerWS20}.
 
-\emph{Pulverisation}~\cite{DBLP:journals/fi/CasadeiPPVW20} represents an approach to distributed application partitioning and deployment.
-%
-Its goal is to provide a way to specify the functional semantics of the software in a deployment-independent way.
+\emph{Pulverisation}~\cite{DBLP:journals/fi/CasadeiPPVW20} represents an approach to distributed application partitioning and deployment,
+where its goal is to provide a way to specify the functional semantics of the software in a deployment-independent way.
 %
 To do so,
 the application logic should be designed considering a logical system,
@@ -162,7 +197,7 @@ a set of \emph{actuators},
 a \emph{state},
 a \emph{communication} component and a \emph{computation} component modeling the behaviour of the device (see~\Cref{fig:pulv}).
 %
-\begin{figure}
+\begin{figure}[ht]
 	\tikzset{-,
 		host/.style={rectangle,draw,line width={2pt},inner sep=10pt,
 				outer sep=0, minimum height=1.5cm, minimum width=1.8cm, %text height=0.2cm, 
@@ -379,7 +414,7 @@ a \emph{communication} component and a \emph{computation} component modeling the
 		\hfill
 		\begin{minipage}{0.48\columnwidth}\centering
 			\begin{tikzpicture}[node distance=1.0cm and 0.5cm,
-					every node/.style={scale=\tpscale}]
+					every node/.style={scale=0.6}]
 
 				% physical nodes
 				\node[hostThin,minimum width=1.5cm] (h1) [anchor=north,label=above:{}] {};
@@ -420,7 +455,7 @@ a \emph{communication} component and a \emph{computation} component modeling the
 		\end{minipage}
 	\end{minipage}
 
-	\caption{Pulverisation model and examples of deployments (Figure adapted from~\cite{DBLP:journals/fi/CasadeiPPVW20}).}
+	\caption{Pulverisation model and examples of deployments (Figure from~\cite{DBLP:journals/fi/CasadeiPPVW20}).}
 	\label{fig:pulv}
 \end{figure}
 %
@@ -432,8 +467,8 @@ Once the application is pulverized,
 a mapping must be provided between the logical system and the available infrastructure.
 %
 In this way,
-a single logical device can be executed on multiple physical devices,
-and a single physical device can execute multiple logical device components.
+a single logical device (more specifically, its components) can be executed on multiple physical devices,
+and a single physical device (host device constituting the infrastructure) can execute multiple logical device components.
 %
 Moreover,
 with no changes,
