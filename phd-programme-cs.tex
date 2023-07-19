@@ -31,6 +31,8 @@
 \acrodef{ci}[CI]{Continuous Integration}
 \acrodef{ai}[AI]{Artificial Intelligence}
 \acrodef{dl}[DL]{Deep Learning}
+\acrodef{wcs}[WCS]{Wearable Computing System}
+\acrodef{iac}[IaC]{Infrastructure as Code}
 
 \begin{document}
 
@@ -325,92 +327,6 @@ a \emph{communication} component and a \emph{computation} component modeling the
 			\end{tikzpicture}
 			\subcaption{Peer-to-peer architecture: one-to-one mapping between logical and physical devices, with no offloading.\label{fig:pulv:p2p}}
 		\end{minipage}
-		%\hfill
-		%\begin{minipage}{0.48\columnwidth}\centering
-		%\begin{tikzpicture}[node distance=1.0cm and 0.5cm,
-		%every node/.style={scale=\tpscale}]
-		%
-		%% physical nodes
-		%\node[host,minimum width=1.5cm] (h1) [anchor=north,label=above:{}] {};
-		%\node[host,minimum width=1.5cm] (h2) [right=of h1,label=above:{}] {};
-		%\node[host,minimum width=1.5cm] (h3) [right=of h2, label=above:{}] {};
-		%\node[host,minimum width=2.5cm] (he) [above right=0.6cm and -1cm of h1,label=above:{}] {};
-		%\node[host,minimum width=3.5cm] (h5) [above=2.6cm of h2,label=right:{}] {};
-		%
-		%\node[node] (n11) at (h1.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
-		%\node[node] (n12) at (h1.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
-		%\node[node] (n13) at (h1.north east) [xshift=-\nm,yshift=-\nm] {$\LState$};
-		%\node[node] (n14) at (h1.north west) [xshift=\nm,yshift=-\nm] {$\LComp$};
-		%\node[node] (n15) at (he) [xshift=-2*\nm] {$\LComm$};
-		%% logical node 2
-		%\node[nodeA] (n21) at (h2.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
-		%\node[nodeA] (n22) at (h2.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
-		%\node[nodeA] (n23) at (h2.north east) [xshift=-\nm,yshift=-\nm] {$\LState$};
-		%\node[nodeA] (n24) at (h2.north west) [xshift=\nm,yshift=-\nm] {$\LComp$};
-		%\node[nodeA] (n25) at (he) [xshift=0] {$\LComm$};
-		%% logical node 3
-		%\node[nodeB] (n31) at (h3.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
-		%\node[nodeB] (n32) at (h3.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
-		%\node[nodeB] (n33) at (h3.north east) [xshift=-\nm,yshift=-\nm] {$\LState$};
-		%\node[nodeB] (n34) at (h3.north west) [xshift=\nm,yshift=-\nm] {$\LComp$};
-		%\node[nodeB] (n35) at (h5) [xshift=2*\nm] {$\LComm$};
-		%
-		%% physical links
-		%\draw[plink] 
-		%	(h1) -- (he)
-		%	(h2) -- (he)
-		%	(h3) -- (h5)
-		%	(he) -- (h5);
-		%
-		%\draw[llink]
-		%    %(n15) to [bend left=20] (n35)
-		%    (n25) to [bend left=30] (n35);
-		%\end{tikzpicture}
-		%\subcaption{Communication component offloaded.\label{fig:pulv:comm}}
-		%\end{minipage}
-		%\\[0.2cm]
-		%\begin{minipage}{0.48\columnwidth}\centering
-		%\begin{tikzpicture}[node distance=1.0cm and 0.5cm,
-		%every node/.style={scale=\tpscale}]
-		%
-		%% physical nodes
-		%\node[host,minimum width=1.5cm] (h1) [anchor=north,label=above:{}] {};
-		%\node[host,minimum width=1.5cm] (h2) [right=of h1,label=above:{}] {};
-		%\node[host,minimum width=1.5cm] (h3) [right=of h2, label=above:{}] {};
-		%\node[host,minimum width=2.5cm] (he) [above right=0.6cm and -1cm of h1,label=above:{}] {};
-		%\node[host,minimum width=3.5cm] (h5) [above=2.6cm of h2,label=right:{}] {};
-		%
-		%\node[node] (n11) at (h1.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
-		%\node[node] (n12) at (h1.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
-		%\node[node] (n13) at (he.north) [xshift=-2*\nm,yshift=-\nm] {$\LComm$};
-		%\node[node] (n14) at (h1.north) [yshift=-\nm] {$\LComp$};
-		%\node[node] (n15) at (he.south) [xshift=-2*\nm,yshift=\nm] {$\LState$};
-		%% logical node 2
-		%\node[nodeA] (n21) at (h2.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
-		%\node[nodeA] (n22) at (h2.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
-		%\node[nodeA] (n23) at (he.north) [xshift=0*\nm,yshift=-\nm] {$\LComm$};
-		%\node[nodeA] (n24) at (h2.north) [yshift=-\nm] {$\LComp$};
-		%\node[nodeA] (n25) at (he.south) [xshift=0,yshift=\nm] {$\LState$};
-		%% logical node 3
-		%\node[nodeB] (n31) at (h3.south west) [xshift=\nm,yshift=\nm] {$\LSens$};
-		%\node[nodeB] (n32) at (h3.south east) [xshift=-\nm,yshift=\nm] {$\LAct$};
-		%\node[nodeB] (n33) at (h5.south) [xshift=2*\nm,yshift=\nm] {$\LComm$};
-		%\node[nodeB] (n34) at (h3.north) [yshift=-\nm] {$\LComp$};
-		%\node[nodeB] (n35) at (h5.south) [xshift=4*\nm,yshift=\nm] {$\LState$};
-		%
-		%% physical links
-		%\draw[plink] 
-		%	(h1) -- (he)
-		%	(h2) -- (he)
-		%	(h3) -- (h5)
-		%	(he) -- (h5);
-		%
-		%\draw[llink]
-		%    %(n15) to [bend left=20] (n35)
-		%    (n23) to [bend left=20] (n33);
-		%\end{tikzpicture}
-		%\subcaption{Communication and state components offloaded.\label{fig:pulv:state}}
-		%\end{minipage}
 		\hfill
 		\begin{minipage}{0.48\columnwidth}\centering
 			\begin{tikzpicture}[node distance=1.0cm and 0.5cm,
@@ -486,62 +402,59 @@ several challenges at different levels must be addressed to make it a reality:
 \section{Project description}\label{sec:project-description}
 
 With this project,
-we aim to investigate opportunities and challenges in the design and deployment of
-\ac{cas} on new and emergent infrastructures to opportunistically exploit them.
+we aim to investigate new developing models,
+architectures,
+and engineering tools for \ac{cas}.
 %
-We identify in \ac{iot}, swarm robotics, crowds of wearable-augmented humans, and so on,
-relevant application domains for this project.
-%
-Cloud computing has disrupted the way we think about computation and storage,
-moving from a static and centralized model to a dynamic and distributed one.
-%
-Recently,
-the emergence of a new paradigm called \emph{edge-cloud continuum}~\cite{DBLP:journals/iot/BittencourtISFM18}
-evolved the cloud computing model to a more distributed one,
-where several intermediate network layers and data processing patterns exist between the cloud data center and devices.
-%
-This infrastructure is characterized by a multi-layer heterogeneous infrastructure,
-ranging from powerful cloud servers to small connected devices.
-%
-Nevertheless,
-the design and deployment of \ac{cas} on this infrastructure is not trivial;
-several implications must be considered to effectively exploit the infrastructure's full potential,
-resulting in an open research problem.
+Specifically,
+this project can be framed on the \emph{COMMunity-OrieNted WEARable Computing Systems} (COMMON-WEARS)~\footnote{\url{https://common-wears.github.io/2022/project/}} project.
 
-With this project,
-we pursue one of the most promising approaches to tackle this complexity,
-by leveraging the \emph{Pulverisation}~\cite{DBLP:journals/fi/CasadeiPPVW20} aproach.
-%
-This approach tries to address the complexity by neatly separating the business logic of the system from infrastructural aspects,
-letting to focus on the functional aspects of the systems and delaying non-functional and infrastructural aspects.
-%
-The idea is to partition the software system into five components (\emph{sensors}, \emph{actuators}, \emph{behavior}, \emph{communication} and \emph{state})
-that can be independently deployed on the available infrastructure (see~\Cref{fig:overview}).
-%
-\begin{figure}[ht]
-	\centering
-	\begin{minipage}[t]{0.45\textwidth}
-		\includegraphics[width=.9\textwidth]{img/phd-proposal.drawio.pdf}
-		\subcaption{Application decomposition via pulverization and dynamic reconfiguration in the edge-cloud continuum.}
-	\end{minipage}
-	\hfill
-	\begin{minipage}[t]{0.45\textwidth}
-		\includegraphics[width=.9\textwidth]{img/data-stream.drawio.pdf}
-		\subcaption{Engineering of the data stream on heterogeneous infrastructure enabling different kinds of analysis.}
-	\end{minipage}
+The COMMON-WEARS project aims to develop a new generation of wearable computing systems that are community-oriented,
+featuring multi-user collectives of smart wearables and body sensor networks (BSN),
+with many potential applications like smart cities,
+healthcare,
+emergency,
+and manufacturing, for citing a few.
 
-	\caption{
-		Overview of the project.
-		Via pulverization the system is decomposed into components that can be independently deployed on the available infrastructure.
-		The components can also be dynamically relocated into the infrastructure to adapt to changing conditions (left picture).
-		Engineering of the data stream on heterogeneous infrastructure (right picture).
-	}
-	\label{fig:overview}
-\end{figure}
+The development of new models and architecture for next-generation of community-oriented wearable computing systems,
+the definition of rigorous engineering methodologies,
+simulation tools and formal verification to support the design and development of such systems,
+are one of the main objectives of the COMMON-WEARS project.
+
+Based on the objective stated above,
+this project tries to contribute in the following three main directions:
+
+\begin{itemize}
+	\item Leverage the \emph{pulverisation} for the deployment of \ac{cas} for wearable computing systems.
+		In particular,
+		we aim to extend the pulverization model to support \textbf{dynamic reconfiguration} of the system,
+		to better cope with the dynamicity of the environment and the system itself.
+		Moreover, \textbf{\ac{ai} techniques} will be investigated to support the dynamic reconfiguration of the system.
+
+	\item Bridge the gap between the \emph{simulation} and the \emph{deployment} of such systems.
+		Simulation tools represent an effective way to evaluate the system before its deployment,
+		however,
+		the transition from simulation to deployment is not always straightforward.
+		We aim to design and prototype a \textbf{pulverization framework} which can be integrated with existing simulation tools,
+		allowing the simulation of the pulverized system and its deployment on the target infrastructure with minimal effort.
+	
+	\item \textbf{Engineering data stream on the continuum}: \emph{edge-cloud continuum} represents a new promising infrastructure for the deployment of \ac{cas},
+		but also for systems of wearable devices.
+		Engineering data stream produced by sensors to control the actuators over the continuum is a challenging task.
+		We aim to investigate methodologies ad techniques to support the engineering of the data stream over the continuum to provide more effective control of distributed actuators,
+		and consequently,
+		enabling data storage and analysis over the stream.
+\end{itemize}
+
+The following sections provide more details about the three main directions of this project,
+in particular,
+they try to illustrate the main challenges and possible solutions.
+
+\subsection{Pulverization with dynamic reconfiguration}\label{sec:pulv-dyn}
+
+One current limitation of the \emph{pulverization}~\cite{DBLP:journals/fi/CasadeiPPVW20} approach regards the runtime reconfiguration of the system based on the changing conditions or requirements.
 %
-One current limitation of this approach regards the runtime reconfiguration of the system based on the changing conditions or requirements.
-%
-This project aims to extend the current pulverisation approach to support dynamic reconfiguration of the system
+This project aims to extend the current pulverisation approach to support the dynamic reconfiguration of the system
 by combining two approaches: \emph{Rule-based} and \emph{AI-based reconfiguration}.
 %
 The former can be used to define a set of static rules that can be used to reconfigure the system based on pre-determined and well-known conditions.
@@ -549,29 +462,81 @@ The former can be used to define a set of static rules that can be used to recon
 The latter can be extremely useful in contexts where the unpredictable conditions can be extremely high,
 or where many different factors must be considered to determine the best configuration for the system.
 %
+In~\Cref{fig:ai-reconf},
+we show an example of application decomposition via pulverization and the dynamic relocation of the component over the continuum.
+%
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.55\linewidth]{img/phd-proposal.drawio.pdf}
+	\caption{Application decomposition via pulverization and dynamic reconfiguration in the edge-cloud continuum.}
+	\label{fig:ai-reconf}
+\end{figure}
+%
+In this case,
+the \emph{distributed intelligence} can be exploited from two different perspectives:
+\emph{application level} to support application logic,
+for example by learning the best policy to follow to achieve a specific goal,
+and \emph{infrastructural level} to opportunistically choose the best deployment for the system,
+based on the current conditions, requirements, or \ac{qos}.
+%
 The ability to dynamically reconfiguration is a fundamental aspect,
 for example,
-in contexts where energy-efficient systems are required,
+in contexts where \emph{energy-efficient} systems are required,
 or where the balance between consumption and performance can be strategic.
 
-One other goal of this project is to bridge the gap between the simulation and the real world,
-providing a set of \emph{methodology}, \emph{tools}, and \emph{techniques}
-that can be seamlessly exploited to effectively tackle the system's complexity.
+\subsection{Bridge the gap between simulation and deployment}\label{sec:bridge-gap}
 
-\ac{cas} can be composed of several different devices that can produce a large amount of data.
-%
-This kind of data can be characterized by many formats, different sources, and different frequencies.
-%
-The management of such data can be complicated and can lead to a large amount of data that cannot be processed with traditional techniques.
-%
+A the time of writing,
+the pulverisation approach has no concrete implementation,
+and the validation of the approach has been done via simulations and formal verification~\cite{DBLP:journals/fi/CasadeiPPVW20, DBLP:journals/iotj/CasadeiFPPSV22}.
+
 For this reason,
-this project aims to provide a new approach to the engineering of data sources where a heterogeneous infrastructure is involved.
+this project aims to design and prototype a \emph{pulverization framework} that can be used to deploy pulverized applications on the target infrastructure.
 %
-In this way,
-the data can be available to be processed using big-data analysis techniques,
-opening to new opportunities in the context of \ac{cas}.
+Moreover,
+the integration of the framework with existing simulators like Alchemist~\cite{DBLP:journals/jos/PianiniMV13} is a fundamental step towards the deployment of pulverized applications.
+%
+As a consequence,
+we aim to provide a set of \emph{methodology},
+\emph{tools},
+and \emph{techniques} that can be seamlessly exploited to effectively engineer \ac{cas} as a full-stack solution.
 
-As follows, is provided a brief overview of the main activities that will be carried out.
+This contribution can be suitable in scenarios like \emph{smart cities},
+\emph{ambient intelligence},
+\emph{building automation},
+where the unpredictable nature of the environment made it difficult to predict the behavior of the system.
+%
+A full-stack solution can be used to simulate the system before its deployment (and try to predict its behavior),
+and then deploy it on the target infrastructure with minimal effort.
+
+\subsection{Engineering data stream on the continuum}\label{sec:eng-data-stream}
+
+Typically,
+in \ac{cps} like \ac{iot} systems or \ac{wcs},
+the data are produced at the edge of the network and then manipulated and processed on inner layers of the network, like the cloud.
+%
+Taking the pulverization as a reference,
+the stream of data produced by the sensors can be manipulated and processed on the continuum,
+and then the results can be used to control the actuators (see~\Cref{fig:data-stream}).
+%
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.55\textwidth]{img/data-stream.drawio.pdf}
+	\caption{Application decomposition via pulverization and dynamic reconfiguration in the edge-cloud continuum.}
+	\label{fig:data-stream}
+\end{figure}
+%
+The effective engineering of the data stream on the continuum is one of the challenges of this project.
+%
+In particular,
+we aim to investigate methodologies and techniques to support the engineering of the data stream over the continuum to provide more effective control of distributed actuators,
+and consequently,
+enabling data storage and analysis over the stream.
+%
+Nevertheless,
+the main focus remains on the engineering of the data stream,
+and not on the data analysis itself,
+which can be seen as a consequence of the engineering process where well-known techniques can be used above the stream.
 
 % -----------------
 % Expected results
@@ -602,17 +567,14 @@ The \ac{ai} can be strategically in contexts where complex \ac{qos} must be sati
 performing better than a rule-based approach, that in some contexts can be too rigid.
 
 \paragraph{Data stream engineering}
-Enable the possibility to perform data analysis on the data produced by the system by providing
-a data stream that ensemble the data produced by the devices in a heterogeneous system.
+Integrate into the framework the efficient data stream processing over the continuum and hide to the user the complexity of the underlying infrastructure.
 %
-The data stream will be provided by the framework and can be used by the user to perform
-data analysis leveraging,
-for example,
-big-data technologies.
+In this way,
+the user can focus on the application logic and the stream manipulation,
+according to the application logic,
+will be performed by the framework itself.
 %
-The data stream engineering is bounded to the pulverisation approach,
-in particular,
-the data access is provided by the framework itself.
+The framework can also expose APIs to allow the user to perform data storage and data analysis on the stream.
 
 \paragraph{Integration with CAS frameworks}
 Integrate the pulverisation framework with other, consolidated \ac{cas} frameworks
@@ -635,9 +597,9 @@ based on the expected results reported in~\Cref{sec:expected-results},
 are reported as follows.
 
 \begin{itemize}
-	\item Investigate the literature about many different approaches to the development of complex distributed systems,
-	      for example, multi-tier programming and distributed reactive programming for engineering \ac{cas}.
-	      Then, try to identify how these approaches can be integrated into the pulverization approach and possible improvements.
+	% \item Investigate the literature about many different approaches to the development of complex distributed systems,
+	%       for example, multi-tier programming and distributed reactive programming for engineering \ac{cas}.
+	%       Then, try to identify how these approaches can be integrated into the pulverization approach and possible improvements.
 	\item Design and prototyping of a framework supporting the pulverization approach.
 	      The framework will be designed to be modular and extensible but at the same time,
 	      it should be easy to use and able to run on different platforms to support the development on heterogeneous systems.
@@ -728,86 +690,71 @@ which can be tailored to the specific needs of the system.
 \subsection{Technology}\label{subsec:technology}
 
 \paragraph{Cloud computing}
-The objective of the pulverisation approach is to simplify the development and deployment of complex systems on diverse infrastructures.
+
+Cloud computing has emerged as a new paradigm for the provisioning of computing resources.
 %
-The edge-cloud continuum,
-a new paradigm,
-combines the benefits of cloud and edge computing.
-%
+The cloud continuum represents a hyped topic in the last few years,
+and it is expected to be the future for the deployment of \ac{iot} and \ac{cps} systems, and more.
+
 Understanding cloud computing and its technologies is crucial for designing and deploying such systems.
 %
 Popular cloud providers like Google \emph{Google Cloud Platform}~\footnote{\url{https://cloud.google.com/}},
 \emph{Amazon Web Services}~\footnote{\url{https://aws.amazon.com/}},
-and \emph{Microsoft Azure}~\footnote{\url{https://azure.microsoft.com/}} are the focus.
+are the main focus of this project.
 %
-It's important to enable the framework to be compatible with multiple cloud providers.
-%
-Infrastructure provisioning has evolved to automation using tools like Terraform~\footnote{\url{https://www.terraform.io/}} and Ansible~\footnote{\url{https://www.ansible.com/}},
-falling under the category of Infrastructure as Code (IaC).
-%
-These tools offer machine-readable infrastructure descriptions and APIs for programmatic interaction,
-enabling integration with other tools and frameworks.
-%
-IaC facilitates dynamic, programmable, and automated deployment of the system on available infrastructure in the edge-cloud continuum.
+Moreover,
+the integration of the pulverization framework with \ac{iac} tools like Terraform~\footnote{\url{https://www.terraform.io/}} and Ansible~\footnote{\url{https://www.ansible.com/}},
+will be investigated to effectively manage the infrastructure provisioning.
 
-% One of the main objectives of the pulverisation approach is to simplify the development
-% and the deployment of complex systems on heterogeneous infrastructures.
+% The objective of the pulverisation approach is to simplify the development and deployment of complex systems on diverse infrastructures.
 % %
-% The edge-cloud continuum is a new emerging paradigm that allows exploiting the
-% advantages of both cloud and edge computing (and its continuum).
+% The edge-cloud continuum,
+% a new paradigm,
+% combines the benefits of cloud and edge computing.
 % %
-% For this reason, it is fundamental to have a deep understanding of the cloud computing
-% paradigm and its technologies to provide a complete solution for the design and deployment
-% of this kind of system.
+% Understanding cloud computing and its technologies is crucial for designing and deploying such systems.
 % %
-% In recent years, several cloud providers have emerged, and each of them provides
-% a set of services and technologies to support the development of cloud-based applications.
-% %
-% \emph{Google Cloud Platform}~\footnote{\url{https://cloud.google.com/}},
+% Popular cloud providers like Google \emph{Google Cloud Platform}~\footnote{\url{https://cloud.google.com/}},
 % \emph{Amazon Web Services}~\footnote{\url{https://aws.amazon.com/}},
-% and \emph{Microsoft Azure}~\footnote{\url{https://azure.microsoft.com/}}
-% are the most popular cloud providers, and they will be the main focus of this project.
+% and \emph{Microsoft Azure}~\footnote{\url{https://azure.microsoft.com/}} are the focus.
 % %
-% Could be strategic to enable the framework to be used with different cloud providers
-% to allow the user to choose the one that best suits his needs.
+% It's important to enable the framework to be compatible with multiple cloud providers.
 % %
-% In recent years,
-% the way to provision infrastructure has changed.
+% Infrastructure provisioning has evolved to automation using tools like Terraform~\footnote{\url{https://www.terraform.io/}} and Ansible~\footnote{\url{https://www.ansible.com/}},
+% falling under the category of Infrastructure as Code (IaC).
 % %
-% The trend is to fully automate the provisioning of the infrastructure via dedicated tools,
-% like Terraform~\footnote{\url{https://www.terraform.io/}} and Ansible~\footnote{\url{https://www.ansible.com/}}.
+% These tools offer machine-readable infrastructure descriptions and APIs for programmatic interaction,
+% enabling integration with other tools and frameworks.
 % %
-% These tools fall in the category of \ac{iac}: they allow to describe the infrastructure in a machine-readable format
-% instead of using interactive configuration tools.
-% %
-% Moreover,
-% these tools provide a set of \ac{api} to interact with them programmatically,
-% allowing the integration with other tools and frameworks.
-% %
-% As a consequence,
-% these tools can be used in a \ac{ci} pipeline to fully automate the deployment of the system.
-% %
-% \ac{iac} represents a powerful technology in the context of the edge-cloud continuum,
-% allowing a dynamic, programmable and automated deployment of the system on the available infrastructure.
+% IaC facilitates dynamic, programmable, and automated deployment of the system on available infrastructure in the edge-cloud continuum.
 
 \paragraph{Data stream}
-The \ac{iot} systems consist of a large number of devices that produce a large amount of data
-from extremely scattered data sources.
+
+Due to the highly distributed nature of data produces by \ac{iot} and \ac{cps} systems,
+the use of appropriate techniques to manage the distributed stream of data is crucial.
 %
-The handling of such data requires an adequate infrastructure and tools to manage them.
+For this reason,
+the project will investigate the main techniques used in frameworks like \emph{Apache Kafka}~\footnote{\url{https://kafka.apache.org/}},
+\emph{Apache Pulsar}~\footnote{\url{https://pulsar.apache.org/}} and \emph{Apache Flink}~\footnote{\url{https://flink.apache.org/}},
+to understand how each of them try to solve the problem of managing the distributed stream of data.
 %
-For this reason, the project will investigate the use of big-data technologies
-such as \emph{Apache Spark}~\footnote{\url{https://spark.apache.org/}},
-\emph{Apache Flink}~\footnote{\url{https://flink.apache.org/}} and their integration with the pulverisation approach and the \ac{ac} frameworks.
-%
-The union of big-data technologies and the pulverisation approach can open new opportunities for \ac{cas}.
+% Moreover,
+% the integration of the pulverisation approach with these technologies will be investigated to enable the possibility to perform data analysis on the data produced by the system.
+
+% The \ac{iot} systems consist of a large number of devices that produce a large amount of data
+% from extremely scattered data sources.
+% %
+% The handling of such data requires an adequate infrastructure and tools to manage them.
+% %
+% For this reason, the project will investigate the use of big-data technologies
+% such as \emph{Apache Spark}~\footnote{\url{https://spark.apache.org/}},
+% \emph{Apache Flink}~\footnote{\url{https://flink.apache.org/}} and their integration with the pulverisation approach and the \ac{ac} frameworks.
+% %
+% The union of big-data technologies and the pulverisation approach can open new opportunities for \ac{cas}.
 
 \paragraph{Distributed technology}
 The resilience of the system is a fundamental aspect to consider when designing
 and deploying a collective adaptive application.
-%
-Due to the highly distributed nature of the \ac{iot} and \ac{ac} systems,
-the failure of a node is the norm rather than the exception.
 %
 For this reason, will be investigated the use of distributed technologies like \emph{MOM},
 specifically, RabbitMQ~\footnote{\url{https://www.rabbitmq.com/}} and ZeroMQ~\footnote{\url{https://zeromq.org/}};
