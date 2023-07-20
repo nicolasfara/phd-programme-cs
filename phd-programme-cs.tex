@@ -88,11 +88,7 @@
 \paragraph{Collective Adaptive Systems}
 A \ac{cas} is a system composed of several entities that interact with each other and can dynamically adapt to changing environments or requirements~\cite{DBLP:conf/birthday/HolzlW11}.
 %
-Often,
-the entities of these systems have their own goals and objectives,
-and interactions with other entities or may lead to unexpected phenomena.
-%
-Many modern systems are collective adaptive systems: \emph{smart cities}, \emph{collective cyber-physical systems}, \emph{robot swarms} and \emph{sensor network}.
+Many modern systems are collective adaptive systems: \emph{smart cities}, \emph{collective cyber-physical systems}, \emph{robot swarms}, and \emph{sensor network}.
 %
 The notion of \ac{cas} was elaborated in the workshop ``Fundamentals of Collective Adaptive Systems''~\cite{DBLP:journals/corr/abs-1108-5643}
 organized by the European Commission in 2009,
@@ -110,10 +106,6 @@ In the literature,
 there are several approaches to coordination~\cite{DBLP:journals/csur/Ciancarini96}:
 \emph{message passing}~\cite{DBLP:journals/jacm/HondaYC16}, \emph{tuple space models}~\cite{DBLP:books/sp/omicini01/RossiCD01}, \emph{stigmergy models}~\cite{DBLP:journals/cogsr/Heylighen16}.
 
-In several pervasive systems,
-the traditional approaches in the engineering of these systems are not suitable,
-due to the lack of mechanisms to address complex behaviour and limited scalability.
-
 Situatedness and time awareness are two important aspects of pervasive systems.
 %
 For this reason,
@@ -127,14 +119,6 @@ in a declarative and compositional way.
 %
 This approach shifts the focus from a local perspective to a global one,
 where a group of devices can be seen as a single entity in which the aggregate program is executed.
-% %
-% The main abstraction on which \ac{ac} is based is the \emph{computational field} i.e.,
-% a distributed data structure in which each device is mapped to a computational value.
-
-% One of the main benefits of this approach is the possibility to focus on high-level aspects and characteristics of the system,
-% without worrying about low-level details like communication, failure, distribution, and so on.
-% %
-% All the low-level aspects are managed by the underlying platform which manages the deployment and execution of the aggregate program.
 
 \paragraph{Edge-Cloud Continuum}
 The Cloud continuum represents one of the most recent hypes in the cloud computing domain with high interest from funding agencies~\cite{ict-40-2020, horizon-cl4-2022-data-01-02}.
@@ -182,10 +166,6 @@ Frequently,
 in those systems,
 the functional aspects are tightly coupled with the deployment aspects,
 which makes the deployment of the system rigid and difficult to change.
-% To tackle the complexity of the deployment of \ac{cas},
-% several approaches have been proposed in the literature.
-% %
-% Some examples are: \emph{Osmotic Computing}~\cite{DBLP:journals/tiot/NehaPSSG22}, \emph{multi-tier programming}~\cite{DBLP:journals/csur/WeisenburgerWS20}.
 
 \emph{Pulverisation}~\cite{DBLP:journals/fi/CasadeiPPVW20} represents an approach to distributed application partitioning and deployment,
 where its goal is to provide a way to specify the functional semantics of the software in a deployment-independent way.
@@ -639,67 +619,74 @@ the remaining goals of the project are reported as follows.
 		contribute by proposing new approaches and solutions to the actual limitations of the state-of-the-art techniques.
 \end{itemize}
 
-\subsection{Scope}\label{subsec:scope}
+% \subsection{Scope}\label{subsec:scope}
 
-\paragraph{Software engineering}
-The challenges of the edge-cloud continuum lead to the need for new models,
-design techniques, algorithms, languages, and tools to manage the complexity
-of \ac{cps}.
-%
-With this new design approach,
-there is the need to have the possibility to test and validate the system via simulation
-and then seamlessly moves to the real deployments with a small effort.
-%
-This kind of seamless integration between simulation and real deployment can be strategic
-to simplify the validation of the system and to reduce the time to market.
+% The scope of this project can be summarized as \textbf{Software engineering} where new models,
+% design techniques,
+% algorithms and methodologies will be proposed to simpl
+% \textbf{Distributed intelligence}
+% \textbf{Energy and cost efficiency}
+% \textbf{Cyber-physical systems}
 
-\paragraph{Distributed intelligence}
-\ac{ai} is a computer science branch that has met big improvements over the last few years.
-%
-Even though the \ac{ai} usually tries to solve vertical and specific problems,
-making it difficult to be applied in contexts like \ac{cas},
-which are highly distributed by nature.
-%
-The value of a distributed intelligence leveraging \ac{ai} techniques can be strategic in \ac{cas},
-in particular for adapting -- intelligently -- the system to changing conditions or to maintain certain \ac{qos}.
+% \paragraph{Software engineering}
+% The challenges of the edge-cloud continuum lead to the need for new models,
+% design techniques, algorithms, languages, and tools to manage the complexity
+% of \ac{cps}.
+% %
+% With this new design approach,
+% there is the need to have the possibility to test and validate the system via simulation
+% and then seamlessly moves to the real deployments with a small effort.
+% %
+% This kind of seamless integration between simulation and real deployment can be strategic
+% to simplify the validation of the system and to reduce the time to market.
 
-\paragraph{Energy and cost efficiency}
-One of the current trends in the IT industry is the \emph{green computing}.
-%
-The need to reduce energy consumption and consequently the carbon footprint of the systems can be a requirement in many future systems.
-%
-For this reason,
-supporting the design and implementation of systems in which from the many \ac{qos} parameters,
-energy consumption is one of the most important,
-must be a future direction of \ac{cps} and \ac{iot} systems.
+% \paragraph{Distributed intelligence}
+% \ac{ai} is a computer science branch that has met big improvements over the last few years.
+% %
+% Even though the \ac{ai} usually tries to solve vertical and specific problems,
+% making it difficult to be applied in contexts like \ac{cas},
+% which are highly distributed by nature.
+% %
+% The value of a distributed intelligence leveraging \ac{ai} techniques can be strategic in \ac{cas},
+% in particular for adapting -- intelligently -- the system to changing conditions or to maintain certain \ac{qos}.
 
-\paragraph{Cyper-physical Systems}
-We refer to \ac{cps} as a system that is composed of physical and computational components
-that are deeply intertwined and interact with each other.
-%
-\emph{Smart cities}, \emph{Smart home}, \emph{Precision agricolture} are just some examples of \ac{cps}.
-%
-All of these systems can be very different from each other,
-but they share some characteristics and challenges,
-for example: \emph{dynamicity}, \emph{volume} (devices and produced data) and \emph{heterogeneity}.
-%
-The project can be framed in the context of \ac{cps} by providing an effective general solution to the aforementioned challenges,
-which can be tailored to the specific needs of the system.
+% \paragraph{Energy and cost efficiency}
+% One of the current trends in the IT industry is the \emph{green computing}.
+% %
+% The need to reduce energy consumption and consequently the carbon footprint of the systems can be a requirement in many future systems.
+% %
+% For this reason,
+% supporting the design and implementation of systems in which from the many \ac{qos} parameters,
+% energy consumption is one of the most important,
+% must be a future direction of \ac{cps} and \ac{iot} systems.
+
+% \paragraph{Cyper-physical Systems}
+% We refer to \ac{cps} as a system that is composed of physical and computational components
+% that are deeply intertwined and interact with each other.
+% %
+% \emph{Smart cities}, \emph{Smart home}, \emph{Precision agricolture} are just some examples of \ac{cps}.
+% %
+% All of these systems can be very different from each other,
+% but they share some characteristics and challenges,
+% for example: \emph{dynamicity}, \emph{volume} (devices and produced data) and \emph{heterogeneity}.
+% %
+% The project can be framed in the context of \ac{cps} by providing an effective general solution to the aforementioned challenges,
+% which can be tailored to the specific needs of the system.
 
 \subsection{Technology}\label{subsec:technology}
 
 Cloud computing is a prominent paradigm for computing resource provisioning,
 particularly crucial for the future deployment of IoT and CPS systems.
 %
-The project focuses on understanding cloud computing and technologies provided by major cloud providers like Google Cloud Platform~\footnote{\url{https://cloud.google.com/}} and Amazon Web Services~\footnote{\url{https://aws.amazon.com/}}.
+The project focuses on understanding cloud computing and technologies provided by major cloud providers like Google Cloud Platform and Amazon Web Services.
 %
 Additionally,
 it explores the integration of the pulverization framework with Infrastructure as Code (IaC) tools like Terraform~\footnote{\url{https://www.terraform.io/}} and Ansible~\footnote{\url{https://www.ansible.com/}} for effective infrastructure management.
 %
 To handle the distributed nature of data from IoT and CPS systems,
-the project investigates techniques in frameworks like Apache Kafka~\footnote{\url{https://kafka.apache.org/}},
-Apache Pulsar~\footnote{\url{https://pulsar.apache.org/}},
-and Apache Flink~\footnote{\url{https://flink.apache.org/}}.
+the project investigates techniques in frameworks like Apache Kafka,
+Apache Pulsar,
+and Apache Flink.
 %
 Moreover,
 the study delves into distributed technologies such as MOM,
