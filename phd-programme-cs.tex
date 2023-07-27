@@ -13,7 +13,10 @@
 % \usepackage{mathrsfs}  % mathscr font
 % \usepackage[colorlinks, filecolor=dark_blue, urlcolor=dark_blue, linkcolor=black, citecolor=black]{hyperref}
 
-\usepackage[backend=biber]{biblatex}
+\usepackage[
+	backend=biber,
+	sorting=none,
+]{biblatex}
 \addbibresource{bibliography.bib}
 \usepackage{cleveref}
 
@@ -112,6 +115,7 @@ This approach shifts the focus from a local perspective to a global one,
 where a group of devices can be seen as a single entity in which the aggregate program is executed.
 
 \paragraph{Edge-Cloud Continuum}
+\meta{
 The Cloud continuum represents one of the most recent hypes in the cloud computing domain with high interest from funding agencies~\cite{ict-40-2020, horizon-cl4-2022-data-01-02}.
 %
 Even if there is a lot of interest in this topic,
@@ -144,6 +148,7 @@ In this regard,
 based on the application context and scenarios,
 application-specific approaches are proposed to tackle those complexities~\cite{DBLP:journals/tiot/NehaPSSG22, DBLP:journals/csur/WeisenburgerWS20, DBLP:journals/fi/CasadeiPPVW20},
 where each approach has its advantages and disadvantages, but also its application context.
+}
 
 \paragraph{Pulverisation}
 The deployment of \ac{cas} is a complex task,
@@ -375,7 +380,7 @@ several challenges at different levels must be addressed to make it a reality:
 % --------------------
 
 \section{Project description}\label{sec:project-description}
-
+\meta{
 With this project,
 we aim to investigate new developing models,
 architectures,
@@ -425,9 +430,10 @@ this project tries to contribute in the following three main directions:
 The following sections provide more details about the three main contributions of this project,
 in particular,
 they try to illustrate the main challenges and possible solutions.
-
+}
 \subsection{Pulverization with dynamic reconfiguration}\label{sec:pulv-dyn}
 
+\meta{
 One current limitation of the \emph{pulverization}~\cite{DBLP:journals/fi/CasadeiPPVW20} approach regards the runtime reconfiguration of the system based on the changing conditions or requirements.
 %
 This project aims to extend the current pulverisation approach to support the dynamic reconfiguration of the system
@@ -460,9 +466,10 @@ The ability to dynamically reconfiguration is a fundamental aspect,
 for example,
 in contexts where \emph{energy-efficient} systems are required,
 or where the balance between consumption and performance can be strategic.
+}
 
 \subsection{Bridge the gap between simulation and deployment}\label{sec:bridge-gap}
-
+\meta{
 A the time of writing,
 the pulverisation approach has no concrete implementation,
 and the validation of the approach has been done via simulations and formal verification~\cite{DBLP:journals/fi/CasadeiPPVW20, DBLP:journals/iotj/CasadeiFPPSV22}.
@@ -485,9 +492,10 @@ where the unpredictable nature of the environment made it difficult to predict t
 %
 A full-stack solution can be used to simulate the system before its deployment (and try to predict its behavior),
 and then deploy it on the target infrastructure with minimal effort.
+}
 
 \subsection{Engineering data stream on the continuum}\label{sec:eng-data-stream}
-
+\meta{
 Typically,
 in \ac{cps} like \ac{iot} systems or \ac{wcs},
 the data are produced at the edge of the network and then manipulated and processed on high-level layers of the network, like the cloud.
@@ -514,7 +522,7 @@ Nevertheless,
 the main focus remains on the engineering of the data stream,
 and not on the data analysis itself,
 which can be seen as a consequence of the engineering process where well-known techniques can be used above the stream.
-
+}
 % -----------------
 % Expected results
 % -----------------
@@ -542,6 +550,7 @@ to provide a more flexible and adaptive approach.
 The final expectation is to have implemented both of these two techniques into the pulverisation framework.
 
 \paragraph{Data stream engineering}
+\meta{
 Integrate into the framework the efficient data stream processing over the continuum and hide to the user the complexity of the underlying infrastructure.
 %
 In this way,
@@ -550,6 +559,7 @@ according to the application logic,
 will be performed by the framework itself.
 %
 The framework can also expose APIs to allow the user to perform data storage and data analysis on the stream.
+}
 
 \paragraph{Integration with CAS frameworks}
 Integrate the proposed framework with other, consolidated \ac{cas} frameworks
@@ -616,7 +626,7 @@ the remaining goals of the project are reported as follows.
 \end{itemize}
 
 \subsection{Technology}\label{subsec:technology}
-
+\meta{
 Cloud computing is a prominent paradigm for computing resource provisioning,
 particularly crucial for the future deployment of IoT and CPS systems.
 %
@@ -639,6 +649,7 @@ The use of Kubernetes~\footnote{\url{https://kubernetes.io/}} as an orchestratio
 %
 Overall,
 the project aims to gain insights into these areas to design and deploy robust collective adaptive applications.
+}
 
 \subsection{Long-term contribution}
 The initiative proposed in this project aims to tackle the complexity of designing and deploying systems on heterogeneous infrastructures,
