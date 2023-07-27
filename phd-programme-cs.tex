@@ -88,22 +88,14 @@
 \paragraph{Collective Adaptive Systems}
 A \ac{cas} is a system composed of several entities that interact with each other and can dynamically adapt to changing environments or requirements~\cite{DBLP:conf/birthday/HolzlW11}.
 %
-Many modern systems are collective adaptive systems: \emph{smart cities}, \emph{collective cyber-physical systems}, \emph{robot swarms}, and \emph{sensor network}.
-%
-The notion of \ac{cas} was elaborated in the workshop ``Fundamentals of Collective Adaptive Systems''~\cite{DBLP:journals/corr/abs-1108-5643}
-organized by the European Commission in 2009,
-and in the following years,
-it has been the subject of several research projects~\cite{DBLP:journals/procedia/ZambonelliCFMRSRTDSYNOMVFMW11,DBLP:series/lncs/8998}.
+Many modern systems are collective adaptive systems,
+like \emph{smart cities}, \emph{collective cyber-physical systems}, \emph{robot swarms}, and \emph{sensors network}.
 
-Coordination in \ac{cas} is a fundamental aspect to consider when adaptation properties are required.
-%
-Coordination~\cite{DBLP:journals/csur/Ciancarini96} represents an effective way to achieve a global goal in a distributed system.
-%
-When entities of the system start to communicate with each other,
-the need for coordination arises.
+Coordination~\cite{DBLP:journals/csur/Ciancarini96} in \ac{cas} is a fundamental aspect to consider when adaptation properties are required,
+and represents an effective way to achieve a global goal in a distributed system.
 %
 In the literature,
-there are several approaches to coordination~\cite{DBLP:journals/csur/Ciancarini96}:
+there are several approaches for coordination:
 \emph{message passing}~\cite{DBLP:journals/jacm/HondaYC16}, \emph{tuple space models}~\cite{DBLP:books/sp/omicini01/RossiCD01}, \emph{stigmergy models}~\cite{DBLP:journals/cogsr/Heylighen16}.
 
 Situatedness and time awareness are two important aspects of pervasive systems.
@@ -114,8 +106,7 @@ spatial computing has emerged to manage these aspects as a first-class citizen~\
 This approach makes it possible to obtain self-adaptive properties in the system,
 and react to changes in the environment and faults conditions.
 
-\ac{ac}~\cite{DBLP:journals/computer/BealPV15} is a novel approach that consists in manipulating computational fields,
-in a declarative and compositional way.
+\ac{ac}~\cite{DBLP:journals/computer/BealPV15} is a novel approach that consists in manipulating computational fields in a declarative and compositional way.
 %
 This approach shifts the focus from a local perspective to a global one,
 where a group of devices can be seen as a single entity in which the aggregate program is executed.
@@ -376,6 +367,9 @@ Even if the idea behind pulverisation is quite simple,
 several challenges at different levels must be addressed to make it a reality:
 \emph{communication}, \emph{portability}, \emph{runtime} are only some of them.
 
+
+\newpage
+
 % --------------------
 % Project description
 % --------------------
@@ -400,34 +394,35 @@ and manufacturing, for citing a few.
 The development of new models and architecture for next-generation of community-oriented wearable computing systems,
 the definition of rigorous engineering methodologies,
 simulation tools and formal verification to support the design and development of such systems,
-are one of the main objectives of the COMMON-WEARS project.
+are a few of the main objectives of the COMMON-WEARS project.
 
 Based on the objective stated above,
 this project tries to contribute in the following three main directions:
 
 \begin{itemize}
-	\item Leverage the \emph{pulverisation} for the deployment of \ac{cas} for wearable computing systems.
+	\item Leverage the \emph{pulverisation} approach for the deployment of \ac{cas} for wearable computing systems.
 		In particular,
 		we aim to extend the pulverization model to support \textbf{dynamic reconfiguration} of the system,
 		to better cope with the dynamicity of the environment and the system itself.
-		Moreover, \textbf{\ac{ai} techniques} will be investigated to support the dynamic reconfiguration of the system.
+		Moreover, \textbf{\ac{ai} techniques} will be investigated to improve the dynamic reconfiguration of the system.
 
 	\item Bridge the gap between the \emph{simulation} and the \emph{deployment} of such systems.
 		Simulation tools represent an effective way to evaluate the system before its deployment,
 		however,
 		the transition from simulation to deployment is not always straightforward.
-		We aim to design and prototype a \textbf{pulverization framework} which can be integrated with existing simulation tools,
-		allowing the simulation of the pulverized system and its deployment on the target infrastructure with minimal effort.
+		We aim to provide a \textbf{full-stack solution} to support the transition from simulation to deployment of a system with minimal effort.
+		% We aim to design and prototype a \textbf{pulverization framework} which can be integrated with existing simulation tools,
+		% allowing the simulation of the pulverized system and its deployment on the target infrastructure with minimal effort.
 	
 	\item \textbf{Engineering data stream on the continuum}: \emph{edge-cloud continuum} represents a new promising infrastructure for the deployment of \ac{cas},
 		but also for systems of wearable devices.
 		Engineering data stream produced by sensors to control the actuators over the continuum is a challenging task.
 		We aim to investigate methodologies ad techniques to support the engineering of the data stream over the continuum to provide more effective control of distributed actuators,
 		and consequently,
-		enabling data storage and analysis over the stream.
+		enabling data storage and analysis.
 \end{itemize}
 
-The following sections provide more details about the three main directions of this project,
+The following sections provide more details about the three main contributions of this project,
 in particular,
 they try to illustrate the main challenges and possible solutions.
 
@@ -440,8 +435,16 @@ by combining two approaches: \emph{Rule-based} and \emph{AI-based reconfiguratio
 %
 The former can be used to define a set of static rules that can be used to reconfigure the system based on pre-determined and well-known conditions.
 %
-The latter can be extremely useful in contexts where the unpredictable conditions can be extremely high,
-or where many different factors must be considered to determine the best configuration for the system.
+The latter can be useful in contexts where the unpredictable conditions can be high,
+or where a huge number of factors must be considered to determine the best configuration for the system,
+making traditional optimization techniques not suitable.
+%
+In this case,
+the \emph{distributed intelligence} can be exploited from two different perspectives:
+\emph{application level} to support application logic,
+for example by learning the best policy to follow to achieve a specific goal,
+and \emph{infrastructural level} to opportunistically choose the best deployment for the system,
+based on the current conditions, requirements, or \ac{qos}.
 %
 In~\Cref{fig:ai-reconf},
 we show an example of application decomposition via pulverization and the dynamic relocation of the component over the continuum.
@@ -452,13 +455,6 @@ we show an example of application decomposition via pulverization and the dynami
 	\caption{Application decomposition via pulverization and dynamic reconfiguration in the edge-cloud continuum.}
 	\label{fig:ai-reconf}
 \end{figure}
-%
-In this case,
-the \emph{distributed intelligence} can be exploited from two different perspectives:
-\emph{application level} to support application logic,
-for example by learning the best policy to follow to achieve a specific goal,
-and \emph{infrastructural level} to opportunistically choose the best deployment for the system,
-based on the current conditions, requirements, or \ac{qos}.
 %
 The ability to dynamically reconfiguration is a fundamental aspect,
 for example,
@@ -485,7 +481,7 @@ and \emph{techniques} that can be seamlessly exploited to effectively engineer \
 This contribution can be suitable in scenarios like \emph{smart cities},
 \emph{ambient intelligence},
 \emph{building automation},
-where the unpredictable nature of the environment made it difficult to predict the behavior of the system.
+where the unpredictable nature of the environment made it difficult to predict the system's behavior.
 %
 A full-stack solution can be used to simulate the system before its deployment (and try to predict its behavior),
 and then deploy it on the target infrastructure with minimal effort.
@@ -494,7 +490,7 @@ and then deploy it on the target infrastructure with minimal effort.
 
 Typically,
 in \ac{cps} like \ac{iot} systems or \ac{wcs},
-the data are produced at the edge of the network and then manipulated and processed on inner layers of the network, like the cloud.
+the data are produced at the edge of the network and then manipulated and processed on high-level layers of the network, like the cloud.
 %
 Taking the pulverization as a reference,
 the stream of data produced by the sensors can be manipulated and processed on the continuum,
@@ -530,7 +526,7 @@ Design and prototype an effective framework to support the development of comple
 via the pulverisation approach.
 %
 We will provide a modular and extensible framework that can also be integrated with simulation tools
-to allow the validation of the system before the deployment.
+to allow the validation of the system before its deployment.
 
 \paragraph{Dynamic system reconfiguration}
 Extend the pulverisation model to support at runtime the dynamic and opportunistic reconfiguration of the components over the continuum.
@@ -618,60 +614,6 @@ the remaining goals of the project are reported as follows.
 		Then,
 		contribute by proposing new approaches and solutions to the actual limitations of the state-of-the-art techniques.
 \end{itemize}
-
-% \subsection{Scope}\label{subsec:scope}
-
-% The scope of this project can be summarized as \textbf{Software engineering} where new models,
-% design techniques,
-% algorithms and methodologies will be proposed to simpl
-% \textbf{Distributed intelligence}
-% \textbf{Energy and cost efficiency}
-% \textbf{Cyber-physical systems}
-
-% \paragraph{Software engineering}
-% The challenges of the edge-cloud continuum lead to the need for new models,
-% design techniques, algorithms, languages, and tools to manage the complexity
-% of \ac{cps}.
-% %
-% With this new design approach,
-% there is the need to have the possibility to test and validate the system via simulation
-% and then seamlessly moves to the real deployments with a small effort.
-% %
-% This kind of seamless integration between simulation and real deployment can be strategic
-% to simplify the validation of the system and to reduce the time to market.
-
-% \paragraph{Distributed intelligence}
-% \ac{ai} is a computer science branch that has met big improvements over the last few years.
-% %
-% Even though the \ac{ai} usually tries to solve vertical and specific problems,
-% making it difficult to be applied in contexts like \ac{cas},
-% which are highly distributed by nature.
-% %
-% The value of a distributed intelligence leveraging \ac{ai} techniques can be strategic in \ac{cas},
-% in particular for adapting -- intelligently -- the system to changing conditions or to maintain certain \ac{qos}.
-
-% \paragraph{Energy and cost efficiency}
-% One of the current trends in the IT industry is the \emph{green computing}.
-% %
-% The need to reduce energy consumption and consequently the carbon footprint of the systems can be a requirement in many future systems.
-% %
-% For this reason,
-% supporting the design and implementation of systems in which from the many \ac{qos} parameters,
-% energy consumption is one of the most important,
-% must be a future direction of \ac{cps} and \ac{iot} systems.
-
-% \paragraph{Cyper-physical Systems}
-% We refer to \ac{cps} as a system that is composed of physical and computational components
-% that are deeply intertwined and interact with each other.
-% %
-% \emph{Smart cities}, \emph{Smart home}, \emph{Precision agricolture} are just some examples of \ac{cps}.
-% %
-% All of these systems can be very different from each other,
-% but they share some characteristics and challenges,
-% for example: \emph{dynamicity}, \emph{volume} (devices and produced data) and \emph{heterogeneity}.
-% %
-% The project can be framed in the context of \ac{cps} by providing an effective general solution to the aforementioned challenges,
-% which can be tailored to the specific needs of the system.
 
 \subsection{Technology}\label{subsec:technology}
 
