@@ -1,8 +1,8 @@
-\documentclass[12pt]{article}
+\documentclass[12pt,a4paper]{article}
 \usepackage{datetime}
 \usepackage{acronym}
 \usepackage{xcolor}
-\setlength {\marginparwidth }{2cm}
+\setlength{\marginparwidth}{2cm}
 \usepackage{todonotes}
 \usepackage{hyperref}
 \usepackage{amsmath}
@@ -38,25 +38,12 @@
 \acrodef{iac}[IaC]{Infrastructure as Code}
 \acrodef{rl}[RL]{Reinforcement Learning}
 
+\title{Engineering Reconfigurable Collective Systems in Cloud-Edge Environments}
+\author{Nicolas Farabegoli}
+\date{\monthyeardate\today}
+
 \begin{document}
-
-\begin{titlepage}
-	\centering
-
-	\textsc{\Large Ph.D Programme in Computer Science and Engineering}\\[0.5cm]
-	\textsc{\Large Admission XXXIX Cycle}\\[0.6cm]
-
-	\hrule width \hsize \kern 1mm \hrule width \hsize height 2pt
-	\vspace{0.8cm}
-
-	{\large \bfseries Research Project Proposal}\\[0.6cm]
-	{\large \emph{Engineering Reconfigurable Collective Systems in Cloud-Edge Environments}}\\[0.6cm]
-
-	{\bfseries{\monthyeardate\today} \hfill \bfseries{Nicolas Farabegoli}}\\[0.6cm]
-
-	\hrule width \hsize height 2pt \kern 1mm \hrule width \hsize height 1pt
-	\vspace{0.4cm}
-\end{titlepage}
+\maketitle
 
 \section{Introduction}\label{sec:introduction}
 
@@ -101,7 +88,7 @@ forming a \emph{continuum} of computational resources.
 %
 As a consequence,
 software systems are becoming more and more complex and \emph{highly distributed} \todo{Mettere reference qui.},
-leading their \emph{opportunisitc exploitation} to a challenging task. 
+leading their \emph{opportunistic exploitation} to a challenging task. 
 %
 Traditional monolithic approaches,
 as well as more recent cloud-based approaches,
@@ -112,7 +99,6 @@ The Edge-Cloud Continuum represents a promising solution for the deployment of t
 where dynamism,
 unpredictability and efficient use of resources are predominant elements.
 
-
 The goal of this project is to investigate novel methodologies,
 techniques and tools for the design and deployment of software systems in \emph{heterogeneous} and \emph{distributed} infrastructures
 allowing the evolution of software systems to opportunistically exploit the available resources,
@@ -122,12 +108,107 @@ This project emphasizes solving the above issues in the context of \ac{cas},
 where wearable devices cover a predominant role.
 
 \paragraph{Openness in the continuum}
+With \emph{openness} we refer to the ability of a (distributed) system to be improved and extended either in software or hardware.
+%
+In this regard,
+the system can accept or remove software components,
+but also with infrastructure nodes.
+%
+Due to the high heterogeneity of the continuum,
+and the high dynamism of the environment,
+the seamless integration of new devices or software components is a must-to property,
+but also a challenging task.
+%
+With seamless integration,
+we refer to the ability of the system to integrate new devices or software components without the need to rewrite the application logic.
+%
+In this regard,
+aspects like \emph{interoperability, standardization, portability, and open source principles} are fundamental to achieving openness.
+%
+By promoting the aforementioned aspects,
+openness aims to create more adaptable and inclusive distributed systems that can evolve and thrive in a rapidly changing technological landscape.
 
 \paragraph{Heterogeneity in the continuum}
+Heterogeneity is a characterizing element of Edge-Cloud systems,
+where devices can have different computational capabilities,
+different communication technologies,
+and different energy consumption. \todo{Mettere reference qui.}
+%
+The heterogeneity can also be observed at the software level,
+where different nodes of the infrastructure can run different operating systems,
+different programming languages,
+and different software components.
+%
+In this regard,
+is common to observe tiny devices running on microcontrollers at the edge of the network,
+up to powerful devices (i.e. servers) running on the cloud.
+%
+For this reason,
+the \emph{continuum} is characterized by a wide range of technological stacks,
+which complicates the design and deployment of software systems in this environment.
+%
+Ideally,
+the desiderata are leveraging a set of abstractions that can be exploited to hide the complexity of the continuum,
+preventing the need to rewrite the application logic whenever a change is required.
 
 \paragraph{Wearable devices}
+Wearable devices over the years have played an increasingly predominant role in our daily lives.
+These devices over time have become increasingly powerful in terms of computing power but also concerning the data they can detect.
+%
+It is likely that soon,
+we may see an explosion of smart objects such as rings,
+earrings, bracelets, etc. \todo{Reference qui.}
+%
+Wearable devices represent the quintessence of heterogeneity in the continuum:
+the miniaturization of these devices and the energy constraints make them very limited in terms of computational capabilities,
+but also in terms of communication technologies. \todo{Valutare reference qui.}
+%
+For this reason,
+the classical and well-established -- but mainly static -- architecture where each device is connected to the cloud,
+will not be able to cope with the new requirements of these devices.
+%
+Moreover,
+many requirements like \emph{low latency, privacy, and security} sometimes cannot be satisfied by the classical architecture. \todo{Reference qui.}
+%
+In this regard,
+the Edge-Cloud continuum represents a promising solution to tackle these issues,
+in particular,
+with this new type of infrastructure,
+we can promptly react to the changing requirements of the software systems,
+maintaining specific \ac{qos} but also specific constraints.
 
 \paragraph{Open to evolution}
+These days certain wearable devices expose certain capabilities.
+%
+But in the near future,
+they will exhibit others and new tools will emerge.
+%
+These days certain wearable devices expose certain capabilities.
+But shortly, they will exhibit others and new tools will emerge.
+%
+For example,
+today we have the smartphone whose battery lasts about a day,
+but tomorrow we may have smartphones that harvest energy from the human body:
+this will change the way how we will use that device.
+%
+The main point here is that in such dynamic conditions,
+it will be unfordable to rewrite the application logic every time a new technology or device emerges.
+%
+The different capabilities should be captured in the right level of abstraction to be exploited,
+and then delegate the effective deployment to some other actors (e.g. a framework or platform, a CI/CD pipeline, etc.).
+%
+Another key aspect to consider is that these devices,
+since can be worn,
+the can be removed,
+replaced,
+borrowed, etc.
+%
+And for these reasons,
+is necessary to dynamically manage which component runs where,
+but is not enough to have a static mapping for resource allocation handled via an optimization algorithm.
+%
+The optimization should occur at runtime,
+with the help of \ac{ai} techniques.
 
 \section{State of the Art}\label{sec:state-of-the-art}
 
