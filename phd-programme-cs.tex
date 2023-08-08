@@ -56,35 +56,78 @@
 
 	\hrule width \hsize height 2pt \kern 1mm \hrule width \hsize height 1pt
 	\vspace{0.4cm}
-
-	\begin{abstract}
-		In recent years,
-		the emergence of \ac{cps} has engendered a noteworthy surge in complexity and heterogeneity
-		within the underlying infrastructure supporting these systems.
-		Notably, the interplay between cloud, fog, and edge computing exemplifies the intricacy inherent in such systems.
-		%
-		Modern collective adaptive applications like \ac{iot}, human enhanced by wearable devices,
-		swarm robotics, smart cities,
-		are designed to be executed on several devices and to be deployed in
-		heterogeneous infrastructures, ranging from cloud servers to wearable devices.
-		%
-		The availability of such a wide range of devices and infrastructures opens to
-		better exploitation of the available resources and performance,
-		but introduces complexity in the design and deployment of such applications.
-		%
-		This research project proposes to produce a framework for the design and deployment of
-		collective adaptive applications on heterogeneous infrastructures.
-		%
-		Reconfiguration aspects will be considered,
-		allowing the application to adapt to the changes in the infrastructure and external conditions.
-		%
-		The framework will leverage \ac{ai} techniques to manage the complex task of reconfiguration, e.g.,
-		the opportunistic balance between performance and energy consumption.
-		%
-		The framework will also offer modern approaches to manipulating data over the continuum,
-		enabling effective management of sensors and actuators, but also making data available for storage and analysis.
-	\end{abstract}
 \end{titlepage}
+
+\section{Introduction}\label{sec:introduction}
+
+% In recent years,
+% the emergence of \ac{cps} has engendered a noteworthy surge in complexity and heterogeneity
+% within the underlying infrastructure supporting these systems.
+% Notably, the interplay between cloud, fog, and edge computing exemplifies the intricacy inherent in such systems.
+%
+% Modern collective adaptive applications like \ac{iot}, human enhanced by wearable devices,
+% swarm robotics, smart cities,
+% are designed to be executed on several devices and to be deployed in
+% heterogeneous infrastructures, ranging from cloud servers to wearable devices.
+%
+% The availability of such a wide range of devices and infrastructures opens to
+% better exploitation of the available resources and performance,
+% but introduces complexity in the design and deployment of such applications.
+%
+% This research project proposes to produce a framework for the design and deployment of
+% collective adaptive applications on heterogeneous infrastructures.
+% %
+% Reconfiguration aspects will be considered,
+% allowing the application to adapt to the changes in the infrastructure and external conditions.
+% %
+% The framework will leverage \ac{ai} techniques to manage the complex task of reconfiguration, e.g.,
+% the opportunistic balance between performance and energy consumption.
+% %
+% The framework will also offer modern approaches to manipulating data over the continuum,
+% enabling effective management of sensors and actuators, but also making data available for storage and analysis.
+
+In recent years,
+the field of \ac{cps} is evolved to support the implementation of many application areas,
+like \ac{iot}, swarm robotics, smart cities, and humans enhanced by wearable devices. \todo{Mettere reference qui.}
+%
+The new requirements of these applications,
+has led to an increase in the complexity of the software systems,
+but also in the infrastructure that hosts them.
+%
+In particular,
+modern infrastructure are composed of several \emph{heterogeneous} devices,
+ranging from cloud servers to wearable devices,
+forming a \emph{continuum} of computational resources.
+%
+As a consequence,
+software systems are becoming more and more complex and \emph{highly distributed} \todo{Mettere reference qui.},
+leading their \emph{opportunisitc exploitation} to a challenging task. 
+%
+Traditional monolithic approaches,
+as well as more recent cloud-based approaches,
+do not fit well with the main requirements of these systems such as the unpredictability of the environment,
+changing requirements, etc. \todo{Mettere reference qui.}
+%
+The Edge-Cloud Continuum represents a promising solution for the deployment of these systems,
+where dynamism,
+unpredictability and efficient use of resources are predominant elements.
+
+
+The goal of this project is to investigate novel methodologies,
+techniques and tools for the design and deployment of software systems in \emph{heterogeneous} and \emph{distributed} infrastructures
+allowing the evolution of software systems to opportunistically exploit the available resources,
+to be resilient, efficient, and adaptive to the changes in the environment.
+%
+This project emphasizes solving the above issues in the context of \ac{cas},
+where wearable devices cover a predominant role.
+
+\paragraph{Openness in the continuum}
+
+\paragraph{Heterogeneity in the continuum}
+
+\paragraph{Wearable devices}
+
+\paragraph{Open to evolution}
 
 \section{State of the Art}\label{sec:state-of-the-art}
 
@@ -150,7 +193,7 @@ application-specific approaches are proposed to tackle those complexities~\cite{
 where each approach has its advantages and disadvantages, but also its application context.
 }
 
-\paragraph{pulverization}
+\paragraph{Pulverization}
 The deployment of \ac{cas} is a complex task,
 especially when the system is composed of a large number of devices.
 %
@@ -163,7 +206,7 @@ in those systems,
 the functional aspects are tightly coupled with the deployment aspects,
 which makes the deployment of the system rigid and difficult to change.
 
-\emph{pulverization}~\cite{DBLP:journals/fi/CasadeiPPVW20} represents an approach to distributed application partitioning and deployment,
+\emph{Pulverization}~\cite{DBLP:journals/fi/CasadeiPPVW20} represents an approach to distributed application partitioning and deployment,
 where its goal is to provide a way to specify the functional semantics of the software in a deployment-independent way.
 %
 To do so,
@@ -400,38 +443,36 @@ The development of new models and architecture for next-generation of community-
 the definition of rigorous engineering methodologies,
 simulation tools and formal verification to support the design and development of such systems,
 are key objectives of the COMMON-WEARS project.
+% Based on the objective stated above,
+% this project tries to contribute in the following three main directions:
+% \begin{itemize}
+% 	\item Leverage the \emph{pulverization} approach for the deployment of \ac{cas} for wearable computing systems.
+% 		In particular,
+% 		we aim to extend the pulverization model to support \textbf{dynamic reconfiguration} of the system,
+% 		to better cope with the dynamicity of the environment and the system itself.
+% 		Moreover, \textbf{\ac{ai} techniques} will be investigated to improve the dynamic reconfiguration of the system.
 
-Based on the objective stated above,
-this project tries to contribute in the following three main directions:
-
-\begin{itemize}
-	\item Leverage the \emph{pulverization} approach for the deployment of \ac{cas} for wearable computing systems.
-		In particular,
-		we aim to extend the pulverization model to support \textbf{dynamic reconfiguration} of the system,
-		to better cope with the dynamicity of the environment and the system itself.
-		Moreover, \textbf{\ac{ai} techniques} will be investigated to improve the dynamic reconfiguration of the system.
-
-	\item Bridge the gap between the \emph{simulation} and the \emph{deployment} of such systems.
-		Simulation tools represent an effective way to evaluate the system before its deployment,
-		however,
-		the transition from simulation to deployment is not always straightforward.
-		We aim to provide a \textbf{full-stack solution} to support the transition from simulation to deployment of a system with minimal effort.
-		% We aim to design and prototype a \textbf{pulverization framework} which can be integrated with existing simulation tools,
-		% allowing the simulation of the pulverized system and its deployment on the target infrastructure with minimal effort.
+% 	\item Bridge the gap between the \emph{simulation} and the \emph{deployment} of such systems.
+% 		Simulation tools represent an effective way to evaluate the system before its deployment,
+% 		however,
+% 		the transition from simulation to deployment is not always straightforward.
+% 		We aim to provide a \textbf{full-stack solution} to support the transition from simulation to deployment of a system with minimal effort.
+% 		% We aim to design and prototype a \textbf{pulverization framework} which can be integrated with existing simulation tools,
+% 		% allowing the simulation of the pulverized system and its deployment on the target infrastructure with minimal effort.
 	
-	\item \textbf{Engineering data stream on the continuum}: \emph{edge-cloud continuum} represents a new promising infrastructure for the deployment of \ac{cas},
-		but also for systems of wearable devices.
-		Engineering data stream produced by sensors to control the actuators over the continuum is a challenging task.
-		We aim to investigate methodologies ad techniques to support the engineering of the data stream over the continuum to provide more effective control of distributed actuators,
-		and consequently,
-		enabling data storage and analysis.
-\end{itemize}
+% 	\item \textbf{Engineering data stream on the continuum}: \emph{edge-cloud continuum} represents a new promising infrastructure for the deployment of \ac{cas},
+% 		but also for systems of wearable devices.
+% 		Engineering data stream produced by sensors to control the actuators over the continuum is a challenging task.
+% 		We aim to investigate methodologies ad techniques to support the engineering of the data stream over the continuum to provide more effective control of distributed actuators,
+% 		and consequently,
+% 		enabling data storage and analysis.
+% \end{itemize}
 
 The following sections provide more details about the three main contributions of this project,
 in particular,
 they try to illustrate the main challenges and possible solutions.
 }
-\subsection{Pulverization with dynamic reconfiguration}\label{sec:pulv-dyn}
+\paragraph{Pulverization with dynamic reconfiguration}\label{sec:pulv-dyn}
 
 \meta{
 One current limitation of the \emph{pulverization}~\cite{DBLP:journals/fi/CasadeiPPVW20} approach regards the runtime reconfiguration of the system based on the changing conditions or requirements.
@@ -468,7 +509,7 @@ in contexts where \emph{energy-efficient} systems are required,
 or where the balance between consumption and performance can be strategic.
 }
 
-\subsection{Bridge the gap between simulation and deployment}\label{sec:bridge-gap}
+\paragraph{Bridge the gap between simulation and deployment}\label{sec:bridge-gap}
 \meta{
 A the time of writing,
 the pulverization approach has no concrete implementation,
@@ -494,7 +535,7 @@ A full-stack solution can be used to simulate the system before its deployment (
 and then deploy it on the target infrastructure with minimal effort.
 }
 
-\subsection{Engineering data stream on the continuum}\label{sec:eng-data-stream}
+\paragraph{Engineering data stream on the continuum}\label{sec:eng-data-stream}
 \meta{
 Typically,
 in \ac{cps} like \ac{iot} systems or \ac{wcs},
