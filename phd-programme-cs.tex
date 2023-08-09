@@ -674,45 +674,58 @@ which can be seen as a consequence of the engineering process where well-known t
 
 \section{Expected results}\label{sec:expected-results}
 
-\paragraph{pulverization framework}
-Design and prototype an effective framework to support the development of complex systems
-via the pulverization approach.
-%
-We will provide a modular and extensible framework that can also be integrated with simulation tools
-to allow the validation of the system before its deployment.
+The expected result of this project can be summarized as follows:
 
-\paragraph{Dynamic system reconfiguration}
-Extend the pulverization model to support at runtime the dynamic and opportunistic reconfiguration of the components over the continuum.
-%
-In the first stage,
-we will provide a rule-based approach to define the reconfiguration rules.
-%
-Then,
-we will investigate the possibility to adopt \ac{ai} techniques to automatically manage the system reconfiguration at runtime,
-and consequently,
-to provide a more flexible and adaptive approach.
-%
-The final expectation is to have implemented both of these two techniques into the pulverization framework.
+\begin{itemize}
+	\item Design and prototype an effective framework to support the development and deployment of complex systems
+		via the pulverization approach in Edge-Cloud environments;
+	\item Integration of the framework with simulation tools to allow the validation of the system before its deployment;
+	\item Extend the pulverization model to support at runtime the dynamic and opportunistic reconfiguration of the components over the continuum;
+	\item Investigate the use of \ac{ai} techniques to automatically manage the system reconfiguration at runtime and integrate them into the pulverization framework;
+	\item Integrate into the framework the efficient data stream processing over the continuum and hide to the user the complexity of the underlying infrastructure;
+	\item Integrate the proposed framework with other, consolidated \ac{cas} frameworks
+		to provide a holistic solution for the development and deployment of complex systems.
+\end{itemize}
 
-\paragraph{Data stream engineering}
+% \paragraph{Pulverization framework}
+% Design and prototype an effective framework to support the development and deployment of complex systems
+% via the pulverization approach in Edge-Cloud environments.
+% %
+% We will provide a modular and extensible framework that can also be integrated with simulation tools
+% to allow the validation of the system before its deployment.
 
-Integrate into the framework the efficient data stream processing over the continuum and hide to the user the complexity of the underlying infrastructure.
-%
-In this way,
-the user can focus on the application logic and the stream manipulation,
-according to the application logic,
-will be performed by the framework itself.
-%
-The framework can also expose APIs to allow the user to perform data storage and data analysis on the stream.
+% \paragraph{Dynamic system reconfiguration}
+% Extend the pulverization model to support at runtime the dynamic and opportunistic reconfiguration of the components over the continuum.
+% %
+% In the first stage,
+% we will provide a rule-based approach to define the reconfiguration rules.
+% %
+% Then,
+% we will investigate the possibility to adopt \ac{ai} techniques to automatically manage the system reconfiguration at runtime,
+% and consequently,
+% to provide a more flexible and adaptive approach.
+% %
+% The final expectation is to have implemented both of these two techniques into the pulverization framework.
+
+% \paragraph{Data stream engineering}
+
+% Integrate into the framework the efficient data stream processing over the continuum and hide to the user the complexity of the underlying infrastructure.
+% %
+% In this way,
+% the user can focus on the application logic and the stream manipulation,
+% according to the application logic,
+% will be performed by the framework itself.
+% %
+% The framework can also expose APIs to allow the user to perform data storage and data analysis on the stream.
 
 
-\paragraph{Integration with CAS frameworks}
-Integrate the proposed framework with other, consolidated \ac{cas} frameworks
-to provide a complete full-stack solution for the development and deployment of complex systems,
-with the main focus on exploiting edge-cloud infrastructures.
-%
-\ac{ac} will be used as a possible solution for engineering \ac{cas},
-and also as a possible case study for the framework validation.
+% \paragraph{Integration with CAS frameworks}
+% Integrate the proposed framework with other, consolidated \ac{cas} frameworks
+% to provide a complete full-stack solution for the development and deployment of complex systems,
+% with the main focus on exploiting edge-cloud infrastructures.
+% %
+% \ac{ac} will be used as a possible solution for engineering \ac{cas},
+% and also as a possible case study for the framework validation.
 
 % --------------------
 % Activities
@@ -720,99 +733,119 @@ and also as a possible case study for the framework validation.
 
 \section{Project activities}\label{sec:activities}
 
+To pursue the aforementioned goals and the expected results,
+the following activities will be performed,
+divided by year.
+
 \subsection{First year goals}\label{subsec:first-year-activities}
-
-The first-year goal,
-based on the expected results reported in~\Cref{sec:expected-results},
-are reported as follows.
-
-\begin{itemize}
-	\item Due to the peculiar nature of the pulverization approach,
-		the first step will be to investigate the literature about similar approaches adopted for the development of complex distributed systems,
-		for example, multi-tier programming and distributed reactive programming for engineering \ac{cas},
-		to better understand how these approaches are related to the pulverization approach.
-		%
-		Then, design and prototype a framework supporting the pulverization approach,
-		where modularity and extensibility are the main requirements.
-	\item Integrate the framework with a reconfiguration engine to support the dynamic reconfiguration of the system.
-	    The reconfiguration engine will be based,
-		on a first instance,
-		on a rule-based approach allowing the user to specify the conditions in which the system should be reconfigured.
-		%
-	    The reconfiguration rules can operate at different levels of granularity,
-	    from the single device to the entire system.
-\end{itemize}
-
-\subsection{PhD goals}\label{subsec:phd-activities}
-
-From~\Cref{sec:expected-results},
-the remaining goals of the project are reported as follows.
-
-\begin{itemize}
-	\item Contribute to the scientific community with new approaches for the dynamic system reconfiguration based on \ac{ai} techniques.
-		In particular,
-		we will investigate the use of consolidated and well-known \ac{ai} techniques like \ac{rl},
-		to not be used only at application-level,
-		but also supporting the system reconfiguration in scenarios where the dynamicity and unpredictability of the environment make difficult the adoption of traditional approaches.
-	\item Provide a full-stack solution for engineering \ac{cas}.
-		In particular,
-		we will investigate the integration of the proposed framework with other consolidate \ac{ac} frameworks like ScaFi~\cite{DBLP:journals/softx/CasadeiVAP22} and Protelis~\cite{DBLP:conf/sac/PianiniVB15}.
-		%
-		This contribution can be seen as a first step in the direction of effective deployment of \ac{cas},
-		opening to the implementation of reference use cases.
-	\item Contribute to the research area of the cloud-edge continuum by proposing new approaches to the engineering of the data stream on the continuum.
-		Several issues can arise in this context,
-		and for this reason,
-		we will investigate the state of the art of data stream processing,
-		and try to figure out their applicability in different contexts.
-		%
-		Then,
-		contribute by proposing new approaches and solutions to the actual limitations of the state-of-the-art techniques.
-\end{itemize}
-
-\subsection{Technology}\label{subsec:technology}
-Cloud computing is a prominent paradigm for computing resource provisioning,
-particularly crucial for the future deployment of IoT and CPS systems.
+During the first year,
+the main focus will be on the analysis of the state-of-the-art,
+to find existing solutions and approaches to the aforementioned challenges.
 %
-The project focuses on understanding cloud computing and technologies provided by major cloud providers like Google Cloud Platform and Amazon Web Services.
+Then,
+some experiments will be conducted to verify the feasibility of the proposed approaches
+in the context of \ac{cas} and wearable devices.
 %
-Additionally,
-it explores the integration of the pulverization framework with Infrastructure as Code (IaC) tools like Terraform~\footnote{\url{https://www.terraform.io/}} and Ansible~\footnote{\url{https://www.ansible.com/}} for effective infrastructure management.
+The core objective during this period is to provide a groundwork for the development of the pulverization framework,
+and to provide a prototype of the framework itself.
+
+\subsection{Second year goal}\label{subsec:second-year-activities}
+The second yard will be focused on the dynamic and opportunistic reconfiguration of pulverized system.
 %
-To handle the distributed nature of data from IoT and CPS systems,
-the project investigates techniques in frameworks like Apache Kafka,
-Apache Pulsar,
-and Apache Flink.
+In particular,
+we will investigate the use of \ac{ai} techniques to support the dynamic reconfiguration of the system,
+and consequently,
+integrate the proposed techniques into the pulverization framework.
+
+\subsection{Third year goal}\label{subsec:third-year-activities}
+The third year will be focused on the consolidation of the pulverization framework by providing relevant use cases and applicative scenarios,
+but also by integrating the framework with other consolidated \ac{ac} frameworks.
 %
 Moreover,
-the study delves into distributed technologies such as MOM,
-specifically RabbitMQ~\footnote{\url{https://www.rabbitmq.com/}} and ZeroMQ~\footnote{\url{https://zeromq.org/}},
-along with microservices patterns for achieving system resilience.
-%
-The use of Kubernetes~\footnote{\url{https://kubernetes.io/}} as an orchestration tool for managing system deployment and dynamic reconfiguration is also considered.
-%
-Overall,
-the project aims to gain insights into these areas to design and deploy robust collective adaptive applications.
+during this year,
+the aim is to contribute to the research community by providing new innovative approaches and solutions to the aforementioned challenges.
+
+% The first-year goal,
+% based on the expected results reported in~\Cref{sec:expected-results},
+% are reported as follows.
+
+% \begin{itemize}
+% 	\item Due to the peculiar nature of the pulverization approach,
+% 		the first step will be to investigate the literature about similar approaches adopted for the development of complex distributed systems,
+% 		for example, multi-tier programming and distributed reactive programming for engineering \ac{cas},
+% 		to better understand how these approaches are related to the pulverization approach.
+% 		%
+% 		Then, design and prototype a framework supporting the pulverization approach,
+% 		where modularity and extensibility are the main requirements.
+% 	\item Integrate the framework with a reconfiguration engine to support the dynamic reconfiguration of the system.
+% 	    The reconfiguration engine will be based,
+% 		on a first instance,
+% 		on a rule-based approach allowing the user to specify the conditions in which the system should be reconfigured.
+% 		%
+% 	    The reconfiguration rules can operate at different levels of granularity,
+% 	    from the single device to the entire system.
+% \end{itemize}
+
+% \subsection{PhD goals}\label{subsec:phd-activities}
+
+% From~\Cref{sec:expected-results},
+% the remaining goals of the project are reported as follows.
+
+% \begin{itemize}
+% 	\item Contribute to the scientific community with new approaches for the dynamic system reconfiguration based on \ac{ai} techniques.
+% 		In particular,
+% 		we will investigate the use of consolidated and well-known \ac{ai} techniques like \ac{rl},
+% 		to not be used only at application-level,
+% 		but also supporting the system reconfiguration in scenarios where the dynamicity and unpredictability of the environment make difficult the adoption of traditional approaches.
+% 	\item Provide a full-stack solution for engineering \ac{cas}.
+% 		In particular,
+% 		we will investigate the integration of the proposed framework with other consolidate \ac{ac} frameworks like ScaFi~\cite{DBLP:journals/softx/CasadeiVAP22} and Protelis~\cite{DBLP:conf/sac/PianiniVB15}.
+% 		%
+% 		This contribution can be seen as a first step in the direction of effective deployment of \ac{cas},
+% 		opening to the implementation of reference use cases.
+% 	\item Contribute to the research area of the cloud-edge continuum by proposing new approaches to the engineering of the data stream on the continuum.
+% 		Several issues can arise in this context,
+% 		and for this reason,
+% 		we will investigate the state of the art of data stream processing,
+% 		and try to figure out their applicability in different contexts.
+% 		%
+% 		Then,
+% 		contribute by proposing new approaches and solutions to the actual limitations of the state-of-the-art techniques.
+% \end{itemize}
+
+% \subsection{Technology}\label{subsec:technology}
+% Cloud computing is a prominent paradigm for computing resource provisioning,
+% particularly crucial for the future deployment of IoT and CPS systems.
+% %
+% The project focuses on understanding cloud computing and technologies provided by major cloud providers like Google Cloud Platform and Amazon Web Services.
+% %
+% Additionally,
+% it explores the integration of the pulverization framework with Infrastructure as Code (IaC) tools like Terraform~\footnote{\url{https://www.terraform.io/}} and Ansible~\footnote{\url{https://www.ansible.com/}} for effective infrastructure management.
+% %
+% To handle the distributed nature of data from IoT and CPS systems,
+% the project investigates techniques in frameworks like Apache Kafka,
+% Apache Pulsar,
+% and Apache Flink.
+% %
+% Moreover,
+% the study delves into distributed technologies such as MOM,
+% specifically RabbitMQ~\footnote{\url{https://www.rabbitmq.com/}} and ZeroMQ~\footnote{\url{https://zeromq.org/}},
+% along with microservices patterns for achieving system resilience.
+% %
+% The use of Kubernetes~\footnote{\url{https://kubernetes.io/}} as an orchestration tool for managing system deployment and dynamic reconfiguration is also considered.
+% %
+% Overall,
+% the project aims to gain insights into these areas to design and deploy robust collective adaptive applications.
 
 \subsection{Long-term contribution}
-The initiative proposed in this project aims to tackle the complexity of designing and deploying systems on heterogeneous infrastructures,
-where the main focus is on \ac{cas}.
-%
 Beyond the specific contribution of the project,
-which the main focus is on the pulverization approach,
 I expect to contribute to the research community by providing new approaches and solutions to the aforementioned challenges.
 %
 In particular,
 I expect to provide a deep understanding of the role of \ac{cas} in modern scenarios like \emph{smart cities}, \emph{large scale \ac{iot} systems}, and so on,
 and providing reference implementations of the proposed approaches.
 %
-Summing up,
-this project can be seen as a groundwork for the creation of systems in the edge-cloud continuum where dynamicity and self-adaptation are key aspects.
-%
-\ac{ai} and data analysis cover a fundamental role in this context,
-enabling a new set of opportunities that this project aims to explore.
-
-\newpage
+This project can be seen as a groundwork for the creation of systems in the edge-cloud continuum where dynamicity and self-adaptation are key aspects.
 
 \printbibliography
 
