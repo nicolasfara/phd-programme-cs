@@ -1,5 +1,4 @@
 \documentclass[12pt,a4paper]{article}
-\usepackage{datetime}
 \usepackage{acronym}
 \usepackage{xcolor}
 \setlength{\marginparwidth}{2cm}
@@ -9,9 +8,6 @@
 \usepackage{subcaption}
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes.geometric,positioning,automata,calc}
-% \usepackage{textcomp}
-% \usepackage{mathrsfs}  % mathscr font
-% \usepackage[colorlinks, filecolor=dark_blue, urlcolor=dark_blue, linkcolor=black, citecolor=black]{hyperref}
 
 \usepackage[
 	backend=biber,
@@ -21,8 +17,6 @@
 \usepackage{cleveref}
 
 \newcommand{\meta}[1]{{\color{blue}#1}}  
-
-\newdateformat{monthyeardate}{\monthname[\THEMONTH], \THEYEAR}
 
 \acrodef{iot}[IoT]{Internet of Things}
 \acrodef{cps}[CPS]{Cyber-Physical System}
@@ -40,7 +34,7 @@
 
 \title{Engineering Reconfigurable Collective Systems in Cloud-Edge Environments}
 \author{Nicolas Farabegoli}
-\date{\monthyeardate\today}
+\date{\today}
 
 \begin{document}
 \maketitle
