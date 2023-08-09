@@ -74,15 +74,17 @@
 % enabling effective management of sensors and actuators, but also making data available for storage and analysis.
 
 In recent years,
-the field of \ac{cps} is evolved to support the implementation of many application areas,
-like \ac{iot}, swarm robotics, smart cities, and humans enhanced by wearable devices~\cite{DBLP:conf/aisi/JumaS19, DBLP:journals/sensors/LosetoSRGIFBL22}.
+the domain of Cyber-Physical Systems (CPS) has undergone significant evolution to facilitate the realization of various application domains,
+including but not limited to the Internet of Things (IoT),
+swarm robotics, smart cities, and human augmentation through wearable devices~\cite{DBLP:conf/aisi/JumaS19, DBLP:journals/sensors/LosetoSRGIFBL22}.
+%
 The new requirements of these applications,
 has led to an increase in the complexity of the software systems,
 but also in the infrastructure that hosts them.
 %
 In this regard,
 the most common way of deploying these systems relies on the cloud,
-where offloading some of the computation to the cloud is a common practice.
+where offloading some of the computation to it is a common practice.
 %
 However,
 this approach is not always the best solution,
@@ -97,16 +99,13 @@ but also improving the resilience of the system.
 As a result,
 the combination of these technologies has led to the emergence of the \emph{Edge-Cloud Continuum}~\cite{DBLP:journals/iot/BittencourtISFM18},
 which is composed of several highly distributed heterogeneous devices,
-making their \emph{opportunistic exploitation} a challenging task~\cite{DBLP:journals/scpe/Petcu21}. 
+which can be opportunistically exploited to overcome the limitations of the traditional monolithic approaches,
+as well as more recent cloud-based approaches.
 %
-Traditional monolithic approaches,
-as well as more recent cloud-based approaches,
-do not fit well with the main requirements of these systems such as the unpredictability of the environment,
-changing requirements, etc.
-%
-The Edge-Cloud Continuum represents a promising solution for the deployment of these systems,
+For this reason,
+the Edge-Cloud Continuum represents a promising solution for the deployment of these systems,
 where dynamism,
-unpredictability and efficient use of resources are predominant elements.
+unpredictability and efficient use of resources are predominant elements of the systems.
 
 The goal of this project is to investigate novel methodologies,
 techniques and tools for the design and deployment of software systems in \emph{heterogeneous} and \emph{distributed} infrastructures
@@ -117,52 +116,40 @@ This project emphasizes solving the above issues in the context of \ac{cas},
 where wearable devices cover a predominant role.
 
 \paragraph{Openness in the continuum}
-With \emph{openness} we refer to the ability of a (distributed) system to be improved and extended either in software or hardware.
+Openness refers to a distributed system's capacity for software or hardware enhancement and expansion.
 %
-In this regard,
-the system can accept or remove software components,
-but also infrastructure nodes (i.e. cloud server, mobile device, wearable device).
+This entails the addition or removal of software components and infrastructure nodes,
+such as cloud servers, mobile devices, and wearables.
 %
-Due to the high heterogeneity of the continuum,
-and the high dynamism of the environment,
-the seamless integration of new devices or software components is a must-to property,
-but also a challenging task.
+Given the diverse nature of the continuum and the dynamic environment,
+seamlessly integrating new devices or software components is both essential and challenging.
 %
-With seamless integration,
-we refer to the ability of the system to integrate new devices or software components without the need to rewrite the application logic.
+Seamless integration refers to the system's capability to incorporate these elements without requiring a rewrite of the application logic.
 %
-In this regard,
-aspects like \emph{interoperability, standardization, portability, and open source principles} are fundamental to achieving openness~\cite{DBLP:journals/computing/SteenT16}.
+Critical to achieving this are factors like \emph{interoperability, standardization, portability, and adherence to open source principles}~\cite{DBLP:journals/computing/SteenT16}.
 %
-However,
-the hard part is represented by the semantic specification of the interface,
-which usually,
-are provided in a natural language,
-and not in a formal and machine-readable way.
-%
-By promoting the aforementioned aspects,
-openness aims to create more adaptable and inclusive distributed systems that can evolve and thrive in a rapidly changing technological landscape.
+By advocating for these factors,
+the concept of openness strives to foster adaptable and comprehensive distributed systems capable of thriving within a swiftly evolving technological landscape.
 
 \paragraph{Heterogeneity in the continuum}
-Heterogeneity is a characterizing element of Edge-Cloud systems,
-where devices can have different computational capabilities,
-different communication technologies,
-and different energy consumption,
-making it difficult to provision and setup the infrastructure~\cite{DBLP:conf/synasc/VladusicR20}.
+Heterogeneity constitutes a defining feature within Edge-Cloud systems,
+wherein devices exhibit diverse computational capacities,
+communication technologies, and energy consumption profiles.
 %
-The heterogeneity can also be observed at the software level,
-where different nodes of the infrastructure can run different operating systems,
-different programming languages,
-and different software components.
+This multiplicity poses challenges in the provisioning and establishment of the underlying infrastructure~\cite{DBLP:conf/synasc/VladusicR20}.
 %
-In this regard,
-is common to observe tiny devices running on microcontrollers at the edge of the network,
-up to powerful devices (i.e. servers) running on the cloud.
+This diversity is also evident at the software level,
+with many nodes in the infrastructure running different operating systems,
+programming languages,
+and software elements.
 %
-For this reason,
-the \emph{continuum} is characterized by a wide range of technological stacks,
-which complicates the design and deployment of software systems in this environment,
-but also the interoperability between the different devices~\cite{DBLP:journals/midm/TorabMiandoabSJR23}.
+This landscape commonly encompasses thin devices employing microcontrollers at the network edge,
+alongside powerful devices (e.g., servers) deployed in the cloud.
+%
+Consequently,
+this continuum encompasses an extensive array of technological stacks,
+engendering complexities in both software system design and deployment within this environment,
+as well as interoperability across several devices~\cite{DBLP:journals/midm/TorabMiandoabSJR23}.
 %
 Ideally,
 the desiderata are leveraging a set of abstractions that can be exploited to hide the complexity of the continuum,
@@ -182,10 +169,7 @@ but also in terms of communication technologies~\cite{DBLP:journals/fteda/YinAMJ
 %
 For this reason,
 the classical and well-established -- but mainly static -- architecture where each device is connected to the cloud,
-will not be able to cope with the new requirements of these devices.
-%
-Moreover,
-many requirements like \emph{low latency, privacy, and security} sometimes cannot be satisfied by the classical architecture.
+will not be able to cope with the new requirements like \emph{low latency, privacy, and security}.
 %
 In this regard,
 the Edge-Cloud continuum represents a promising solution to tackle these issues,
@@ -195,37 +179,46 @@ we can promptly react to the changing requirements of the software systems,
 maintaining specific \ac{qos} but also specific constraints.
 
 \paragraph{Open to evolution}
-These days certain wearable devices expose certain capabilities.
+Presently,
+specific wearable devices manifest particular functionalities.
 %
-But in the near future,
-they will exhibit others and new tools will emerge.
+However,
+in the near future,
+these devices will unveil additional capabilities,
+and novel tools will emerge.
 %
-These days certain wearable devices expose certain capabilities.
-But shortly, they will exhibit others and new tools will emerge.
+For instance,
+contemporary smartphones typically possess a battery life of approximately one day.
 %
-For example,
-today we have the smartphone whose battery lasts about a day,
-but tomorrow we may have smartphones that harvest energy from the human body:
-this will change the way how we will use that device.
+Nevertheless,
+upcoming iterations of smartphones might possess the ability to harness energy from the human body,
+thereby fundamentally altering how we interact with such devices.
 %
-The main point here is that in such dynamic conditions,
-it will be unfordable to rewrite the application logic every time a new technology or device emerges.
+The central contention here is that within this rapidly evolving landscape,
+the act of rewriting application logic each time a new technology or device emerges becomes impractical.
 %
-The different capabilities should be captured in the right level of abstraction to be exploited,
-and then delegate the effective deployment to some other actors (e.g. a framework or platform, a CI/CD pipeline, etc.).
+It is imperative to encapsulate diverse capabilities within an appropriate level of abstraction to facilitate their exploitation.
 %
-Another key aspect to consider is that these devices,
-since can be worn,
-the can be removed,
-replaced,
-borrowed, etc.
+Subsequently,
+the effective implementation can be delegated to other entities,
+such as frameworks, platforms, or CI/CD pipelines.
 %
-And for these reasons,
-is necessary to dynamically manage which component runs where,
-but is not enough to have a static mapping for resource allocation handled via an optimization algorithm.
+An additional critical consideration revolves around the portable nature of these devices.
+Given that they can be worn, removed, replaced, or shared,
+there exists a necessity to dynamically manage the allocation of components across various contexts.
 %
-The optimization should occur at runtime,
-with the help of \ac{ai} techniques~\cite{DBLP:journals/computing/ShahidaniGHK23}.
+Merely establishing a static resource allocation mapping through optimization algorithms proves inadequate.
+%
+Instead,
+optimization must transpire dynamically at runtime,
+with the integration of Artificial Intelligence (AI) techniques to facilitate this process~\cite{DBLP:journals/computing/ShahidaniGHK23}.
+
+\paragraph*{}
+This project can be framed in these complex scenarios,
+and tries to \emph{(i)} provide a set of methodologies, techniques and tools to design and deploy software systems in modern infrastructures,
+\emph{(ii)} design and prototype a framework that helps the deployment of software systems in the continuum,
+\emph{(iii)} investigate the problem of system reconfiguration, resource allocation, and optimization in the continuum,
+by leveraging \ac{ai} techniques, such as \ac{rl}.
 
 \section{State of the Art}\label{sec:state-of-the-art}
 
@@ -256,7 +249,6 @@ This approach shifts the focus from a local perspective to a global one,
 where a group of devices can be seen as a single entity in which the aggregate program is executed.
 
 \paragraph{Edge-Cloud Continuum}
-\meta{
 The Cloud continuum represents one of the most recent hypes in the cloud computing domain with high interest from funding agencies~\cite{ict-40-2020, horizon-cl4-2022-data-01-02}.
 %
 Even if there is a lot of interest in this topic,
@@ -289,7 +281,6 @@ In this regard,
 based on the application context and scenarios,
 application-specific approaches are proposed to tackle those complexities~\cite{DBLP:journals/tiot/NehaPSSG22, DBLP:journals/csur/WeisenburgerWS20, DBLP:journals/fi/CasadeiPPVW20},
 where each approach has its advantages and disadvantages, but also its application context.
-}
 
 \paragraph{Pulverization}
 The deployment of \ac{cas} is a complex task,
@@ -489,7 +480,9 @@ a \emph{communication} component and a \emph{computation} component modeling the
 		\end{minipage}
 	\end{minipage}
 
-	\caption{pulverization model and examples of deployments (Figure from~\cite{DBLP:journals/fi/CasadeiPPVW20}).}
+	\caption{
+		Pulverization model and examples of possible deployments (Figure adapted from~\cite{DBLP:journals/fi/CasadeiPPVW20}).
+	}
 	\label{fig:pulv}
 \end{figure}
 %
@@ -521,7 +514,6 @@ several challenges at different levels must be addressed to make it a reality:
 % --------------------
 
 \section{Project description}\label{sec:project-description}
-\meta{
 With this project,
 we aim to investigate new developing models,
 architectures,
@@ -569,10 +561,10 @@ are key objectives of the COMMON-WEARS project.
 The following sections provide more details about the three main contributions of this project,
 in particular,
 they try to illustrate the main challenges and possible solutions.
-}
+
 \paragraph{Pulverization with dynamic reconfiguration}\label{sec:pulv-dyn}
 
-\meta{
+
 One current limitation of the \emph{pulverization}~\cite{DBLP:journals/fi/CasadeiPPVW20} approach regards the runtime reconfiguration of the system based on the changing conditions or requirements.
 %
 This project aims to extend the current pulverization approach to support the dynamic reconfiguration of the system
@@ -605,10 +597,9 @@ The ability to dynamically reconfiguration is a fundamental aspect,
 for example,
 in contexts where \emph{energy-efficient} systems are required,
 or where the balance between consumption and performance can be strategic.
-}
 
 \paragraph{Bridge the gap between simulation and deployment}\label{sec:bridge-gap}
-\meta{
+
 A the time of writing,
 the pulverization approach has no concrete implementation,
 and the validation of the approach has been done via simulations and formal verification~\cite{DBLP:journals/fi/CasadeiPPVW20, DBLP:journals/iotj/CasadeiFPPSV22}.
@@ -631,10 +622,8 @@ where the unpredictable nature of the environment made it difficult to predict t
 %
 A full-stack solution can be used to simulate the system before its deployment (and try to predict its behavior),
 and then deploy it on the target infrastructure with minimal effort.
-}
 
 \paragraph{Engineering data stream on the continuum}\label{sec:eng-data-stream}
-\meta{
 Typically,
 in \ac{cps} like \ac{iot} systems or \ac{wcs},
 the data are produced at the edge of the network and then manipulated and processed on high-level layers of the network, like the cloud.
@@ -661,7 +650,7 @@ Nevertheless,
 the main focus remains on the engineering of the data stream,
 and not on the data analysis itself,
 which can be seen as a consequence of the engineering process where well-known techniques can be used above the stream.
-}
+
 % -----------------
 % Expected results
 % -----------------
@@ -689,7 +678,7 @@ to provide a more flexible and adaptive approach.
 The final expectation is to have implemented both of these two techniques into the pulverization framework.
 
 \paragraph{Data stream engineering}
-\meta{
+
 Integrate into the framework the efficient data stream processing over the continuum and hide to the user the complexity of the underlying infrastructure.
 %
 In this way,
@@ -698,7 +687,7 @@ according to the application logic,
 will be performed by the framework itself.
 %
 The framework can also expose APIs to allow the user to perform data storage and data analysis on the stream.
-}
+
 
 \paragraph{Integration with CAS frameworks}
 Integrate the proposed framework with other, consolidated \ac{cas} frameworks
@@ -765,7 +754,6 @@ the remaining goals of the project are reported as follows.
 \end{itemize}
 
 \subsection{Technology}\label{subsec:technology}
-\meta{
 Cloud computing is a prominent paradigm for computing resource provisioning,
 particularly crucial for the future deployment of IoT and CPS systems.
 %
@@ -788,7 +776,6 @@ The use of Kubernetes~\footnote{\url{https://kubernetes.io/}} as an orchestratio
 %
 Overall,
 the project aims to gain insights into these areas to design and deploy robust collective adaptive applications.
-}
 
 \subsection{Long-term contribution}
 The initiative proposed in this project aims to tackle the complexity of designing and deploying systems on heterogeneous infrastructures,
