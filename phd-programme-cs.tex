@@ -75,25 +75,34 @@
 
 In recent years,
 the field of \ac{cps} is evolved to support the implementation of many application areas,
-like \ac{iot}, swarm robotics, smart cities, and humans enhanced by wearable devices. \todo{Mettere reference qui.}
-%
+like \ac{iot}, swarm robotics, smart cities, and humans enhanced by wearable devices~\cite{DBLP:conf/aisi/JumaS19, DBLP:journals/sensors/LosetoSRGIFBL22}.
 The new requirements of these applications,
 has led to an increase in the complexity of the software systems,
 but also in the infrastructure that hosts them.
 %
-In particular,
-modern infrastructure are composed of several \emph{heterogeneous} devices,
-ranging from cloud servers to wearable devices,
-forming a \emph{continuum} of computational resources.
+In this regard,
+the most common way of deploying these systems relies on the cloud,
+where offloading some of the computation to the cloud is a common practice.
 %
-As a consequence,
-software systems are becoming more and more complex and \emph{highly distributed} \todo{Mettere reference qui.},
-leading their \emph{opportunistic exploitation} to a challenging task. 
+However,
+this approach is not always the best solution,
+especially when latency, security, privacy and resilience to network segmentation are predominant aspects.
+%
+For this reason,
+approaches like \emph{fog computing}~\cite{DBLP:journals/tjs/GasmiDTO22} and \emph{edge computing}~\cite{DBLP:journals/csur/KongTHCWJZKD23} have emerged,
+where the computation is performed closer to the edge devices,
+reducing latency and data exchanged, increasing security and privacy,
+but also improving the resilience of the system.
+%
+As a result,
+the combination of these technologies has led to the emergence of the \emph{Edge-Cloud Continuum}~\cite{DBLP:journals/iot/BittencourtISFM18},
+which is composed of several highly distributed heterogeneous devices,
+making their \emph{opportunistic exploitation} a challenging task~\cite{DBLP:journals/scpe/Petcu21}. 
 %
 Traditional monolithic approaches,
 as well as more recent cloud-based approaches,
 do not fit well with the main requirements of these systems such as the unpredictability of the environment,
-changing requirements, etc. \todo{Mettere reference qui.}
+changing requirements, etc.
 %
 The Edge-Cloud Continuum represents a promising solution for the deployment of these systems,
 where dynamism,
@@ -112,7 +121,7 @@ With \emph{openness} we refer to the ability of a (distributed) system to be imp
 %
 In this regard,
 the system can accept or remove software components,
-but also with infrastructure nodes.
+but also infrastructure nodes (i.e. cloud server, mobile device, wearable device).
 %
 Due to the high heterogeneity of the continuum,
 and the high dynamism of the environment,
@@ -123,7 +132,13 @@ With seamless integration,
 we refer to the ability of the system to integrate new devices or software components without the need to rewrite the application logic.
 %
 In this regard,
-aspects like \emph{interoperability, standardization, portability, and open source principles} are fundamental to achieving openness.
+aspects like \emph{interoperability, standardization, portability, and open source principles} are fundamental to achieving openness~\cite{DBLP:journals/computing/SteenT16}.
+%
+However,
+the hard part is represented by the semantic specification of the interface,
+which usually,
+are provided in a natural language,
+and not in a formal and machine-readable way.
 %
 By promoting the aforementioned aspects,
 openness aims to create more adaptable and inclusive distributed systems that can evolve and thrive in a rapidly changing technological landscape.
@@ -132,7 +147,8 @@ openness aims to create more adaptable and inclusive distributed systems that ca
 Heterogeneity is a characterizing element of Edge-Cloud systems,
 where devices can have different computational capabilities,
 different communication technologies,
-and different energy consumption. \todo{Mettere reference qui.}
+and different energy consumption,
+making it difficult to provision and setup the infrastructure~\cite{DBLP:conf/synasc/VladusicR20}.
 %
 The heterogeneity can also be observed at the software level,
 where different nodes of the infrastructure can run different operating systems,
@@ -145,7 +161,8 @@ up to powerful devices (i.e. servers) running on the cloud.
 %
 For this reason,
 the \emph{continuum} is characterized by a wide range of technological stacks,
-which complicates the design and deployment of software systems in this environment.
+which complicates the design and deployment of software systems in this environment,
+but also the interoperability between the different devices~\cite{DBLP:journals/midm/TorabMiandoabSJR23}.
 %
 Ideally,
 the desiderata are leveraging a set of abstractions that can be exploited to hide the complexity of the continuum,
@@ -157,18 +174,18 @@ These devices over time have become increasingly powerful in terms of computing 
 %
 It is likely that soon,
 we may see an explosion of smart objects such as rings,
-earrings, bracelets, etc. \todo{Reference qui.}
+earrings, bracelets, etc~\cite{DBLP:conf/islped/BasaklarTAO21}.
 %
 Wearable devices represent the quintessence of heterogeneity in the continuum:
 the miniaturization of these devices and the energy constraints make them very limited in terms of computational capabilities,
-but also in terms of communication technologies. \todo{Valutare reference qui.}
+but also in terms of communication technologies~\cite{DBLP:journals/fteda/YinAMJ18, DBLP:journals/dt/BhatDO19}.
 %
 For this reason,
 the classical and well-established -- but mainly static -- architecture where each device is connected to the cloud,
 will not be able to cope with the new requirements of these devices.
 %
 Moreover,
-many requirements like \emph{low latency, privacy, and security} sometimes cannot be satisfied by the classical architecture. \todo{Reference qui.}
+many requirements like \emph{low latency, privacy, and security} sometimes cannot be satisfied by the classical architecture.
 %
 In this regard,
 the Edge-Cloud continuum represents a promising solution to tackle these issues,
@@ -208,7 +225,7 @@ is necessary to dynamically manage which component runs where,
 but is not enough to have a static mapping for resource allocation handled via an optimization algorithm.
 %
 The optimization should occur at runtime,
-with the help of \ac{ai} techniques.
+with the help of \ac{ai} techniques~\cite{DBLP:journals/computing/ShahidaniGHK23}.
 
 \section{State of the Art}\label{sec:state-of-the-art}
 
