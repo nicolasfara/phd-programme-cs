@@ -41,44 +41,17 @@
 
 \section{Introduction}\label{sec:introduction}
 
-% In recent years,
-% the emergence of \ac{cps} has engendered a noteworthy surge in complexity and heterogeneity
-% within the underlying infrastructure supporting these systems.
-% Notably, the interplay between cloud, fog, and edge computing exemplifies the intricacy inherent in such systems.
-%
-% Modern collective adaptive applications like \ac{iot}, human enhanced by wearable devices,
-% swarm robotics, smart cities,
-% are designed to be executed on several devices and to be deployed in
-% heterogeneous infrastructures, ranging from cloud servers to wearable devices.
-%
-% The availability of such a wide range of devices and infrastructures opens to
-% better exploitation of the available resources and performance,
-% but introduces complexity in the design and deployment of such applications.
-%
-% This research project proposes to produce a framework for the design and deployment of
-% collective adaptive applications on heterogeneous infrastructures.
-% %
-% Reconfiguration aspects will be considered,
-% allowing the application to adapt to the changes in the infrastructure and external conditions.
-% %
-% The framework will leverage \ac{ai} techniques to manage the complex task of reconfiguration, e.g.,
-% the opportunistic balance between performance and energy consumption.
-% %
-% The framework will also offer modern approaches to manipulating data over the continuum,
-% enabling effective management of sensors and actuators, but also making data available for storage and analysis.
-
 In recent years,
-the domain of Cyber-Physical Systems (CPS) has undergone significant evolution to facilitate the realization of various application domains,
+the domain of \ac{cps} has undergone significant evolution to facilitate the realization of various application domains,
 including but not limited to the Internet of Things (IoT),
 swarm robotics, smart cities, and human augmentation through wearable devices~\cite{DBLP:conf/aisi/JumaS19, DBLP:journals/sensors/LosetoSRGIFBL22}.
 %
-The new requirements of these applications,
-has led to an increase in the complexity of the software systems,
+The new requirements of these applications have led to an increase in the complexity of software systems,
 but also in the infrastructure that hosts them.
 %
 In this regard,
 the most common way of deploying these systems relies on the cloud,
-where offloading some of the computation to it is a common practice.
+where offloading the computation to the cloud is the most common approach.
 %
 However,
 this approach is not always the best solution,
@@ -88,13 +61,25 @@ For this reason,
 approaches like \emph{fog computing}~\cite{DBLP:journals/tjs/GasmiDTO22} and \emph{edge computing}~\cite{DBLP:journals/csur/KongTHCWJZKD23} have emerged,
 where the computation is performed closer to the edge devices,
 reducing latency and data exchanged, increasing security and privacy,
-but also improving the resilience of the system.
+but also improve the system's resiliency.
 %
 As a result,
-the combination of these technologies has led to the emergence of the \emph{Edge-Cloud Continuum}~\cite{DBLP:journals/iot/BittencourtISFM18},
-which is composed of several highly distributed heterogeneous devices,
-which can be opportunistically exploited to overcome the limitations of the traditional monolithic approaches,
-as well as more recent cloud-based approaches.
+the combination of these technologies has led to the emergence of the \emph{Edge-Cloud Continuum}~\cite{DBLP:journals/iot/BittencourtISFM18}.
+%
+The Edge-Cloud continuum brings new variables as the heterogeneity of devices and applications reaches unprecedented levels.
+%
+Moreover,
+network topology is expected to constantly change with device mobility and variable application requirements,
+introducing a more dynamic behavior to the system.
+%
+This dynamic nature of the system along with high levels of heterogeneity call for dynamic,
+multi-criteria resource allocation strategies that can cope with the constantly changing environment.
+%
+\emph{Wearable devices} inherently possess dynamic attributes, making them highly suitable for Edge-Cloud environments.
+%
+This suitability stems from their capacity to be worn,
+removed, loaned out,
+and can have different roles and uses.
 %
 For this reason,
 the Edge-Cloud Continuum represents a promising solution for the deployment of these systems,
@@ -102,7 +87,7 @@ where dynamism,
 unpredictability and efficient use of resources are predominant elements of the systems.
 
 The goal of this project is to investigate novel methodologies,
-techniques and tools for the design and deployment of software systems in \emph{heterogeneous} and \emph{distributed} infrastructures
+techniques and tools for the design and deployment of software systems in the Edge-Cloud continuum,
 allowing the evolution of software systems to opportunistically exploit the available resources,
 to be resilient, efficient, and adaptive to the changes in the environment.
 %
@@ -527,37 +512,12 @@ The development of new models and architecture for next-generation of community-
 the definition of rigorous engineering methodologies,
 simulation tools and formal verification to support the design and development of such systems,
 are key objectives of the COMMON-WEARS project.
-% Based on the objective stated above,
-% this project tries to contribute in the following three main directions:
-% \begin{itemize}
-% 	\item Leverage the \emph{pulverization} approach for the deployment of \ac{cas} for wearable computing systems.
-% 		In particular,
-% 		we aim to extend the pulverization model to support \textbf{dynamic reconfiguration} of the system,
-% 		to better cope with the dynamicity of the environment and the system itself.
-% 		Moreover, \textbf{\ac{ai} techniques} will be investigated to improve the dynamic reconfiguration of the system.
-
-% 	\item Bridge the gap between the \emph{simulation} and the \emph{deployment} of such systems.
-% 		Simulation tools represent an effective way to evaluate the system before its deployment,
-% 		however,
-% 		the transition from simulation to deployment is not always straightforward.
-% 		We aim to provide a \textbf{full-stack solution} to support the transition from simulation to deployment of a system with minimal effort.
-% 		% We aim to design and prototype a \textbf{pulverization framework} which can be integrated with existing simulation tools,
-% 		% allowing the simulation of the pulverized system and its deployment on the target infrastructure with minimal effort.
-	
-% 	\item \textbf{Engineering data stream on the continuum}: \emph{edge-cloud continuum} represents a new promising infrastructure for the deployment of \ac{cas},
-% 		but also for systems of wearable devices.
-% 		Engineering data stream produced by sensors to control the actuators over the continuum is a challenging task.
-% 		We aim to investigate methodologies ad techniques to support the engineering of the data stream over the continuum to provide more effective control of distributed actuators,
-% 		and consequently,
-% 		enabling data storage and analysis.
-% \end{itemize}
 
 The following sections provide more details about the three main contributions of this project,
 in particular,
 they try to illustrate the main challenges and possible solutions.
 
 \paragraph{Pulverization with dynamic reconfiguration}\label{sec:pulv-dyn}
-
 
 One current limitation of the \emph{pulverization}~\cite{DBLP:journals/fi/CasadeiPPVW20} approach regards the runtime reconfiguration of the system based on the changing conditions or requirements.
 %
@@ -571,11 +531,13 @@ or where a huge number of factors must be considered to determine the best confi
 making traditional optimization techniques not suitable.
 %
 In this case,
-the \emph{distributed intelligence} can be exploited from two different perspectives:
+the \emph{distributed intelligence}~\cite{DBLP:journals/access/CampoloIM23} can be exploited from two different perspectives:
 \emph{application level} to support application logic,
 for example by learning the best policy to follow to achieve a specific goal,
 and \emph{infrastructural level} to opportunistically choose the best deployment for the system,
 based on the current conditions, requirements, or \ac{qos}.
+%
+One possible approach to achieve this goal is to exploit \ac{rl} techniques~\cite{DBLP:journals/computing/ShahidaniGHK23} to learn the best policy to follow to achieve a specific goal.
 %
 In~\Cref{fig:ai-reconf},
 we show an example of application decomposition via pulverization and the dynamic relocation of the component over the continuum.
@@ -615,19 +577,18 @@ the integration of the framework with existing simulators like Alchemist~\cite{D
 As a consequence,
 we aim to provide a set of \emph{methodology},
 \emph{tools},
-and \emph{techniques} that can be seamlessly exploited to effectively engineer \ac{cas} as a full-stack solution.
+and \emph{techniques} that can be seamlessly exploited to effectively engineer \ac{cas} as a complete solution.
 
 This contribution can be suitable in scenarios like \emph{smart cities},
 \emph{ambient intelligence},
 \emph{building automation},
 where the unpredictable nature of the environment made it difficult to predict the system's behavior.
 %
-A full-stack solution can be used to simulate the system before its deployment (and try to predict its behavior),
-and then deploy it on the target infrastructure with minimal effort.
+In this sense, once the system is validated via simulation,
+it can be deployed on the target infrastructure with minimal effort by leveraging the pulverization framework.
 
 \paragraph{Engineering data stream on the continuum}\label{sec:eng-data-stream}
-Typically,
-in \ac{cps} like \ac{iot} systems or \ac{wcs},
+In \ac{cps} like \ac{iot} systems or \ac{wcs},
 the data are produced at the edge of the network and then manipulated and processed on high-level layers of the network, like the cloud.
 %
 Taking the pulverization as a reference,
@@ -652,15 +613,22 @@ and then the results can be used to control the actuators (see~\Cref{fig:data-st
 %
 The effective engineering of the data stream on the continuum is one of the challenges of this project.
 %
-In particular,
-we aim to investigate methodologies and techniques to support the engineering of the data stream over the continuum to provide more effective control of distributed actuators,
+This goal is somehow related to the dynamic relocation of the pulverized components,
 and consequently,
-enabling data storage and analysis over the stream.
+the opportunistic exploitation of the underlying infrastructure.
 %
-Nevertheless,
+In this case,
+a data stream can be defined over the continuum and can be used in two ways:
+to control the actuators from manipulated sensors' data,
+but also for data storage and analysis.
+%
+The last described use case,
+is particularly interesting in contexts where the data stream is produced by a large number of sensors,
+and the main characteristics of the continuum can be exploited also for extracting knowledge from the data stream.
+%
+However,
 the main focus remains on the engineering of the data stream,
-and not on the data analysis itself,
-which can be seen as a consequence of the engineering process where well-known techniques can be used above the stream.
+and not on the data analysis itself.
 
 % -----------------
 % Expected results
