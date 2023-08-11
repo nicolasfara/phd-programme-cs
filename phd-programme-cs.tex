@@ -42,16 +42,15 @@
 \section{Introduction}\label{sec:introduction}
 
 In recent years,
-the domain of \ac{cps} has undergone significant evolution to facilitate the realization of various application domains,
+methods and practices pertaining to \ac{cps} have undergone significant evolution to support novel application domains,
 including but not limited to the Internet of Things (IoT),
 swarm robotics, smart cities, and human augmentation through wearable devices~\cite{DBLP:conf/aisi/JumaS19, DBLP:journals/sensors/LosetoSRGIFBL22}.
 %
 The new requirements of these applications have led to an increase in the complexity of software systems,
 but also in the infrastructure that hosts them.
 %
-In this regard,
-the most common way of deploying these systems relies on the Cloud,
-where offloading the computation to the Cloud is the most common approach.
+Commonly,
+these applications are deployed assuming that computation can be offloaded to the Cloud.
 %
 However,
 this strategy is not always the best solution,
@@ -65,19 +64,17 @@ but also the system's resiliency.
 %
 As a result,
 the combination of these technologies has led to the emergence of the \emph{Edge-Cloud Continuum}~\cite{DBLP:journals/iot/BittencourtISFM18}.
-%
-The Edge-Cloud continuum brings new variables as the heterogeneity of devices and applications reaches unprecedented levels.
+bringing new variables as the heterogeneity of devices and applications.
 %
 Moreover,
 network topology is expected to constantly change with device mobility and variable application requirements,
-introducing a more dynamic behavior to the system.
-%
-This dynamic nature of the system along with high levels of heterogeneity call for dynamic,
+introducing a more dynamic behavior to the system,
+requiring a dynamic,
 multi-criteria resource allocation strategies that can cope with the constantly changing environment.
 %
-\emph{Wearable devices} inherently possess dynamic attributes, making them highly suitable for Edge-Cloud environments.
-%
-This suitability stems from their capacity to be worn,
+In this sense,
+\emph{Wearable devices} inherently possess dynamic attributes, making them highly suitable for Edge-Cloud environments,
+since they can be worn,
 removed, loaned out,
 making them suitable for different roles and uses.
 %
@@ -239,7 +236,7 @@ where a group of devices can be seen as a single entity in which the aggregate p
 The Cloud continuum represents one of the most recent hypes in the Cloud computing domain with high interest from funding agencies~\cite{ict-40-2020, horizon-cl4-2022-data-01-02}.
 %
 Even if there is a lot of interest in this topic,
-there is no consensus on the definition of the edge-Cloud continuum~\cite{DBLP:journals/access/MoreschiniPLNHT22}.
+there is no consensus on the definition of the Edge-Cloud continuum~\cite{DBLP:journals/access/MoreschiniPLNHT22}.
 %
 The earliest definitions of \emph{Cloud continuum} was proposed in~\cite{DBLP:journals/corr/GuptaNCG16, DBLP:journals/iotj/ChiangZ16} in 2016,
 where both focus on the concept of \emph{fog} between Cloud and edge to express the concept of the continuum.
@@ -585,7 +582,7 @@ we show an example of application decomposition via pulverization and the dynami
 	\centering
 	\includegraphics[width=0.6\linewidth]{img/phd-proposal.drawio.pdf}
 	\caption{
-		Application decomposition via pulverization and dynamic reconfiguration in the edge-Cloud continuum.
+		Application decomposition via pulverization and dynamic reconfiguration in the Edge-Cloud continuum.
 		%
 		The left side shows a pulverized application in its five components.
 		%
@@ -723,7 +720,7 @@ The expected result of this project can be summarized as follows:
 % \paragraph{Integration with CAS frameworks}
 % Integrate the proposed framework with other, consolidated \ac{cas} frameworks
 % to provide a complete full-stack solution for the development and deployment of complex systems,
-% with the main focus on exploiting edge-Cloud infrastructures.
+% with the main focus on exploiting Edge-Cloud infrastructures.
 % %
 % \ac{ac} will be used as a possible solution for engineering \ac{cas},
 % and also as a possible case study for the framework validation.
@@ -846,7 +843,7 @@ In particular,
 I expect to provide a deep understanding of the role of \ac{cas} in modern scenarios like \emph{smart cities}, \emph{large scale \ac{iot} systems}, and so on,
 and providing reference implementations of the proposed approaches.
 %
-This project can be seen as a groundwork for the creation of systems in the edge-Cloud continuum where dynamicity and self-adaptation are key aspects.
+This project can be seen as a groundwork for the creation of systems in the Edge-Cloud continuum where dynamicity and self-adaptation are key aspects.
 
 \printbibliography
 
