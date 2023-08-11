@@ -42,7 +42,7 @@
 \section{Introduction}\label{sec:introduction}
 
 In recent years,
-methods and practices pertaining to \ac{cps} have undergone significant evolution to support novel application domains,
+methods and practices about \ac{cps} have undergone significant evolution to support novel application domains,
 including but not limited to the Internet of Things (IoT),
 swarm robotics, smart cities, and human augmentation through wearable devices~\cite{DBLP:conf/aisi/JumaS19, DBLP:journals/sensors/LosetoSRGIFBL22}.
 %
@@ -59,23 +59,23 @@ especially when latency, security, privacy, and resilience to network segmentati
 For this reason,
 approaches like \emph{fog computing}~\cite{DBLP:journals/tjs/GasmiDTO22} and \emph{edge computing}~\cite{DBLP:journals/csur/KongTHCWJZKD23} have emerged,
 where the computation is performed closer to the edge devices,
-reducing latency and data exchanged, increasing security and privacy,
-but also the system's resiliency.
+reducing latency and data exchanged, increasing security, privacy,
+and also the system's resiliency.
 %
 As a result,
-the combination of these technologies has led to the emergence of the \emph{Edge-Cloud Continuum}~\cite{DBLP:journals/iot/BittencourtISFM18}.
-bringing new variables as the heterogeneity of devices and applications.
+the combination of these technologies has led to the emergence of the \emph{Edge-Cloud Continuum}~\cite{DBLP:journals/iot/BittencourtISFM18},
+bringing new variables such as the heterogeneity of devices and applications.
 %
 Moreover,
-network topology is expected to constantly change with device mobility and variable application requirements,
+the network topology is expected to constantly change with device mobility and variable application requirements,
 introducing a more dynamic behavior to the system,
-requiring a dynamic,
+requiring dynamic,
 multi-criteria resource allocation strategies that can cope with the constantly changing environment.
 %
 In this sense,
 \emph{Wearable devices} inherently possess dynamic attributes, making them highly suitable for Edge-Cloud environments,
 since they can be worn,
-removed, loaned out,
+removed, and loaned out,
 making them suitable for different roles and uses.
 %
 The high dynamism of wearable devices can be reflected in the perturbation of the system,
@@ -110,7 +110,7 @@ seamlessly integrating new devices or software components is both essential and 
 %
 Seamless integration refers to the system's capability to incorporate these elements without requiring a rewrite of the application logic.
 %
-Critical to achieving this are factors like \emph{interoperability, standardization, portability, and adherence to open source principles}~\cite{DBLP:journals/computing/SteenT16}.
+Critical to achieving this are factors like \emph{interoperability, standardization, portability, and adherence to open-source principles}~\cite{DBLP:journals/computing/SteenT16}.
 %
 By advocating for these factors,
 the concept of openness strives to foster adaptable and comprehensive distributed systems capable of thriving within a swiftly evolving technological landscape.
@@ -149,7 +149,7 @@ earrings, bracelets, etc~\cite{DBLP:conf/islped/BasaklarTAO21}.
 %
 Wearable devices represent a relevant example of heterogeneity in the continuum:
 the miniaturization of these devices and the energy constraints make them very limited in terms of computational capabilities,
-but also in terms of communication technologies~\cite{DBLP:journals/fteda/YinAMJ18, DBLP:journals/dt/BhatDO19}.
+but also communication technologies~\cite{DBLP:journals/fteda/YinAMJ18, DBLP:journals/dt/BhatDO19}.
 %
 For this reason,
 the classical and well-established -- but mainly static -- architecture where each device is connected to the Cloud,
@@ -184,7 +184,7 @@ the act of rewriting application logic each time a new technology or device emer
 It is imperative to encapsulate diverse capabilities within an appropriate level of abstraction to facilitate their exploitation.
 %
 Subsequently,
-the effective implementation can be delegated to other entities,
+effective implementation can be delegated to other entities,
 such as frameworks, platforms, or CI/CD pipelines.
 %
 An additional critical consideration revolves around the portable nature of these devices.
@@ -198,8 +198,8 @@ optimization must transpire dynamically at runtime,
 with the integration of Artificial Intelligence (AI) techniques to facilitate this process~\cite{DBLP:journals/computing/ShahidaniGHK23}.
 
 \paragraph*{}
-This project can be framed in these complex scenarios,
-and tries to \emph{(i)} provide a set of methodologies, techniques and tools to design and deploy software systems in modern infrastructures,
+This project can be framed in these complex scenarios and tries to \emph{(i)} provide a set of methodologies,
+techniques, and tools to design and deploy software systems in modern infrastructures,
 \emph{(ii)} design and prototype a framework that helps the deployment of software systems in the continuum,
 \emph{(iii)} investigate the problem of system reconfiguration, resource allocation, and optimization in the continuum,
 by leveraging \ac{ai} techniques, such as \ac{rl}.
