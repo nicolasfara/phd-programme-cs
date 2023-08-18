@@ -44,8 +44,11 @@
 In recent years,
 methods and practices about \ac{cps} have undergone significant evolution to support novel application domains,
 including but not limited to the Internet of Things (IoT),
-swarm robotics, smart cities, and human augmentation through wearable devices~\cite{DBLP:conf/aisi/JumaS19, DBLP:journals/sensors/LosetoSRGIFBL22}.
-%
+swarm robotics, smart cities, and human augmentation through wearable devices~\cite{DBLP:conf/aisi/JumaS19, DBLP:journals/sensors/LosetoSRGIFBL22};
+in particular the latter,
+constitute a hot topic in the research since many application domains can benefit from the use of wearable devices,
+like healthcare, emergency, and smart cities.
+
 The new requirements of these applications have led to an increase in the complexity of software systems,
 but also in the infrastructure that hosts them.
 %
@@ -55,7 +58,7 @@ these applications are deployed assuming that computation can be offloaded to th
 However,
 this strategy is not always the best solution,
 especially when latency, security, privacy, and resilience to network segmentation are predominant aspects.
-%
+
 For this reason,
 approaches like \emph{fog computing}~\cite{DBLP:journals/tjs/GasmiDTO22} and \emph{edge computing}~\cite{DBLP:journals/csur/KongTHCWJZKD23} have emerged,
 where the computation is performed closer to the edge devices,
@@ -66,12 +69,22 @@ As a result,
 the combination of these technologies has led to the emergence of the \emph{Edge-Cloud Continuum}~\cite{DBLP:journals/iot/BittencourtISFM18},
 bringing new variables such as the heterogeneity of devices and applications.
 %
+In the definition of Edge-Cloud Continuum,
+these concepts are pushed beyond:
+there is no longer a clear hierarchy between the resources constituting the infrastructure (like in the Fog Computing paradigm),
+but there is a continuum of resources constituted by a multi-level, unclassified heterogeneous host.
+%
+In this vision,
+we are no longer interested in where the computation occurs,
+but rather in the computation itself,
+demanding the opportunistic use of the available resources to other entities.
+%
 Moreover,
 the network topology is expected to constantly change with device mobility and variable application requirements,
 introducing a more dynamic behavior to the system,
 requiring dynamic,
 multi-criteria resource allocation strategies that can cope with the constantly changing environment.
-%
+
 In this sense,
 \emph{Wearable devices} inherently possess dynamic attributes, making them highly suitable for Edge-Cloud environments,
 since they can be worn,
@@ -86,18 +99,50 @@ wearable devices computing systems can be framed in the context of \ac{cas},
 where the system's behavior emerges from the interaction of a large number of entities,
 and properties like self-organization, self-adaptation, self-healing, etc. can be guaranteed,
 making the system robust and resilient to perturbations.
-%
-The Edge-Cloud Continuum represents a promising solution for the deployment of these systems,
-where dynamism,
-unpredictability and efficient use of resources are predominant elements of the systems.
 
-The goal of this project is to investigate novel methodologies,
-techniques and tools for the design and deployment of software systems in the Edge-Cloud continuum,
-allowing the evolution of software systems to opportunistically exploit the available resources,
-to be resilient, efficient, and adaptive to the changes in the environment.
+The Edge-Cloud Continuum represents a promising solution for \ac{cps} and wearable computing systems,
+but actually,
+the full potential of this new paradigm is not yet fully exploited.
 %
-This project emphasizes solving the above issues in the context of \ac{cas},
-where wearable devices cover a predominant role.
+For this reason,
+a new generation of software engineering methodologies,
+and tools are required to design and deploy such software systems by focusing on functional aspects,
+abstracting from the specific deployment.
+%
+\meta{A relevant example in which the Edge-Cloud Continuum and wearable devices can be used in conjunction is
+in a city event where the participants are moving around the city and wearing smart devices (e.g., smartwatches, smartphones) to receive information about the event.
+%
+% The system should be able to adapt to the number of participants,
+% the device's energy consumption,
+% the network topology,
+% and the latency for proximity marketing.
+In this scenario,
+the application can decide to move the computation from the Cloud to the Edge or vice versa opportunistically,
+exploiting the full potential of the continuum,
+by reducing the latency and energy consumption of the devices based on certain conditions,
+improving the \ac{qos} of the system.
+% The goal of this project is to investigate novel methodologies,
+% techniques and tools for the design and deployment of software systems,
+% in particular wearable computing systems in the Edge-Cloud continuum,
+% allowing the evolution of software systems to opportunistically exploit the available resources,
+% to be resilient, efficient, and adaptive to the changes in the environment.
+% %
+% \meta{This project emphasizes solving the above issues in the context of \ac{cas},
+% where wearable devices cover a predominant role,
+% by providing a design framework that can be used to design complex software systems,
+% letting the designer focus on the functional aspects of the system (i.e., application logic, high-level device interaction, etc.),
+% demanding to frameworks, platforms, middleware etc. the management of deployment aspects.}
+
+The following paragraphs provide a brief overview of the main open challenges which must be addressed in this context,
+that this project aims to address.
+%
+In particular,
+the main contribution of this project is a design framework that can be used to design complex software systems,
+letting the designer focus on the functional aspects of the system (i.e., application logic, high-level device interaction, etc.),
+demanding to frameworks, platforms, middleware etc. the management of deployment aspects.
+This research can be part of the wearable device,
+as a prominent example of \ac{cas} in the Edge-Cloud continuum as detailed in the following parts of this document.
+}
 
 \paragraph{Openness in the continuum}
 Openness refers to a distributed system's capacity for software or hardware enhancement and expansion.
@@ -108,9 +153,10 @@ such as Cloud servers, mobile devices, and wearables.
 Given the diverse nature of the continuum and the dynamic environment,
 seamlessly integrating new devices or software components is both essential and challenging.
 %
-Seamless integration refers to the system's capability to incorporate these elements without requiring a rewrite of the application logic.
-%
-Critical to achieving this are factors like \emph{interoperability, standardization, portability, and adherence to open-source principles}~\cite{DBLP:journals/computing/SteenT16}.
+For these reasons,
+new design frameworks must cope with the openness of the continuum,
+in particular,
+they must guarantee factors like \emph{interoperability, standardization, portability, and adherence to open-source principles}~\cite{DBLP:journals/computing/SteenT16}.
 %
 By advocating for these factors,
 the concept of openness strives to foster adaptable and comprehensive distributed systems capable of thriving within a swiftly evolving technological landscape.
@@ -126,41 +172,15 @@ This diversity is also evident at the software level,
 with many nodes in the infrastructure running different operating systems,
 programming languages,
 and software elements.
-%
-This landscape commonly encompasses thin devices employing microcontrollers at the network edge,
-alongside powerful devices (e.g., servers) deployed in the Cloud.
-%
-Consequently,
-this continuum encompasses an extensive array of technological stacks,
-engendering complexities in both software system design and deployment within this environment,
-as well as interoperability across several devices~\cite{DBLP:journals/midm/TorabMiandoabSJR23}.
-%
-Ideally,
-the desiderata are leveraging a set of abstractions that can be exploited to hide the complexity of the continuum,
-preventing the need to rewrite the application logic whenever a change is required.
 
-\paragraph{Wearable devices}
-Wearable devices over the years have played an increasingly predominant role in our daily lives.
-These devices over time have become increasingly powerful in terms of computing power but also concerning the data they can detect.
+To strive the aforementioned challenges,
+new design frameworks must cope with the heterogeneity of the continuum,
+by providing a set of abstractions that can be exploited to hide the complexity of the continuum,
+preventing the need to rewrite the application logic whenever a change is required.
 %
-It is likely that soon,
-we may see an explosion of smart objects such as rings,
-earrings, bracelets, etc~\cite{DBLP:conf/islped/BasaklarTAO21}.
-%
-Wearable devices represent a relevant example of heterogeneity in the continuum:
-the miniaturization of these devices and the energy constraints make them very limited in terms of computational capabilities,
-but also communication technologies~\cite{DBLP:journals/fteda/YinAMJ18, DBLP:journals/dt/BhatDO19}.
-%
-For this reason,
-the classical and well-established -- but mainly static -- architecture where each device is connected to the Cloud,
-will not be able to cope with the new requirements like \emph{low latency, privacy, and security}.
-%
-In this regard,
-the Edge-Cloud continuum represents a promising solution to tackle these issues,
-in particular,
-with this new type of infrastructure,
-we can promptly react to the changing requirements of the software systems,
-maintaining specific \ac{qos} but also specific constraints.
+Moreover,
+the support of many platforms (i.e. OS, architectures, software stacks, etc.) leads to a strategic advantage in the adoption of the framework,
+simplifying the design and deployment of the software systems.
 
 \paragraph{Open to evolution}
 Presently,
@@ -168,8 +188,7 @@ specific wearable devices manifest particular functionalities.
 %
 However,
 in the near future,
-these devices will unveil additional capabilities,
-and novel tools will emerge.
+these devices will unveil additional capabilities and novel tools will emerge.
 %
 For instance,
 contemporary smartphones typically possess a battery life of approximately one day.
@@ -181,21 +200,43 @@ thereby fundamentally altering how we interact with such devices.
 The central contention here is that within this rapidly evolving landscape,
 the act of rewriting application logic each time a new technology or device emerges becomes impractical.
 %
-It is imperative to encapsulate diverse capabilities within an appropriate level of abstraction to facilitate their exploitation.
-%
-Subsequently,
-effective implementation can be delegated to other entities,
+In this regard,
+is imperative,
+for new design frameworks and supporting tools,
+to encapsulate the right level of abstraction to facilitate the exploitation of the new capabilities of the devices,
+and to delegate the implementation to other entities,
 such as frameworks, platforms, or CI/CD pipelines.
 %
-An additional critical consideration revolves around the portable nature of these devices.
-Given that they can be worn, removed, replaced, or shared,
-there exists a necessity to dynamically manage the allocation of components across various contexts.
-%
-Merely establishing a static resource allocation mapping through optimization algorithms proves inadequate.
-%
-Instead,
+In addition,
 optimization must transpire dynamically at runtime,
 with the integration of Artificial Intelligence (AI) techniques to facilitate this process~\cite{DBLP:journals/computing/ShahidaniGHK23}.
+
+\paragraph{Wearable devices as a common thread of the project}
+Wearable devices over the years have played an increasingly predominant role in our daily lives.
+These devices over time have become increasingly powerful in terms of computing power but also concerning the data they can detect.
+%
+It is likely that soon,
+we may see an explosion of smart objects such as rings,
+earrings, bracelets, etc~\cite{DBLP:conf/islped/BasaklarTAO21}.
+
+Wearable devices represent a relevant example of heterogeneity in the continuum:
+the miniaturization of these devices and the energy constraints make them very limited in terms of computational capabilities,
+but also communication technologies~\cite{DBLP:journals/fteda/YinAMJ18, DBLP:journals/dt/BhatDO19}.
+%
+\meta{Because of the impact these devices will have in our lives,
+it is worth investigating new paradigms, design frameworks, and tools to design and deploy software systems in infrastructures like the Edge-Cloud continuum,
+but also to cope with new requirements like \emph{low latency, privacy, and security},
+where the classical Cloud-only architecture is not suitable anymore.}
+% For this reason,
+% the classical and well-established -- but mainly static -- architecture where each device is connected to the Cloud,
+% will not be able to cope with the new requirements like \emph{low latency, privacy, and security}.
+% %
+% In this regard,
+% the Edge-Cloud continuum represents a promising solution to tackle these issues,
+% in particular,
+% with this new type of infrastructure,
+% we can promptly react to the changing requirements of the software systems,
+% maintaining specific \ac{qos} but also specific constraints.
 
 \paragraph*{}
 This project can be framed in these complex scenarios and tries to \emph{(i)} provide a set of methodologies,
@@ -489,9 +530,6 @@ without the need to rewrite the application logic.
 Even if the idea behind pulverization is quite simple,
 several challenges at different levels must be addressed to make it a reality:
 \emph{communication}, \emph{portability}, \emph{runtime} are only some of them.
-
-
-\newpage
 
 % --------------------
 % Project description
@@ -835,15 +873,15 @@ the aim is to contribute to the research community by providing new innovative a
 % Overall,
 % the project aims to gain insights into these areas to design and deploy robust collective adaptive applications.
 
-\subsection{Long-term contribution}
-Beyond the specific contribution of the project,
-I expect to contribute to the research community by providing new approaches and solutions to the aforementioned challenges.
-%
-In particular,
-I expect to provide a deep understanding of the role of \ac{cas} in modern scenarios like \emph{smart cities}, \emph{large scale \ac{iot} systems}, and so on,
-and providing reference implementations of the proposed approaches.
-%
-This project can be seen as a groundwork for the creation of systems in the Edge-Cloud continuum where dynamicity and self-adaptation are key aspects.
+% \subsection{Long-term contribution}
+% Beyond the specific contribution of the project,
+% I expect to contribute to the research community by providing new approaches and solutions to the aforementioned challenges.
+% %
+% In particular,
+% I expect to provide a deep understanding of the role of \ac{cas} in modern scenarios like \emph{smart cities}, \emph{large scale \ac{iot} systems}, and so on,
+% and providing reference implementations of the proposed approaches.
+% %
+% This project can be seen as a groundwork for the creation of systems in the Edge-Cloud continuum where dynamicity and self-adaptation are key aspects.
 
 \printbibliography
 
