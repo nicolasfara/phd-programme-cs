@@ -476,7 +476,7 @@ a \emph{communication} component and a \emph{computation} component modeling the
 \end{figure}
 %
 Decomposition of an application can be achieved either by designing the application with pulverization in mind,
-or by developing the application using a framework supporting automatic decomposition such as \ac{ac} frameworks.
+or by developing the application using frameworks supporting automatic decomposition (such as \ac{ac}).
 %
 Once the application is pulverized,
 a mapping must be provided between the logical system and the available infrastructure.
@@ -596,10 +596,10 @@ or where the balance between consumption and performance can be strategic.
 
 At the time of writing,
 the pulverization approach has no concrete implementation,
-and the validation of the approach has been done via simulations and formal verification~\cite{DBLP:journals/fi/CasadeiPPVW20, DBLP:journals/iotj/CasadeiFPPSV22}.
+and the validation of the approach has been done via simulation and formal verification~\cite{DBLP:journals/fi/CasadeiPPVW20, DBLP:journals/iotj/CasadeiFPPSV22}.
 
 For this reason,
-this project aims to design and prototype a \emph{pulverization framework} that can be used to deploy pulverized applications on the target infrastructure.
+this project aims to design and prototype a practical pulverization framework.
 %
 Moreover,
 the integration of the framework with existing simulators like Alchemist~\cite{DBLP:journals/jos/PianiniMV13} is a fundamental step towards the deployment of pulverized applications.
@@ -643,22 +643,31 @@ and then the results can be used to control the actuators (see~\Cref{fig:data-st
 %
 The effective engineering of the data stream on the continuum is one of the challenges of this project.
 %
-This goal is somehow related to the dynamic relocation of the pulverized components,
+This goal is related to the dynamic relocation of the pulverized components,
 and consequently,
 the opportunistic exploitation of the underlying infrastructure.
 %
-In this case,
-a data stream can be defined over the continuum and can be used in two ways:
-to control the actuators from manipulated sensors' data,
-but also for data storage and analysis.
-%
-The last described use case,
-is particularly interesting in contexts where the data stream is produced by a large number of sensors,
-and the main characteristics of the continuum can be exploited also for extracting knowledge from the data stream.
-%
-However,
-the main focus remains on the engineering of the data stream,
-and not on the data analysis itself.
+% In this case,
+% a data stream can be defined over the continuum and can be used in two ways:
+% to control the actuators from manipulated sensors' data,
+% but also for data storage and analysis.
+% %
+% The last described use case,
+% is particularly interesting in contexts where the data stream is produced by a large number of sensors,
+% and the main characteristics of the continuum can be exploited also for extracting knowledge from the data stream.
+% %
+% However,
+% the main focus remains on the engineering of the data stream,
+% and not on the data analysis itself.
+In this regard,
+the aim is to integrate efficient continuum-wide data stream processing into the framework,
+hiding the complex parts under the hood and exposing a clean API for designers and programmers.
+The goal is to have them perform data storage and analysis across the continuum easily,
+thus focussing on the business logic rather than technical and performance details.
+
+\paragraph*{}
+This project could lay the foundation of a new generation of distributed software systems,
+whose software parts will be able to exploit the network (from the cloud to the wearable) opportunistically, balancing raw performance, latency, and resource utilization.
 
 % -----------------
 % Expected results
