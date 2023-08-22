@@ -6,6 +6,7 @@
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{subcaption}
+\usepackage{caption}
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes.geometric,positioning,automata,calc}
 
@@ -112,33 +113,18 @@ abstracting from the specific deployment.
 A relevant example in which the Edge-Cloud Continuum and wearable devices can be used in conjunction is
 in a city event where the participants are moving around the city and wearing smart devices (e.g., smartwatches, smartphones) to receive information about the event.
 %
-% The system should be able to adapt to the number of participants,
-% the device's energy consumption,
-% the network topology,
-% and the latency for proximity marketing.
 In this scenario,
 the application can decide to move the computation from the Cloud to the Edge or vice versa opportunistically,
 exploiting the full potential of the continuum,
 by reducing the latency and energy consumption of the devices based on certain conditions,
 improving the \ac{qos} of the system.
-% The goal of this project is to investigate novel methodologies,
-% techniques and tools for the design and deployment of software systems,
-% in particular wearable computing systems in the Edge-Cloud continuum,
-% allowing the evolution of software systems to opportunistically exploit the available resources,
-% to be resilient, efficient, and adaptive to the changes in the environment.
-% %
-% \meta{This project emphasizes solving the above issues in the context of \ac{cas},
-% where wearable devices cover a predominant role,
-% by providing a design framework that can be used to design complex software systems,
-% letting the designer focus on the functional aspects of the system (i.e., application logic, high-level device interaction, etc.),
-% demanding to frameworks, platforms, middleware etc. the management of deployment aspects.}
 
 The following paragraphs provide a brief overview of the main open challenges which must be addressed in this context,
-that this project aims to address.
+that this project aims to deal with.
 %
 In particular,
-the main contribution of this project is a design framework that can be used to design complex software systems,
-letting the designer focus on the functional aspects of the system (i.e., application logic, high-level device interaction, etc.),
+the main contribution of this project is a framework that can be used to design complex software systems,
+letting put the focus on the functional aspects of the system (i.e., application logic, high-level device interaction, etc.),
 demanding to frameworks, platforms, middleware etc. the management of deployment aspects.
 This research can be part of the wearable device,
 as a prominent example of \ac{cas} in the Edge-Cloud continuum as detailed in the following parts of this document.
@@ -226,16 +212,6 @@ Because of the impact these devices will have in our lives,
 it is worth investigating new paradigms, design frameworks, and tools to design and deploy software systems in infrastructures like the Edge-Cloud continuum,
 but also to cope with new requirements like \emph{low latency, privacy, and security},
 where the classical Cloud-only architecture is not suitable anymore.
-% For this reason,
-% the classical and well-established -- but mainly static -- architecture where each device is connected to the Cloud,
-% will not be able to cope with the new requirements like \emph{low latency, privacy, and security}.
-% %
-% In this regard,
-% the Edge-Cloud continuum represents a promising solution to tackle these issues,
-% in particular,
-% with this new type of infrastructure,
-% we can promptly react to the changing requirements of the software systems,
-% maintaining specific \ac{qos} but also specific constraints.
 
 \paragraph*{}
 This project can be framed in these complex scenarios and tries to \emph{(i)} provide a set of methodologies,
@@ -275,21 +251,14 @@ where a group of devices can be seen as a single entity in which the aggregate p
 \paragraph{Edge-Cloud Continuum}
 The Cloud continuum represents one of the most recent hypes in the Cloud computing domain with high interest from funding agencies~\cite{ict-40-2020, horizon-cl4-2022-data-01-02}.
 %
-Even if there is a lot of interest in this topic,
-there is no consensus on the definition of the Edge-Cloud continuum~\cite{DBLP:journals/access/MoreschiniPLNHT22}.
-%
 The earliest definitions of \emph{Cloud continuum} was proposed in~\cite{DBLP:journals/corr/GuptaNCG16, DBLP:journals/iotj/ChiangZ16} in 2016,
 where both focus on the concept of \emph{fog} between Cloud and edge to express the concept of the continuum.
-%
-Over the years, the definition of the Cloud continuum has evolved,
-even from the same authors.
 %
 In~\cite{DBLP:journals/access/MoreschiniPLNHT22} the authors try to organize all the definitions of the Cloud continuum proposed in the literature,
 and they find out that there are three main categories: the first one put the concept of ``continuum'' strictly related to the concept of fog.
 %
-The second one considers the continuum as a combination of multiple edge and fog devices.
-%
-The third one considers the continuum as a combination of heterogeneous resources spanning from the edge to the Cloud.
+The second one considers the continuum as a combination of multiple edge and fog devices, 
+while the third one considers the continuum as a combination of heterogeneous resources spanning from the edge to the Cloud.
 %
 Also, the \ac{iot} is mentioned in the definition of the continuum~\cite{DBLP:conf/ucc/SpillnerGBV20, 9116796},
 but it is not clear the relation between \ac{iot} and the continuum.
@@ -302,17 +271,13 @@ What emerges from the literature is that the Cloud continuum is a concept that i
 but it is quite clear that heterogeneity and complexity in the management of the infrastructures are predominant aspects of the continuum.
 %
 In this regard,
-based on the application context and scenarios,
 application-specific approaches are proposed to tackle those complexities~\cite{DBLP:journals/tiot/NehaPSSG22, DBLP:journals/csur/WeisenburgerWS20, DBLP:journals/fi/CasadeiPPVW20},
 where each approach has its advantages and disadvantages, but also its application context.
 
 \paragraph{Pulverization}
 The deployment of \ac{cas} is a complex task,
-especially when the system is composed of a large number of devices.
-%
-The deployment can also be complicated by the heterogeneity of the devices,
-which can have different computational capabilities and different communication technologies, 
-and by the dynamicity of the system.
+especially when the system is composed of a large number of devices,
+heterogeneous infrastructures, and dynamic environments.
 %
 Frequently,
 in those systems,
@@ -510,9 +475,8 @@ a \emph{communication} component and a \emph{computation} component modeling the
 	\label{fig:pulv}
 \end{figure}
 %
-Decomposition of an application via pulverization can be achieved in two ways:
-either the application is designed with pulverization in mind,
-or the application is developed using a framework supporting automatic decomposition such as \ac{ac} frameworks.
+Decomposition of an application can be achieved either by designing the application with pulverization in mind,
+or by developing the application using a framework supporting automatic decomposition such as \ac{ac} frameworks.
 %
 Once the application is pulverized,
 a mapping must be provided between the logical system and the available infrastructure.
@@ -577,17 +541,12 @@ macroprogramming promotes collective behavior exhibiting self-* properties (i.e.
 representing an effective solution to address the high dynamicity of wearable systems,
 that can lead to undesired and unpredictable conditions.
 %
-Moreover,
-macroprogramming can also be applied to the infrastructural level: as previously mentioned, the Edge-Cloud continuum is highly dynamic and heterogeneous,
-and several undesired conditions can occur.
-%
 For this reason,
-macroprogramming can be used to tackle this complexity simplifying the adoption and the management of undesired conditions like,
+macroprogramming can also be used to tackle infrastructural-level complexity simplifying the adoption and the management of undesired conditions like,
 host disconnection, network partitioning, but also load balancing, etc,
 consider the infrastructure as a collective of interconnected hosts, amenable to be considered by a macroscopic perspective.
 %
-In this sense,
-this project aims to investigate the use of \ac{ac} as a model for macroprogramming,
+This project aims to investigate the use of \ac{ac} as a model for macroprogramming,
 for implementing modern wearable computing systems,
 trying to identify the main challenges and possible solutions.
 
@@ -595,11 +554,9 @@ trying to identify the main challenges and possible solutions.
 One current limitation of the \emph{pulverization}~\cite{DBLP:journals/fi/CasadeiPPVW20} approach regards the runtime reconfiguration of the system based on the changing conditions or requirements.
 %
 This project aims to extend the current pulverization approach to support the dynamic reconfiguration of the system
-by combining two approaches: \emph{Rule-based} and \emph{AI-based reconfiguration}.
-%
-The former can be used to define a set of static rules that can be used to reconfigure the system based on pre-determined and well-known conditions.
-%
-The latter can be useful in contexts where the unpredictable conditions can be high,
+by combining two approaches:
+\emph{Rule-based} when the reconfiguration occurs based on static, and well-known conditions;
+\emph{AI-based reconfiguration} where a high dynamic of the system is high,
 or where a huge number of factors must be considered to determine the best configuration for the system,
 making traditional optimization techniques not suitable.
 %
@@ -637,7 +594,7 @@ or where the balance between consumption and performance can be strategic.
 
 \paragraph{Bridge the gap between simulation and deployment}\label{sec:bridge-gap}
 
-A the time of writing,
+At the time of writing,
 the pulverization approach has no concrete implementation,
 and the validation of the approach has been done via simulations and formal verification~\cite{DBLP:journals/fi/CasadeiPPVW20, DBLP:journals/iotj/CasadeiFPPSV22}.
 
